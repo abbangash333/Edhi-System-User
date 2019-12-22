@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/log_in"
+    tools:context="com.example.finalyearprojectu.LogIn">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/img"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.741" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="405dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="85dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_corner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign In"
+            android:textSize="40sp"
+            android:layout_marginBottom="40dp"
+            android:textColor="@color/blackColor"
+            android:layout_gravity="center_horizontal"/>
+
+        <EditText
+            android:id="@+id/phoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_corner"
+            android:drawableLeft="@drawable/phone_icon"
+            android:hint="Enter phone number"
+            android:drawablePadding="10dp"
+            android:paddingLeft="8dp"
+            android:inputType="phone"/>
+        <EditText
+            android:id="@+id/pinCode"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_corner"
+            android:drawableLeft="@drawable/pin_icon"
+            android:hint="Enter your pin"
+            android:drawablePadding="10dp"
+            android:paddingLeft="8dp"
+            android:inputType="phone"/>
+        <TextView
+            android:id="@+id/forgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forgot_password"
+            android:textColor="@color/blackColor"
+            android:layout_margin="10dp"
+            android:textSize="20sp"
+            android:clickable="true"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_sign_in"
+            android:layout_margin="10dp"
+            android:text="@string/sign_in_text"
+            android:textSize="20sp"
+            android:textColor="@color/whiteText"/>
+        <TextView
+            android:id="@+id/dont_have_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/account_text"
+            android:textColor="@color/blackColor"
+            android:layout_margin="10dp"
+            android:textSize="20sp"
+            android:clickable="true"/>
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
