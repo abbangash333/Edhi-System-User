@@ -8,38 +8,61 @@
     android:background="@drawable/log_in"
     tools:context="com.example.finalyearprojectu.LogIn">
 
-    <ImageView
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/img"
+        android:text="Sign Up"
+        android:textColor="@color/whiteText"
+        android:textSize="50sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.741" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="405dp"
+        android:layout_height="500dp"
         android:orientation="vertical"
-        android:layout_marginBottom="85dp"
+        android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="0dp"
         android:background="@drawable/rounded_corner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign In"
-            android:textSize="40sp"
-            android:layout_marginBottom="40dp"
-            android:textColor="@color/blackColor"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:background="@drawable/sign_up_image_view">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/camera_image"
+                >
+            </ImageView>
+            </LinearLayout>
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/upload_picture"
             android:layout_gravity="center_horizontal"/>
-
+        <EditText
+            android:id="@+id/displayName"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_corner"
+            android:drawableLeft="@drawable/user_icon"
+            android:hint="user name"
+            android:drawablePadding="10dp"
+            android:paddingLeft="8dp"
+            android:inputType="phone"/>
         <EditText
             android:id="@+id/phoneNumber"
             android:layout_width="match_parent"
@@ -62,32 +85,13 @@
             android:drawablePadding="10dp"
             android:paddingLeft="8dp"
             android:inputType="phone"/>
-        <TextView
-            android:id="@+id/forgotPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/forgot_password"
-            android:textColor="@color/blackColor"
-            android:layout_margin="10dp"
-            android:textSize="20sp"
-            android:clickable="true"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_sign_in"
             android:layout_margin="10dp"
-            android:text="@string/sign_in_text"
+            android:text="@string/confirm_registration"
             android:textSize="20sp"
             android:textColor="@color/whiteText"/>
-        <TextView
-            android:id="@+id/dont_have_account"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/account_text"
-            android:textColor="@color/blackColor"
-            android:layout_margin="10dp"
-            android:textSize="20sp"
-            android:clickable="true"/>
-
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
