@@ -1,13 +1,14 @@
 package com.example.finalyearprojectu;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 
-public class sign_up extends AppCompatActivity {
+public class HomeDashBoard extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_home_dash_board);
     }
 }
