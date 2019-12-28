@@ -26,7 +26,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/driverName"
+                    android:id="@+id/ambulance_driver_name_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
@@ -40,11 +40,12 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp">
                 <ImageView
+                    android:id="@+id/ambulance_location_imageView"
                     android:layout_width="25dp"
                     android:layout_height="20dp"
                     android:src="@drawable/location" />
                 <TextView
-                    android:id="@+id/city_of_driver"
+                    android:id="@+id/ambulance_driver_city_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
@@ -54,6 +55,7 @@
                     android:textColor="@color/blackColor"
                     android:textSize="16sp" />
                 <ImageView
+                    android:id="@+id/ambulance_mobile_image_view"
                     android:layout_width="25dp"
                     android:layout_height="20dp"
                     android:src="@drawable/mobile_icon" />
@@ -74,12 +76,13 @@
             android:orientation="horizontal"
             android:layout_marginTop="10dp">
                 <ImageView
+                    android:id="@+id/ambulance_distance_image_view"
 
                     android:layout_width="30dp"
                     android:layout_height="20dp"
                     android:src="@drawable/distance_icon" />
             <TextView
-                android:id="@+id/distance_of_driver"
+                android:id="@+id/ambulance_distance_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
@@ -95,6 +98,7 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="40dp">
                 <Button
+                    android:id="@+id/ambulance_button_help_viw"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -103,7 +107,7 @@
                     android:layout_marginRight="5dp"
                     android:background="@drawable/driver_detail_button"/>
                 <Button
-                    android:id="@+id/hire_by_driver_button"
+                    android:id="@+id/ambulance_callToDriver_button_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

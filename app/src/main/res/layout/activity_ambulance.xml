@@ -104,6 +104,7 @@
             android:layout_margin="8dp"
             android:background="@drawable/notify_button_style"/>
         <Button
+            android:id="@+id/find_more_nearest_ambulances"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Find Other Ambulances"
