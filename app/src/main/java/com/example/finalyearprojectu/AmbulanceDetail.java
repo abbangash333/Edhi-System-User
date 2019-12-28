@@ -9,7 +9,9 @@ import android.os.Bundle;
 public class AmbulanceDetail extends AppCompatActivity {
     private RecyclerView ambulanceDetailRecycleView;
     String strName[] = {"one", "two", "three", "four", "five"};
-    int image[] = {R.drawable.location, R.drawable.distance_icon, R.drawable.mobile_icon};
+    int[] imageLocation = {R.drawable.location};
+    int imageDistance[] = {R.drawable.distance_icon};
+    int imageMobile [] ={R.drawable.mobile_icon};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +21,7 @@ public class AmbulanceDetail extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(AmbulanceDetail.this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         ambulanceDetailRecycleView.setLayoutManager(linearLayoutManager);
-        AmbulanceDetailAdapter adapter = new AmbulanceDetailAdapter(AmbulanceDetail.this,strName,image);
+        AmbulanceDetailAdapter adapter = new AmbulanceDetailAdapter(AmbulanceDetail.this,strName, imageLocation,imageMobile,imageDistance);
         ambulanceDetailRecycleView.setAdapter(adapter);
     }
 }

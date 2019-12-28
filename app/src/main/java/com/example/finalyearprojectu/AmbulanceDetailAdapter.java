@@ -13,12 +13,16 @@ import androidx.recyclerview.widget.RecyclerView;
 public class AmbulanceDetailAdapter extends RecyclerView.Adapter<AmbulanceDetailAdapter.MyViewHolder> {
     private Context mContext;
     String name[];
-    int image[];
+    int imageLocationAdapter[];
+    int imageMobileAdapter[];
+    int imageDistanceApater[];
 
-    public AmbulanceDetailAdapter(Context mContext, String[] name, int[] image) {
+    public AmbulanceDetailAdapter(Context mContext, String[] name, int[] imageLocationAdapter, int[] imageMobileAdapter, int[] imageDistanceApater) {
         this.mContext = mContext;
         this.name = name;
-        this.image = image;
+        this.imageLocationAdapter = imageLocationAdapter;
+        this.imageMobileAdapter = imageMobileAdapter;
+        this.imageDistanceApater = imageDistanceApater;
     }
 
     @NonNull
@@ -31,18 +35,24 @@ public class AmbulanceDetailAdapter extends RecyclerView.Adapter<AmbulanceDetail
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder ambulanceViewHolder, int position) {
-          ambulanceViewHolder.ambulanceLocationImageView.setImageResource(R.drawable.ambulance_icon);
+          ambulanceViewHolder.ambulanceLocationImageView.setImageResource(R.drawable.location);
           ambulanceViewHolder.ambulanceDriverPhoneImageView.setImageResource(R.drawable.mobile_icon);
           ambulanceViewHolder.ambulanceDriverDistanceImageView.setImageResource(R.drawable.distance_icon);
-//        ambulaceViewHolder.tvName.setText(name[i]);
-//        ambulaceViewHolder.ivProfile.setImageResource(image[i]);
+          ambulanceViewHolder.ambulanceDriverNameTextView.setText(name[position]);
+//          ambulaceViewHolder.ivProfile.setImageResource(image[i]);
+//            ambulanceViewHolder.ambulanceLocationImageView.setImageResource(imageLocationAdapter[position]);
+//            ambulanceViewHolder.ambulanceDriverPhoneImageView.setImageResource(imageMobileAdapter[position]);
+//            ambulanceViewHolder.ambulanceDriverDistanceImageView.setImageResource(imageDistanceApater[position]);
+//            ambulanceViewHolder.ambulanceDriverNameTextView.setText(name[position]);
+
+
 
 
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return name.length;
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
@@ -58,6 +68,7 @@ public class AmbulanceDetailAdapter extends RecyclerView.Adapter<AmbulanceDetail
             ambulanceLocationImageView = itemView.findViewById(R.id.ambulance_location_imageView);
             ambulanceDriverPhoneImageView = itemView.findViewById(R.id.ambulance_mobile_image_view);
             ambulanceDriverDistanceImageView =itemView.findViewById(R.id.ambulance_distance_image_view);
+            ambulanceDriverNameTextView = itemView.findViewById(R.id.ambulance_driver_name_textView);
         }
     }
 }
