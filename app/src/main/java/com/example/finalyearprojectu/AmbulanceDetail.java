@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 public class AmbulanceDetail extends AppCompatActivity {
     private RecyclerView ambulanceDetailRecycleView;
-    String strName[] = {"one", "two", "three", "four", "five"};
+    String strName[] = {"Dr.Muneer", "Ibrahim", "Muhammad", "Rashid", "Shadman"};
     int[] imageLocation = {R.drawable.location};
     int imageDistance[] = {R.drawable.distance_icon};
     int imageMobile [] ={R.drawable.mobile_icon};

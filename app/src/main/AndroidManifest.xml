@@ -10,8 +10,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AmbulanceDetail"></activity>
-        <activity android:name=".AmbulanceActivity" />
+        <activity android:name=".edhiBloodBand.BloodBankMainActivity"
+            android:parentActivityName=".HomeDashBoard"></activity>
+        <activity android:name=".AmbulanceDetail"
+            android:parentActivityName=".AmbulanceActivity"/>
+        <activity android:name=".AmbulanceActivity"
+            android:parentActivityName=".HomeDashBoard"/>
         <activity
             android:name=".HomeDashBoard"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

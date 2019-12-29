@@ -16,6 +16,7 @@ public class AmbulanceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ambulance);
+        getSupportActionBar().setTitle("Edhi Ambulance Service");
         nearestAmbulanceButton = findViewById(R.id.notify_nearest_driver);
         findMoreNearestAmbulances = findViewById(R.id.find_more_nearest_ambulances);
         nearestAmbulanceButton.setOnClickListener(new View.OnClickListener() {
