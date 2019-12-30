@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".edhiBloodBand.Request"
+    android:background="@color/bloodFragmentbackgroundColor"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="405dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="85dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_corner">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Request"
+            android:textSize="30sp"
+            android:layout_marginBottom="40dp"
+            android:textColor="@color/blackColor"
+            android:layout_gravity="center_horizontal"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Request For"
+            android:textColor="@color/blackColor"
+            android:textSize="16sp"/>
+
+        <EditText
+            android:id="@+id/phoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:background="@drawable/rounded_corner"
+            android:drawableLeft="@drawable/blood_text_view_family"
+            android:hint="Family,Friend"
+            android:drawablePadding="10dp"
+            android:paddingLeft="8dp"
+            android:inputType="phone"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="City Reference"
+                android:textColor="@color/blackColor"
+                android:textSize="16dp"/>
+
+            <EditText
+                android:id="@+id/phoneNumbr"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:background="@drawable/rounded_corner"
+                android:drawableLeft="@drawable/blood_placeholder_icon"
+                android:hint="kohat"
+                android:drawablePadding="10dp"
+                android:paddingLeft="8dp"
+                android:inputType="phone"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>
