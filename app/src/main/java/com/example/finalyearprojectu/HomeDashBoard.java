@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 import com.example.finalyearprojectu.edhiBloodBand.BloodBankMainActivity;
+import com.example.finalyearprojectu.missingPersonManagement.MissingPersonMain;
 
 public class HomeDashBoard extends AppCompatActivity {
  private CardView ambulance_cardView;
  private CardView bloodbankCardView;
+ private CardView missingPersonCardView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +20,7 @@ public class HomeDashBoard extends AppCompatActivity {
 
         ambulance_cardView = findViewById(R.id.ambulance_card_view);
         bloodbankCardView = findViewById(R.id.edhi_blood_bank_cardView);
+        missingPersonCardView = findViewById(R.id.missing_person_cardView);
         ambulance_cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,6 +34,14 @@ public class HomeDashBoard extends AppCompatActivity {
             public void onClick(View v) {
                 Intent jumpToBloodBankcActivity = new Intent(HomeDashBoard.this,BloodBankMainActivity.class);
                 startActivity(jumpToBloodBankcActivity);
+            }
+        });
+        missingPersonCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent jumpToMissingPersonManagementActivity = new Intent(HomeDashBoard.this, MissingPersonMain.class);
+                startActivity(jumpToMissingPersonManagementActivity);
+
             }
         });
 

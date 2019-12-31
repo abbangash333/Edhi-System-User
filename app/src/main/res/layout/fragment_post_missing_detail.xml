@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/bloodFragmentbackgroundColor"
     android:orientation="vertical"
-    tools:context=".edhiBloodBand.Request">
+    tools:context=".missingPersonManagement.PostMissingDetail">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="10dp"
             android:background="@drawable/rounded_corner"
             android:orientation="vertical">
 
@@ -25,9 +25,17 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="40dp"
-                android:text="Request"
+                android:text="Post Missing Detail"
                 android:textColor="@color/blackColor"
                 android:textSize="30sp" />
+
+            <ImageView
+                android:id="@+id/missing_profile_pictureId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:background="@drawable/missing_profile_icon"></ImageView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -38,7 +46,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Request For"
+                    android:text="Person Name"
                     android:textColor="@color/blackColor"
                     android:textSize="16sp" />
 
@@ -49,7 +57,7 @@
                     android:background="@drawable/rounded_corner"
                     android:drawableLeft="@drawable/blood_text_view_family"
                     android:drawablePadding="10dp"
-                    android:hint="Family,Friend"
+                    android:hint="Jaffar"
                     android:inputType="phone"
                     android:paddingLeft="8dp" />
             </LinearLayout>
@@ -63,7 +71,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="City Reference"
+                    android:text="Person Age"
                     android:textColor="@color/blackColor"
                     android:textSize="16dp" />
 
@@ -72,11 +80,74 @@
                     android:layout_width="match_parent"
                     android:layout_height="53dp"
                     android:background="@drawable/rounded_corner"
-                    android:drawableLeft="@drawable/blood_placeholder_icon"
+                    android:drawableLeft="@drawable/age_icon"
                     android:drawablePadding="10dp"
-                    android:hint="kohat"
+                    android:hint="20"
                     android:inputType="phone"
                     android:paddingLeft="8dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded_corner"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="From"
+                        android:textColor="@color/blackColor"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="Disappeared From"
+                        android:textColor="@color/blackColor"
+                        android:textSize="16sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="2dp">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:padding="5dp"
+                        android:hint="Kohat"
+                        android:drawablePadding="5dp"
+                        android:drawableLeft="@drawable/blood_placeholder_icon"/>
+
+                    <EditText
+                        android:layout_marginLeft="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:hint="Peshawar"
+                        android:drawablePadding="5dp"
+                        android:drawableLeft="@drawable/blood_placeholder_icon"
+                        android:background="@drawable/rounded_corner" />
+
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -162,98 +233,76 @@
 
 
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/rounded_corner"
+                android:layout_margin="10dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="Select Blood Group"
+                    android:text="Disappeared Date"
                     android:textColor="@color/blackColor"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
 
-                <LinearLayout
+                <EditText
+                    android:id="@+id/phoneNumb"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                    android:layout_height="53dp"
+                    android:background="@drawable/rounded_corner"
+                    android:drawableLeft="@drawable/date_picker_icon"
+                    android:drawablePadding="10dp"
+                    android:hint="12/02/2020"
+                    android:inputType="date"
+                    android:paddingLeft="8dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
 
-                    <Button
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="0dp"
-                        android:background="@drawable/blood_group_circular_button"
-                        android:text="A+"
-                        android:textColor="@color/whiteText"></Button>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Contact Number"
+                    android:textColor="@color/blackColor"
+                    android:textSize="16sp" />
 
+                <EditText
+                    android:id="@+id/phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:background="@drawable/rounded_corner"
+                    android:drawableLeft="@drawable/phone_icon"
+                    android:drawablePadding="10dp"
+                    android:hint="03339601461"
+                    android:inputType="phone"
+                    android:paddingLeft="8dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
 
-                    <Button
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="5dp"
-                        android:background="@drawable/blood_group_circular_button"
-                        android:text="A-"
-                        android:textColor="@color/whiteText"></Button>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Complete Address"
+                    android:textColor="@color/blackColor"
+                    android:textSize="16sp" />
 
-                    <Button
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="5dp"
-                        android:background="@drawable/blood_group_circular_button"
-                        android:text="B+"
-                        android:textColor="@color/whiteText"></Button>
-
-                    <Button
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="5dp"
-                        android:background="@drawable/blood_group_circular_button"
-                        android:text="AB-"
-                        android:textColor="@color/whiteText"></Button>
-
-                    <Button
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="5dp"
-                        android:background="@drawable/blood_group_circular_button"
-                        android:text="AB+"
-                        android:textColor="@color/whiteText"></Button>
-
-                    <Button
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="5dp"
-                        android:background="@drawable/blood_group_circular_button"
-                        android:text="O+"
-                        android:textColor="@color/whiteText"></Button>
-
-                    <Button
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="5dp"
-                        android:background="@drawable/blood_group_circular_button"
-                        android:text="O-"
-                        android:textColor="@color/whiteText"></Button>
-
-
-                </LinearLayout>
-
+                <EditText
+                    android:id="@+id/phoneNu"
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:background="@drawable/rounded_corner"
+                    android:drawableLeft="@drawable/complete_address"
+                    android:drawablePadding="10dp"
+                    android:hint="pindi road kohat"
+                    android:paddingLeft="8dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -271,7 +320,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@drawable/button_sign_in"
-                    android:text="Post Request"
+                    android:text="Post Detail"
                     android:textColor="@color/whiteText"></Button>
 
             </LinearLayout>
