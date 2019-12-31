@@ -1,63 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".edhiBloodBand.Request"
+    android:orientation="vertical"
     android:background="@color/bloodFragmentbackgroundColor"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    tools:context=".edhiBloodBand.Request">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="405dp"
-        android:orientation="vertical"
-        android:layout_marginBottom="85dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_corner">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/rounded_corner"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Request"
-            android:textSize="30sp"
+            android:layout_gravity="center_horizontal"
             android:layout_marginBottom="40dp"
+            android:text="Request"
             android:textColor="@color/blackColor"
-            android:layout_gravity="center_horizontal"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="10dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Request For"
-            android:textColor="@color/blackColor"
-            android:textSize="16sp"/>
+            android:textSize="30sp" />
 
-        <EditText
-            android:id="@+id/phoneNumber"
-            android:layout_width="match_parent"
-            android:layout_height="53dp"
-            android:background="@drawable/rounded_corner"
-            android:drawableLeft="@drawable/blood_text_view_family"
-            android:hint="Family,Friend"
-            android:drawablePadding="10dp"
-            android:paddingLeft="8dp"
-            android:inputType="phone"/>
-        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Request For"
+                android:textColor="@color/blackColor"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/phoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:background="@drawable/rounded_corner"
+                android:drawableLeft="@drawable/blood_text_view_family"
+                android:drawablePadding="10dp"
+                android:hint="Family,Friend"
+                android:inputType="phone"
+                android:paddingLeft="8dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="City Reference"
                 android:textColor="@color/blackColor"
-                android:textSize="16dp"/>
+                android:textSize="16dp" />
 
             <EditText
                 android:id="@+id/phoneNumbr"
@@ -65,12 +73,210 @@
                 android:layout_height="53dp"
                 android:background="@drawable/rounded_corner"
                 android:drawableLeft="@drawable/blood_placeholder_icon"
-                android:hint="kohat"
                 android:drawablePadding="10dp"
-                android:paddingLeft="8dp"
-                android:inputType="phone"/>
+                android:hint="kohat"
+                android:inputType="phone"
+                android:paddingLeft="8dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_corner">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gender"
+                android:textColor="@color/blackColor"
+                android:textSize="16dp"
+                android:padding="5dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/man_icon_simple"
+                    android:layout_marginRight="30dp"
+
+                    ></ImageView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/boundry_icon"
+
+                    ></ImageView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/female_icon_simple"
+                    android:layout_marginLeft="30dp"
+
+                    ></ImageView>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/man_icon_simple"
+                    android:layout_marginRight="30dp"
+                    android:text="Male"
+                    android:textColor="@color/blackColor"
+
+                    ></TextView>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/female_icon_simple"
+                    android:layout_marginLeft="40dp"
+                    android:text="Female"
+                    android:textColor="@color/blackColor"
+                    ></TextView>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_corner">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select Blood Group"
+                android:textColor="@color/blackColor"
+                android:textSize="16dp"
+                android:padding="5dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="0dp"
+                    android:background="@drawable/blood_group_circular_button"
+                    android:text="A+"
+                    android:textColor="@color/whiteText"
+                    ></Button>
+
+
+                <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:text="A-"
+                    android:background="@drawable/blood_group_circular_button"
+                    android:textColor="@color/whiteText"
+                    ></Button>
+                <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:text="B+"
+                    android:background="@drawable/blood_group_circular_button"
+                    android:textColor="@color/whiteText"
+                    ></Button>
+                <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:text="AB-"
+                    android:background="@drawable/blood_group_circular_button"
+                    android:textColor="@color/whiteText"
+                    ></Button>
+                <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:text="AB+"
+                    android:background="@drawable/blood_group_circular_button"
+                    android:textColor="@color/whiteText"
+                    ></Button>
+                <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:text="O+"
+                    android:background="@drawable/blood_group_circular_button"
+                    android:textColor="@color/whiteText"
+                    ></Button>
+                <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:text="O-"
+                    android:background="@drawable/blood_group_circular_button"
+                    android:textColor="@color/whiteText"
+                    ></Button>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_corner">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Post Request"
+                android:background="@drawable/button_sign_in"
+                android:textColor="@color/whiteText"
+                ></Button>
+
         </LinearLayout>
 
 
     </LinearLayout>
+    </ScrollView>
 </ScrollView>
