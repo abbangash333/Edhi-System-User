@@ -12,4 +12,21 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="contact_centerArray">ListViewForContactCenter</string>
+    <string-array name="array_technology">
+        <item>Peshawar</item>
+        <item>Kohat</item>
+        <item>Hangu</item>
+        <item>Thall</item>
+        <item>Parachinar</item>
+        <item>Karak</item>
+        <item>Charsadda</item>
+        <item>Bannu</item>
+        <item>Swat</item>
+        <item>Lucky Marwat</item>
+        <item>Dera Ismail Khan</item>
+        <item>Noshehra</item>
+        <item>Abbot Abad</item>
+    </string-array>
 </resources>
+
