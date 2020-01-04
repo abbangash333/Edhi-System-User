@@ -17,6 +17,7 @@ public class sign_up extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        getSupportActionBar().setTitle("Sign Up");
         newProfilePicture = findViewById(R.id.take_profile_picture_fromGallery);
         newProfilePicture.setOnClickListener(new View.OnClickListener() {
             @Override

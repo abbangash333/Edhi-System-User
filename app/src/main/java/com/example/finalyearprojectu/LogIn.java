@@ -15,6 +15,7 @@ public class LogIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
+        getSupportActionBar().setTitle("Log In");
         dontHaveAccount = findViewById(R.id.dont_have_account);
         signInButton = findViewById(R.id.signIn_Button);
         dontHaveAccount.setOnClickListener(new View.OnClickListener() {

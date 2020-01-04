@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:orientation="vertical"
-    tools:context=".centersContactInformation.CentersAddresses">
+    tools:context=".donationManagement.ItemDonation">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,9 +22,9 @@
             android:layout_height="wrap_content"
             android:background="@drawable/button_sign_in"
             android:gravity="center"
-            android:text="Peshawar"
+            android:text="Item Detail"
             android:textColor="@color/whiteText"
-            android:textSize="40sp">
+            android:textSize="30sp">
 
         </TextView>
 
@@ -33,9 +33,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:layout_marginRight="8dp"
         android:background="@drawable/rounded_corner"
         android:orientation="vertical">
@@ -48,7 +48,8 @@
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/home_icon_address"></ImageView>
+                android:src="@drawable/items"
+                android:layout_marginBottom="20dp"></ImageView>
         </LinearLayout>
 
         <LinearLayout
@@ -60,7 +61,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Phone Number"
+                android:text="Contact Number"
                 android:textColor="@color/blackColor"
                 android:textSize="16dp" />
 
@@ -72,8 +73,7 @@
                 android:drawableLeft="@drawable/phone_icon"
                 android:drawablePadding="10dp"
                 android:paddingLeft="8dp"
-                android:text="03339601461"
-                android:inputType="none"/>
+                android:text="03339601461" />
         </LinearLayout>
 
         <LinearLayout
@@ -100,6 +100,29 @@
                 android:inputType="none"
                 android:text="Liaqat Hospital Kohat" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Estimated Cost"
+                android:textColor="@color/blackColor"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/center_addres"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:background="@drawable/rounded_corner"
+                android:drawableLeft="@drawable/estimated_cost_icon"
+                android:drawablePadding="10dp"
+                android:paddingLeft="8dp"
+                android:text="Rs.200" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -108,11 +131,11 @@
             android:gravity="center">
 
             <Button
-                android:id="@+id/call_to_center"
+                android:id="@+id/submit_item_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_sign_in"
-                android:text="Call"
+                android:text="Submit"
                 android:textColor="@color/whiteText">
 
             </Button>

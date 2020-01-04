@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+
+import com.example.finalyearprojectu.donationManagement.DonationMain;
 import com.example.finalyearprojectu.edhiBloodBand.BloodBankMainActivity;
 import com.example.finalyearprojectu.missingPersonManagement.MissingPersonMain;
 import com.example.finalyearprojectu.centersContactInformation.ContactCenters;
@@ -15,6 +17,7 @@ public class HomeDashBoard extends AppCompatActivity {
  private CardView bloodbankCardView;
  private CardView missingPersonCardView;
  private CardView centersContactDetail;
+ private CardView dontionManagement;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +27,7 @@ public class HomeDashBoard extends AppCompatActivity {
         bloodbankCardView = findViewById(R.id.edhi_blood_bank_cardView);
         missingPersonCardView = findViewById(R.id.missing_person_cardView);
         centersContactDetail = findViewById(R.id.contactCenter_view);
+        dontionManagement  = findViewById(R.id.donation_management_cardView);
         ambulance_cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,6 +56,13 @@ public class HomeDashBoard extends AppCompatActivity {
             public void onClick(View v) {
                 Intent jump_to_centerContactDetail = new Intent( HomeDashBoard.this, ContactCenters.class);
                 startActivity(jump_to_centerContactDetail);
+            }
+        });
+        dontionManagement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent jump_to_DoantionManagement= new Intent(HomeDashBoard.this, DonationMain.class);
+                startActivity(jump_to_DoantionManagement);
             }
         });
 
