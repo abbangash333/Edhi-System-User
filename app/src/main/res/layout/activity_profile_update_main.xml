@@ -6,15 +6,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/log_in"
-    tools:context="com.example.finalyearprojectu.LogIn">
+    tools:context=".UpdateProfile.ProfileUpdateMain">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign Up"
+        android:text="Update Profile"
         android:textColor="@color/whiteText"
-        android:textSize="50sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +46,7 @@
                 android:background="@drawable/camera_image"
                 >
             </ImageView>
-            </LinearLayout>
+        </LinearLayout>
 
         <TextView
             android:layout_margin="5dp"
@@ -72,7 +72,7 @@
             android:layout_margin="10dp"
             android:background="@drawable/rounded_corner"
             android:drawableLeft="@drawable/user_icon"
-            android:hint="user name"
+            android:text="Ab bangash"
             android:drawablePadding="10dp"
             android:paddingLeft="8dp"
             android:inputType="phone"/>
@@ -84,7 +84,7 @@
             android:layout_margin="10dp"
             android:background="@drawable/rounded_corner"
             android:drawableLeft="@drawable/blood_placeholder_icon"
-            android:hint="City"
+            android:text="kohat"
             android:drawablePadding="10dp"
             android:paddingLeft="8dp"
             android:inputType="phone"/>
@@ -95,16 +95,17 @@
             android:layout_margin="10dp"
             android:background="@drawable/rounded_corner"
             android:drawableLeft="@drawable/pin_icon"
-            android:hint="Enter your pin"
+            android:text="12345"
             android:drawablePadding="10dp"
             android:paddingLeft="8dp"
             android:inputType="numberPassword"/>
         <Button
+            android:id="@+id/update_profile_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_sign_in"
             android:layout_margin="10dp"
-            android:text="@string/confirm_registration"
+            android:text="Update"
             android:textSize="20sp"
             android:textColor="@color/whiteText"/>
     </LinearLayout>

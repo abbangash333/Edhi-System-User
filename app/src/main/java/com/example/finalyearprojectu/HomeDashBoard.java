@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.finalyearprojectu.UpdateProfile.ProfileUpdateMain;
 import com.example.finalyearprojectu.donationManagement.DonationMain;
 import com.example.finalyearprojectu.edhiBloodBand.BloodBankMainActivity;
 import com.example.finalyearprojectu.missingPersonManagement.MissingPersonMain;
@@ -18,6 +19,7 @@ public class HomeDashBoard extends AppCompatActivity {
  private CardView missingPersonCardView;
  private CardView centersContactDetail;
  private CardView dontionManagement;
+ private CardView changeProfile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +30,7 @@ public class HomeDashBoard extends AppCompatActivity {
         missingPersonCardView = findViewById(R.id.missing_person_cardView);
         centersContactDetail = findViewById(R.id.contactCenter_view);
         dontionManagement  = findViewById(R.id.donation_management_cardView);
+        changeProfile = findViewById(R.id.change_profile_id);
         ambulance_cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +66,13 @@ public class HomeDashBoard extends AppCompatActivity {
             public void onClick(View v) {
                 Intent jump_to_DoantionManagement= new Intent(HomeDashBoard.this, DonationMain.class);
                 startActivity(jump_to_DoantionManagement);
+            }
+        });
+        changeProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent jump_to_changeProfile= new Intent(HomeDashBoard.this, ProfileUpdateMain.class);
+                startActivity(jump_to_changeProfile);
             }
         });
 
