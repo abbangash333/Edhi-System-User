@@ -17,6 +17,7 @@ public class AmbulanceDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ambulance_detail);
+        getSupportActionBar().setTitle("Nearest Ambulances");
         ambulanceDetailRecycleView = findViewById(R.id.ambulance_detail_recycle_view);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(AmbulanceDetail.this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);

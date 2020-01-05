@@ -1,16 +1,9 @@
 package com.example.finalyearprojectu.centersContactInformation;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +13,10 @@ import android.widget.Toast;
 
 import com.example.finalyearprojectu.R;
 
-import java.util.ArrayList;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 public class CentersAddresses extends AppCompatActivity {
     private TextView centerN;
@@ -71,7 +67,6 @@ public class CentersAddresses extends AppCompatActivity {
 
         }
         callToCenter.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
                 makePhoneCall();

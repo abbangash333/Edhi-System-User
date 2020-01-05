@@ -12,9 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UpdateProfile.ProfileUpdateMain"
-            android:parentActivityName=".HomeDashBoard"></activity>
-
+        <activity android:name=".centerManagement.CenterManagementDetailActivity"
+            android:parentActivityName=".centerManagement.CenterManagementSearch"></activity>
+        <activity
+            android:name=".centerManagement.CenterManagementSearch"
+            android:parentActivityName=".HomeDashBoard" />
+        <activity
+            android:name=".UpdateProfile.ProfileUpdateMain"
+            android:parentActivityName=".HomeDashBoard" />
         <activity
             android:name=".donationManagement.ItemDonation"
             android:parentActivityName=".donationManagement.DonationMain" />
