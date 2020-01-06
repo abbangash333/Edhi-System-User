@@ -1,7 +1,5 @@
 package com.example.finalyearprojectu.missingPersonManagement;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -27,7 +25,7 @@ public class DeleteMissingDetail extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_delete_missing_detail, container, false);
+        return inflater.inflate(R.layout.fragment_missing_your_posts_detail, container, false);
     }
 
 }
