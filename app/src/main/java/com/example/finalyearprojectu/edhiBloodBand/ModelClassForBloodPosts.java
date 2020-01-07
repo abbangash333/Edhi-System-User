@@ -1,10 +1,10 @@
 package com.example.finalyearprojectu.edhiBloodBand;
 
-public class ModelClassForBloodNotification {
+public class ModelClassForBloodPosts {
     private String request;
     private String desc;
 
-    public ModelClassForBloodNotification(String request, String desc) {
+    public ModelClassForBloodPosts(String request, String desc) {
         this.request = request;
         this.desc = desc;
     }

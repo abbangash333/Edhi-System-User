@@ -16,10 +16,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
 
-    private List<ModelClassForBloodNotification> list;
+    private List<ModelClassForBloodPosts> list;
     private Context mCtx;
 
-    public CustomAdapter(List<ModelClassForBloodNotification> list, Context mCtx) {
+    public CustomAdapter(List<ModelClassForBloodPosts> list, Context mCtx) {
         this.list = list;
         this.mCtx = mCtx;
     }
@@ -33,7 +33,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(final CustomAdapter.ViewHolder holder, int position) {
-        ModelClassForBloodNotification myList = list.get(position);
+        ModelClassForBloodPosts myList = list.get(position);
         holder.textViewHead.setText(myList.getRequest());
         holder.textViewDesc.setText(myList.getDesc());
 

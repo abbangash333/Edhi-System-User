@@ -15,13 +15,13 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class DeletePost extends Fragment{
+public class BloodPosts extends Fragment{
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter adapter;
-    private List<ModelClassForBloodNotification> list;
+    private List<ModelClassForBloodPosts> list;
 
-    public DeletePost() {
+    public BloodPosts() {
     }
 
 
@@ -42,7 +42,7 @@ public class DeletePost extends Fragment{
 
     private void loadRecyclerViewItem() {
         for (int i = 1; i <= 10; i++) {
-          ModelClassForBloodNotification myList = new ModelClassForBloodNotification(
+          ModelClassForBloodPosts myList = new ModelClassForBloodPosts(
                     "Request " + i,
                     "A+"
             );

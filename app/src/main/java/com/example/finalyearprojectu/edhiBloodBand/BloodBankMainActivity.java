@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.widget.FrameLayout;
@@ -44,7 +43,7 @@ public class BloodBankMainActivity extends AppCompatActivity {
                         fragment = new Request();
                         break;
                     case 2:
-                        fragment = new DeletePost();
+                        fragment = new BloodPosts();
                         break;
                 }
                 FragmentManager fm = getSupportFragmentManager();

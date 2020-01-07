@@ -9,9 +9,6 @@ import android.os.Bundle;
 import android.widget.FrameLayout;
 
 import com.example.finalyearprojectu.R;
-import com.example.finalyearprojectu.edhiBloodBand.DeletePost;
-import com.example.finalyearprojectu.edhiBloodBand.Donate;
-import com.example.finalyearprojectu.edhiBloodBand.Request;
 import com.google.android.material.tabs.TabLayout;
 
 public class MissingPersonMain extends AppCompatActivity {
@@ -43,7 +40,7 @@ public class MissingPersonMain extends AppCompatActivity {
                         fragment = new PostMissingDetail();
                         break;
                     case 1:
-                        fragment = new DeleteMissingDetail();
+                        fragment = new YourPostsMissingDetail();
                         break;
                 }
                 FragmentManager fm = getSupportFragmentManager();
