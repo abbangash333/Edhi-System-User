@@ -39,13 +39,14 @@
             android:layout_marginTop="10dp"
             android:orientation="vertical"
             android:background="@drawable/sign_up_image_view">
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/take_profile_picture_fromGallery"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/camera_image"
-                >
-            </ImageView>
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_margin="8dp"
+                android:src="@drawable/image_person"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="2dp" />
             </LinearLayout>
 
         <TextView
