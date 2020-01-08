@@ -130,7 +130,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="DOB"
+                        android:text="Date Of Disappearance"
                         android:textColor="@color/blackColor"
                         android:textSize="16sp"></TextView>
                     <LinearLayout
@@ -145,7 +145,7 @@
                             android:src="@drawable/date_icon"
                             android:layout_margin="8dp"></ImageView>
                         <TextView
-                            android:id="@+id/date_of_birth"
+                            android:id="@+id/date_of_missing"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_margin="8dp"
@@ -220,7 +220,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="Missing Date"
+                        android:text="Phone Number"
                         android:textColor="@color/blackColor"
                         android:textSize="16sp"></TextView>
                     <LinearLayout
@@ -232,15 +232,15 @@
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:src="@drawable/date_icon"
+                            android:src="@drawable/phone_icon"
                             android:layout_margin="8dp"></ImageView>
                         <TextView
-                            android:id="@+id/person_missing_date"
+                            android:id="@+id/person_missing_phone"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_margin="8dp"
                             android:textColor="@color/blackColor"
-                            android:text="Jan 3, 2020"></TextView>
+                            android:text="03339601461"></TextView>
 
                     </LinearLayout>
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/log_in"
-    tools:context=".UpdateProfile.ProfileUpdateMain">
+    tools:context=".updateProfile.ProfileUpdateMain">
 
     <TextView
         android:id="@+id/textView"

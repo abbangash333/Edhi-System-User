@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.finalyearprojectu.R;
-import com.example.finalyearprojectu.edhiBloodBand.ModelClassForBloodPosts;
 
 import java.util.List;
 
@@ -29,7 +28,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.missing_post_recycle_view_items,parent,false);
+                .inflate(R.layout.list_missing_post_recycle_view_items,parent,false);
         return new ViewHolder(view);
     }
 
@@ -38,10 +37,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         ModelClassForMissingPosts myList = list.get(position);
         holder.missingPersonName.setText(myList.getNameOfPerson());
         holder.cityBelonginName.setText(myList.getBelongingCity());
-        holder.dateOfBirth.setText(myList.getDOB());
+        holder.dateOfMissing.setText(myList.getDateOfDisappearance());
         holder.ageOfPerson.setText(( String.valueOf(myList.getAge())));
         holder.cityNameD.setText(myList.getNameOfCityD());
-        holder.missingDate.setText(myList.getPersonMissingDate());
+        holder.missingPersonPhone.setText(myList.getMissingPhoneContacNumber());
         holder.optionMenuButtonForMissingPost.setOnClickListener(new View.OnClickListener() {
 
 
@@ -85,19 +84,19 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView missingPersonName;
         private TextView cityBelonginName;
-        private TextView dateOfBirth;
+        private TextView dateOfMissing;
         private TextView ageOfPerson;
         private TextView cityNameD;
-        private TextView missingDate;
+        private TextView missingPersonPhone;
         private TextView optionMenuButtonForMissingPost;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             missingPersonName = itemView.findViewById(R.id.nameOfPerson);
             cityBelonginName = itemView.findViewById(R.id.belonging_city_name);
-            dateOfBirth = itemView.findViewById(R.id.date_of_birth);
+            dateOfMissing = itemView.findViewById(R.id.date_of_missing);
             ageOfPerson = itemView.findViewById(R.id.age_of_missing_person);
             cityNameD = itemView.findViewById(R.id.city_name_disappeared);
-            missingDate = itemView.findViewById(R.id.person_missing_date);
+            missingPersonPhone = itemView.findViewById(R.id.person_missing_phone);
             optionMenuButtonForMissingPost = itemView.findViewById(R.id.textViewOptionsForMissing);
 
         }

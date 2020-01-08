@@ -1,4 +1,4 @@
-package com.example.finalyearprojectu.UpdateProfile;
+package com.example.finalyearprojectu.updateProfile;
 
 import androidx.appcompat.app.AppCompatActivity;
 

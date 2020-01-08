@@ -6,7 +6,8 @@
     <string name="upload_picture">upload picture</string>
     <string name="confirm_registration">SIGN UP</string>
     <string name="title_activity_buttom_navigation">ButtomNavigation</string>
-    <string name="title_home">Home</string>
+    <string name="title_missing">Missing Posts</string>
+    <string name="title_blood">Blood Posts</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 

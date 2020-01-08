@@ -3,18 +3,18 @@ package com.example.finalyearprojectu.missingPersonManagement;
 public class ModelClassForMissingPosts {
     private String nameOfPerson;
     private String belongingCity;
-    private String DOB;
+    private String dateOfDisappearance;
     private int age;
     private String nameOfCityD;
-    private String personMissingDate;
+    private String missingPhoneContacNumber;
 
     public ModelClassForMissingPosts(String nameOfPerson, String belongingCity, String DOB, int age, String nameOfCityD, String personMissingDate) {
         this.nameOfPerson = nameOfPerson;
         this.belongingCity = belongingCity;
-        this.DOB = DOB;
+        this.dateOfDisappearance = DOB;
         this.age = age;
         this.nameOfCityD = nameOfCityD;
-        this.personMissingDate = personMissingDate;
+        this.missingPhoneContacNumber = personMissingDate;
     }
 
     public String getNameOfPerson() {
@@ -25,8 +25,8 @@ public class ModelClassForMissingPosts {
         return belongingCity;
     }
 
-    public String getDOB() {
-        return DOB;
+    public String getDateOfDisappearance() {
+        return dateOfDisappearance;
     }
 
     public int getAge() {
@@ -37,7 +37,7 @@ public class ModelClassForMissingPosts {
         return nameOfCityD;
     }
 
-    public String getPersonMissingDate() {
-        return personMissingDate;
+    public String getMissingPhoneContacNumber() {
+        return missingPhoneContacNumber;
     }
 }

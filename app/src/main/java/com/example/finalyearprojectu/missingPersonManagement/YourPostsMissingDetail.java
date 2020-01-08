@@ -50,7 +50,7 @@ public class YourPostsMissingDetail extends Fragment {
     private void loadRecyclerViewItem() {
         for (int i = 1; i <= 10; i++) {
             ModelClassForMissingPosts myList = new ModelClassForMissingPosts("Ali","kohat",
-                    "dec 20,1990",29,"Peshawar","jan 2,2020");
+                    "dec 20,1990",29,"Peshawar","033396014");
             list.add(myList);
 
         }
