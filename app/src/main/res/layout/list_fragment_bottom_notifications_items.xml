@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner"
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        android:weightSum="3">
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image_fragment_missing"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/image_person"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp"
+            android:layout_weight="1"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="20dp"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/user_posted_name_fragment_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Shadman"
+                android:textColor="@color/clickColor"
+                android:textSize="20sp"></TextView>
+            <TextView
+                android:id="@+id/user_posting_detail_txtView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="posted about missing ..."
+                android:maxLines="4"
+                android:textColor="@color/greyColor"
+                android:textSize="20sp"
+                ></TextView>
+
+        </LinearLayout>
+
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/textViewOptionsForMissing"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:gravity="left"
+            android:layout_margin="3dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="8dp"
+            android:text="&#8942;"
+            android:textAppearance="?android:textAppearanceLarge" />
+    </LinearLayout>
+
+</LinearLayout>
