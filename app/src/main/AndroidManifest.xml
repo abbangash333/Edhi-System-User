@@ -12,8 +12,10 @@
         android:roundIcon="@mipmap/rounded_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".homeSearchAndNotification.HomeButtomNavigation"
-            android:parentActivityName=".HomeDashBoard"></activity>
+        <activity android:name="com.example.homedashboardslider.HomeDashBoardSlider"></activity>
+        <activity
+            android:name=".homeSearchAndNotification.HomeButtomNavigation"
+            android:parentActivityName=".HomeDashBoard" />
         <activity
             android:name=".centerManagement.CenterManagementDetailActivity"
             android:parentActivityName=".centerManagement.CenterManagementSearch" />
@@ -53,14 +55,12 @@
         <activity
             android:name=".sign_up"
             android:parentActivityName=".LogIn" />
-        <activity android:name=".LogIn">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".LogIn"
+            android:label="">
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashScreen"
+           android:theme="@style/AppTheme.Splash"
+            android:label="">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

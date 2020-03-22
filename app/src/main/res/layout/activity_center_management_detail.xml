@@ -110,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:weightSum="6">
                 <TextView
-                    android:text="Widows"
+                    android:text="Orphans"
                     android:textSize="20sp"
                     android:padding="8dp"
                     android:textColor="@color/blackColor"

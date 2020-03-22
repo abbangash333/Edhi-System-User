@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.homedashboardslider.HomeDashBoardSlider;
+
 public class LogIn extends AppCompatActivity {
     private TextView dontHaveAccount;
      private Button signInButton;
@@ -28,7 +30,7 @@ public class LogIn extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),HomeDashBoard.class);
+                Intent intent = new Intent(getApplicationContext(), HomeDashBoardSlider.class);
                 startActivity(intent);
             }
         });

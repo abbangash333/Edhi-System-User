@@ -1,112 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/log_in"
-    tools:context="com.example.finalyearprojectu.LogIn">
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:background="@drawable/log_in"
+tools:context="com.example.finalyearprojectu.LogIn">
 
-    <TextView
-        android:id="@+id/textView"
+<TextView
+    android:id="@+id/textView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Sign Up"
+    android:textColor="@color/whiteText"
+    android:textSize="50sp"
+    app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+<LinearLayout
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="500dp"
+    android:orientation="vertical"
+    android:layout_marginBottom="20dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="0dp"
+    android:background="@drawable/rounded_corner"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign Up"
-        android:textColor="@color/whiteText"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
         android:orientation="vertical"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="0dp"
-        android:background="@drawable/rounded_corner"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical"
-            android:background="@drawable/sign_up_image_view">
-            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/take_profile_picture_fromGallery"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:layout_margin="8dp"
-                android:src="@drawable/image_person"
-                app:civ_border_color="#FF000000"
-                app:civ_border_width="2dp" />
-            </LinearLayout>
-
-        <TextView
-            android:layout_margin="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/upload_picture"
-            android:layout_gravity="center_horizontal"/>
-        <EditText
-            android:id="@+id/phoneNumber"
-            android:layout_width="match_parent"
-            android:layout_height="53dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/rounded_corner"
-            android:drawableLeft="@drawable/phone_icon"
-            android:text="03339601461"
-            android:drawablePadding="10dp"
-            android:paddingLeft="8dp"
-            android:inputType="phone"/>
-        <EditText
-            android:id="@+id/displayName"
-            android:layout_width="match_parent"
-            android:layout_height="53dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/rounded_corner"
-            android:drawableLeft="@drawable/user_icon"
-            android:hint="user name"
-            android:drawablePadding="10dp"
-            android:paddingLeft="8dp"
-            android:inputType="phone"/>
-
-        <EditText
-            android:id="@+id/city"
-            android:layout_width="match_parent"
-            android:layout_height="53dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/rounded_corner"
-            android:drawableLeft="@drawable/blood_placeholder_icon"
-            android:hint="City"
-            android:drawablePadding="10dp"
-            android:paddingLeft="8dp"
-            android:inputType="phone"/>
-        <EditText
-            android:id="@+id/pinCode"
-            android:layout_width="match_parent"
-            android:layout_height="53dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/rounded_corner"
-            android:drawableLeft="@drawable/pin_icon"
-            android:hint="Enter your pin"
-            android:drawablePadding="10dp"
-            android:paddingLeft="8dp"
-            android:inputType="numberPassword"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_sign_in"
-            android:layout_margin="10dp"
-            android:text="@string/confirm_registration"
-            android:textSize="20sp"
-            android:textColor="@color/whiteText"/>
+        android:background="@drawable/sign_up_image_view">
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/take_profile_picture_fromGallery"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/image_person"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp" />
     </LinearLayout>
+
+    <TextView
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/upload_picture"
+        android:layout_gravity="center_horizontal"/>
+    <EditText
+        android:id="@+id/phoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/rounded_corner"
+        android:drawableLeft="@drawable/phone_icon"
+        android:text="03339601461"
+        android:drawablePadding="10dp"
+        android:paddingLeft="8dp"
+        android:inputType="phone"/>
+    <EditText
+        android:id="@+id/displayName"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/rounded_corner"
+        android:drawableLeft="@drawable/user_icon"
+        android:hint="user name"
+        android:drawablePadding="10dp"
+        android:paddingLeft="8dp"
+        android:inputType="phone"/>
+
+    <EditText
+        android:id="@+id/city"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/rounded_corner"
+        android:drawableLeft="@drawable/blood_placeholder_icon"
+        android:hint="City"
+        android:drawablePadding="10dp"
+        android:paddingLeft="8dp"
+        android:inputType="phone"/>
+    <EditText
+        android:id="@+id/pinCode"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/rounded_corner"
+        android:drawableLeft="@drawable/pin_icon"
+        android:hint="Enter your pin"
+        android:drawablePadding="10dp"
+        android:paddingLeft="8dp"
+        android:inputType="numberPassword"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_sign_in"
+        android:layout_margin="10dp"
+        android:text="@string/confirm_registration"
+        android:textSize="20sp"
+        android:textColor="@color/whiteText"/>
+</LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
