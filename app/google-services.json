@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1068539222867",
+    "firebase_url": "https://edhi-welfare-trust.firebaseio.com",
+    "project_id": "edhi-welfare-trust",
+    "storage_bucket": "edhi-welfare-trust.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068539222867:android:3e94e5bdaabe44d69cdfa6",
+        "android_client_info": {
+          "package_name": "com.example.finalyearprojectu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1068539222867-1jt0qsgsho9l76tdmm2vlragqsgi111b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlo-ctTP_uGhhQzoPuvrTBKxmBmwPMFGQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1068539222867-1jt0qsgsho9l76tdmm2vlragqsgi111b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1068539222867-632f0tb8vfmin3t05h0cubl6rfqd9cvf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.edhi-trust"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
