@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Toast;
 
+import com.example.finalyearprojectu.logIn.LogIn;
+import com.example.finalyearprojectu.logIn.LogInActivity;
+
 public class SplashScreen extends AppCompatActivity {
     private final int SPLASH_TIME_OUT = 3000;
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
@@ -21,7 +24,7 @@ public class SplashScreen extends AppCompatActivity {
                 // This method will be executed once the timer is over
                 // Start your app main activity
 
-                Intent i = new Intent(SplashScreen.this, LogIn.class);
+                Intent i = new Intent(SplashScreen.this, LogInActivity.class);
                 startActivity(i);
 
                 // close this activity

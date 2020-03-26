@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/rounded_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.homedashboardslider.HomeDashBoardSlider"></activity>
+        <activity android:name=".logIn.OtpActivity"></activity>
+        <activity android:name=".logIn.LogInActivity" />
+        <activity android:name=".homedashboardslider.HomeDashBoardSlider" />
         <activity
             android:name=".homeSearchAndNotification.HomeButtomNavigation"
             android:parentActivityName=".HomeDashBoard" />
@@ -54,13 +56,14 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".sign_up"
-            android:parentActivityName=".LogIn" />
-        <activity android:name=".LogIn"
-            android:label="">
-        </activity>
-        <activity android:name=".SplashScreen"
-           android:theme="@style/AppTheme.Splash"
-            android:label="">
+            android:parentActivityName=".logIn.LogIn" />
+        <activity
+            android:name=".logIn.LogIn"
+            android:label="" />
+        <activity
+            android:name=".SplashScreen"
+            android:label=""
+            android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

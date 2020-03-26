@@ -1,4 +1,4 @@
-package com.example.homedashboardslider;
+package com.example.finalyearprojectu.homedashboardslider;
 
 import androidx.appcompat.app.AppCompatActivity;
 

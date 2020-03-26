@@ -1,4 +1,4 @@
-package com.example.finalyearprojectu;
+package com.example.finalyearprojectu.logIn;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.homedashboardslider.HomeDashBoardSlider;
+import com.example.finalyearprojectu.R;
+import com.example.finalyearprojectu.homedashboardslider.HomeDashBoardSlider;
+import com.example.finalyearprojectu.sign_up;
 
 public class LogIn extends AppCompatActivity {
     private TextView dontHaveAccount;
