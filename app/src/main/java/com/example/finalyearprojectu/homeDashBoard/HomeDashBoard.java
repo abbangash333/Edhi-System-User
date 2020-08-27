@@ -1,4 +1,4 @@
-package com.example.finalyearprojectu;
+package com.example.finalyearprojectu.homeDashBoard;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.finalyearprojectu.R;
+import com.example.finalyearprojectu.ambulance.AmbulanceActivity;
 import com.example.finalyearprojectu.homeSearchAndNotification.HomeButtomNavigation;
 import com.example.finalyearprojectu.updateProfile.ProfileUpdateMain;
 import com.example.finalyearprojectu.centerManagement.CenterManagementSearch;
@@ -40,7 +42,7 @@ public class HomeDashBoard extends AppCompatActivity {
         ambulance_cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent jump_to_ambulanceActivity = new Intent(HomeDashBoard.this,AmbulanceActivity.class);
+                Intent jump_to_ambulanceActivity = new Intent(HomeDashBoard.this, AmbulanceActivity.class);
                 startActivity(jump_to_ambulanceActivity);
                 Toast.makeText(getApplicationContext(),"ambulances activity started",Toast.LENGTH_SHORT).show();
             }

@@ -1,10 +1,12 @@
-package com.example.finalyearprojectu;
+package com.example.finalyearprojectu.ambulance;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+
+import com.example.finalyearprojectu.R;
 
 public class AmbulanceDetail extends AppCompatActivity {
     private RecyclerView ambulanceDetailRecycleView;

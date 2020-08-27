@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.finalyearprojectu.R;
 import com.example.finalyearprojectu.homedashboardslider.HomeDashBoardSlider;
-import com.example.finalyearprojectu.sign_up;
+import com.example.finalyearprojectu.signUp.sign_up;
 
 public class LogIn extends AppCompatActivity {
     private TextView dontHaveAccount;

@@ -1,4 +1,4 @@
-package com.example.finalyearprojectu;
+package com.example.finalyearprojectu.splashScreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Toast;
 
-import com.example.finalyearprojectu.logIn.LogIn;
+import com.example.finalyearprojectu.R;
 import com.example.finalyearprojectu.logIn.LogInActivity;
 
 public class SplashScreen extends AppCompatActivity {
