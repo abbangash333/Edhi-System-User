@@ -126,18 +126,23 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
         mGenerateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phone_number = mPhoneNumber.getText().toString().substring(1);
-
-                String complete_phone_number =phone_number;
-
+                String phone_number = mPhoneNumber.getText().toString();
                 if(phone_number.isEmpty()){
                     mLoginFeedbackText.setText("Please fill in the form to continue.");
                     mLoginFeedbackText.setVisibility(View.VISIBLE);
-                } else {
+                }
+             if (phone_number.length()<11 || phone_number.length()>11)
+                {
+                 mLoginFeedbackText.setText("Please enter valid a Phone Number");
+                 mLoginFeedbackText.setVisibility(View.VISIBLE);
+
+                }
+                else {
                     mLoginProgress.setVisibility(View.VISIBLE);
                     mGenerateBtn.setEnabled(false);
+                    mLoginFeedbackText.setText("");
                     //verification();
-
+                    String complete_phone_number =phone_number.substring(1);
                     PhoneAuthProvider.getInstance().verifyPhoneNumber(
                             "+92"+complete_phone_number,
                             60,
@@ -219,5 +224,11 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
         finish();
  }
 
- }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        
+
+    }
+}
 
