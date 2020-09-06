@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 
 import com.example.finalyearprojectuser.R;
 import com.example.finalyearprojectuser.homeDashBoard.HomeDashBoard;
+import com.example.finalyearprojectuser.homedashboardslider.HomeDashBoardSlider;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -94,12 +95,15 @@ public class OtpActivity extends AppCompatActivity   {
     }
 
     public void sendUserToHome() {
-        Intent homeIntent = new Intent(OtpActivity.this, HomeDashBoard.class);
+        Intent homeIntent = new Intent(OtpActivity.this, HomeDashBoardSlider.class);
         homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(homeIntent);
         finish();
     }
 
-
+    @Override
+    public void onBackPressed() {
+    super.onBackPressed();
+    }
 }

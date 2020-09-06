@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.finalyearprojectuser.homeDashBoard.HomeDashBoard;
+import com.example.finalyearprojectuser.homedashboardslider.HomeDashBoardSlider;
 import com.example.finalyearprojectuser.logIn.OtpPattern.OtpActivity;
 import com.example.finalyearprojectuser.logIn.logInPattern.presenter.ILogInPresenter;
 import com.example.finalyearprojectuser.logIn.logInPattern.presenter.LogInPresenter;
@@ -176,9 +177,10 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
                                 Intent otpIntent = new Intent(LogInActivity.this, OtpActivity.class);
                                otpIntent.putExtra("AuthCredentials", s);
                                 startActivity(otpIntent);
+                                finish();
                             }
                         },
-                        1000);
+                        2000);
             }
         };
 
@@ -216,7 +218,7 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
     }
 // this activity will send us to Home screen
    private void sendUserToHome() {
-        Intent homeIntent = new Intent(LogInActivity.this, HomeDashBoard.class);
+        Intent homeIntent = new Intent(LogInActivity.this, HomeDashBoardSlider.class);
         homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(homeIntent);
@@ -226,9 +228,12 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
 
     @Override
     protected void onResume() {
-        super.onResume();
-        
-
+       getIntent().setAction(null);
+       super.onResume();
+    }
+    @Override
+    public void onBackPressed() {
+      super.onBackPressed();
     }
 }
 

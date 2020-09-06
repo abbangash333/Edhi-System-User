@@ -13,7 +13,7 @@ import com.example.finalyearprojectuser.R;
 public class HomeDashBoardSlider extends AppCompatActivity {
     private ViewFlipper simpleViewFlipper;
     // array of images
-    int[] images = {R.drawable.flipperimage1, R.drawable.flipperimage2, R.drawable.flipperimage3};
+    int[] images = {R.drawable.flipperimage1, R.drawable.flipperimage2};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

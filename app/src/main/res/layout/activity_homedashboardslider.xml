@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/whitegrey"
     tools:context=".homedashboardslider.HomeDashBoardSlider">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,9 +23,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="My Posts"
+            android:text="Recent Missing Posts"
             android:textColor="#000"
             android:textSize="16sp"></TextView>
+
+        <ScrollView
+            android:id="@+id/recent_missing_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></ScrollView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recent Blood Posts"
+            android:textColor="@color/blackColor"
+            android:textSize="16sp"></TextView>
+
+        <ScrollView
+            android:id="@+id/recent_blood_post_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </ScrollView>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,82 +53,91 @@
             android:text="More"
             android:textColor="#000"
             android:textSize="16sp"></TextView>
+
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/whitegrey"
             android:columnCount="4"
             android:rowCount="2">
+
             <LinearLayout
                 android:id="@+id/redSquare"
-                android:layout_columnSpan="1"
-                android:layout_rowSpan="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:layout_column="0"
                 android:layout_row="0"
+                android:layout_rowSpan="1"
+                android:layout_column="0"
+                android:layout_columnSpan="1"
+                android:layout_columnWeight="1"
+                android:layout_marginTop="16dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="16dp">
+                android:orientation="vertical">
+
                 <ImageButton
                     android:layout_width="71dp"
                     android:layout_height="71dp"
-                    android:src="@drawable/homeiconforfront"
                     android:layout_gravity="center_horizontal"
-                    android:background="@drawable/fronpagecirularbutton"></ImageButton>
+                    android:background="@drawable/fronpagecirularbutton"
+                    android:src="@drawable/homeiconforfront"></ImageButton>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Home"
                     android:layout_gravity="center_horizontal"
+                    android:text="Home"
                     android:textColor="#000"></TextView>
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/greenSquare"
-                android:orientation="vertical"
-                android:layout_column="1"
                 android:layout_row="0"
-                android:layout_columnSpan="1"
                 android:layout_rowSpan="1"
+                android:layout_column="1"
+                android:layout_columnSpan="1"
                 android:layout_columnWeight="1"
                 android:layout_marginTop="16dp"
-                android:layout_marginRight="8dp">
+                android:layout_marginRight="8dp"
+                android:orientation="vertical">
+
                 <ImageButton
                     android:layout_width="71dp"
                     android:layout_height="71dp"
-                    android:src="@drawable/frontambulance"
                     android:layout_gravity="center_horizontal"
-                    android:background="@drawable/fronpagecirularbutton"></ImageButton>
+                    android:background="@drawable/fronpagecirularbutton"
+                    android:src="@drawable/frontambulance"></ImageButton>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Blood"
                     android:layout_gravity="center_horizontal"
+                    android:text="Blood"
                     android:textColor="#000"></TextView>
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/blueSquare"
-                android:layout_columnSpan="1"
+                android:layout_row="0"
                 android:layout_rowSpan="1"
                 android:layout_column="2"
-                android:layout_row="0"
-                android:orientation="vertical"
-                android:layout_marginTop="16dp"
+                android:layout_columnSpan="1"
                 android:layout_columnWeight="1"
-                android:layout_marginRight="8dp">
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="8dp"
+                android:orientation="vertical">
+
                 <ImageButton
                     android:layout_width="71dp"
                     android:layout_height="71dp"
-                    android:src="@drawable/frontboodicon"
                     android:layout_gravity="center_horizontal"
-                    android:background="@drawable/fronpagecirularbutton"></ImageButton>
+                    android:background="@drawable/fronpagecirularbutton"
+                    android:src="@drawable/frontboodicon"></ImageButton>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Blood"
                     android:layout_gravity="center_horizontal"
+                    android:text="Blood"
                     android:textColor="#000"></TextView>
             </LinearLayout>
 
@@ -115,11 +145,11 @@
                 android:id="@+id/blueSquar"
                 android:layout_width="wrap_content"
                 android:layout_row="0"
-                android:layout_gravity="center_horizontal"
                 android:layout_rowSpan="1"
                 android:layout_column="3"
                 android:layout_columnSpan="1"
                 android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
                 android:orientation="vertical">
 
@@ -129,92 +159,101 @@
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/fronpagecirularbutton"
                     android:src="@drawable/frontusericon"></ImageButton>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Missings"
                     android:layout_gravity="center_horizontal"
+                    android:text="Missings"
                     android:textColor="#000"></TextView>
 
             </LinearLayout>
+
             <LinearLayout
-                android:layout_columnSpan="1"
-                android:layout_rowSpan="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:layout_column="0"
                 android:layout_row="1"
+                android:layout_rowSpan="1"
+                android:layout_column="0"
+                android:layout_columnSpan="1"
+                android:layout_columnWeight="1"
+                android:layout_marginTop="16dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="16dp">
+                android:orientation="vertical">
+
                 <ImageButton
                     android:layout_width="71dp"
                     android:layout_height="71dp"
-                    android:src="@drawable/frontphoneicon"
                     android:layout_gravity="center_horizontal"
-                    android:background="@drawable/fronpagecirularbutton"></ImageButton>
+                    android:background="@drawable/fronpagecirularbutton"
+                    android:src="@drawable/frontphoneicon"></ImageButton>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Contact"
                     android:layout_gravity="center_horizontal"
+                    android:text="Contact"
                     android:textColor="#000"></TextView>
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_column="1"
                 android:layout_row="1"
-                android:layout_columnSpan="1"
                 android:layout_rowSpan="1"
+                android:layout_column="1"
+                android:layout_columnSpan="1"
                 android:layout_columnWeight="1"
                 android:layout_marginTop="16dp"
-                android:layout_marginRight="8dp">
+                android:layout_marginRight="8dp"
+                android:orientation="vertical">
+
                 <ImageButton
                     android:layout_width="71dp"
                     android:layout_height="71dp"
-                    android:src="@drawable/frontdonationicon"
                     android:layout_gravity="center_horizontal"
-                    android:background="@drawable/fronpagecirularbutton"></ImageButton>
+                    android:background="@drawable/fronpagecirularbutton"
+                    android:src="@drawable/frontdonationicon"></ImageButton>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Donate"
                     android:layout_gravity="center_horizontal"
+                    android:text="Donate"
                     android:textColor="#000"></TextView>
             </LinearLayout>
+
             <LinearLayout
-                android:layout_columnSpan="1"
+                android:layout_row="1"
                 android:layout_rowSpan="1"
                 android:layout_column="2"
-                android:layout_row="1"
-                android:orientation="vertical"
-                android:layout_marginTop="16dp"
+                android:layout_columnSpan="1"
                 android:layout_columnWeight="1"
-                android:layout_marginRight="8dp">
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="8dp"
+                android:orientation="vertical">
+
                 <ImageButton
                     android:layout_width="71dp"
                     android:layout_height="71dp"
-                    android:src="@drawable/frontediticon"
                     android:layout_gravity="center_horizontal"
-                    android:background="@drawable/fronpagecirularbutton"></ImageButton>
+                    android:background="@drawable/fronpagecirularbutton"
+                    android:src="@drawable/frontediticon"></ImageButton>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Edit Profile"
                     android:layout_gravity="center_horizontal"
+                    android:text="Edit Profile"
                     android:textColor="#000"></TextView>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_row="1"
-                android:layout_gravity="center_horizontal"
                 android:layout_rowSpan="1"
                 android:layout_column="3"
                 android:layout_columnSpan="1"
                 android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
                 android:orientation="vertical">
 
@@ -224,11 +263,12 @@
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/fronpagecirularbutton"
                     android:src="@drawable/froncentericon"></ImageButton>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Center"
                     android:layout_gravity="center"
+                    android:text="Center"
                     android:textColor="#000"></TextView>
 
             </LinearLayout>
