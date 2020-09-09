@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.finalyearprojectuser.R;
 import com.example.finalyearprojectuser.homedashboardslider.HomeDashBoardSlider;
-import com.example.finalyearprojectuser.signUp.sign_up;
+import com.example.finalyearprojectuser.signUp.Sign_up;
 
 public class LogIn extends AppCompatActivity {
     private TextView dontHaveAccount;
@@ -25,7 +25,7 @@ public class LogIn extends AppCompatActivity {
         dontHaveAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), sign_up.class);
+                Intent intent = new Intent(getApplicationContext(), Sign_up.class);
                 startActivity(intent);
             }
         });

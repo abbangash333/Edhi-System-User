@@ -201,7 +201,7 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
                     @Override
                    public void onComplete(@NonNull Task<AuthResult> task) {
                        if (task.isSuccessful()) {
-                            sendUserToHome();
+                           // sendUserToHome();
                             Log.d("onverification","successful");
                             // ...
                        } else {
@@ -218,7 +218,7 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
     }
 // this activity will send us to Home screen
    private void sendUserToHome() {
-        Intent homeIntent = new Intent(LogInActivity.this, HomeDashBoardSlider.class);
+        Intent homeIntent = new Intent(LogInActivity.this, OtpActivity.class);
         homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(homeIntent);

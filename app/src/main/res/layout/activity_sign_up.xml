@@ -8,18 +8,18 @@ android:orientation="vertical"
 android:background="@drawable/log_in"
 tools:context="com.example.finalyearprojectuser.logIn.LogIn">
 
-<TextView
-    android:id="@+id/textView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Sign Up"
-    android:textColor="@color/whiteText"
-    android:textSize="50sp"
-    app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
 
+<!--    <TextView-->
+<!--        android:id="@+id/textView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Sign Up"-->
+<!--        android:textColor="@color/whiteText"-->
+<!--        android:textSize="50sp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/linearLayout"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 <LinearLayout
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
@@ -56,7 +56,7 @@ tools:context="com.example.finalyearprojectuser.logIn.LogIn">
         android:text="@string/upload_picture"
         android:layout_gravity="center_horizontal"/>
     <EditText
-        android:id="@+id/phoneNumber"
+        android:id="@+id/phone_number"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:layout_margin="10dp"
@@ -67,7 +67,7 @@ tools:context="com.example.finalyearprojectuser.logIn.LogIn">
         android:paddingLeft="8dp"
         android:inputType="phone"/>
     <EditText
-        android:id="@+id/displayName"
+        android:id="@+id/user_name"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:layout_margin="10dp"
@@ -79,7 +79,7 @@ tools:context="com.example.finalyearprojectuser.logIn.LogIn">
         android:inputType="phone"/>
 
     <EditText
-        android:id="@+id/city"
+        android:id="@+id/user_city"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:layout_margin="10dp"
@@ -89,18 +89,19 @@ tools:context="com.example.finalyearprojectuser.logIn.LogIn">
         android:drawablePadding="10dp"
         android:paddingLeft="8dp"
         android:inputType="phone"/>
-    <EditText
-        android:id="@+id/pinCode"
-        android:layout_width="match_parent"
-        android:layout_height="53dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/rounded_corner"
-        android:drawableLeft="@drawable/pin_icon"
-        android:hint="Enter your pin"
-        android:drawablePadding="10dp"
-        android:paddingLeft="8dp"
-        android:inputType="numberPassword"/>
+<!--    <EditText-->
+<!--        android:id="@+id/pinCode"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="53dp"-->
+<!--        android:layout_margin="10dp"-->
+<!--        android:background="@drawable/rounded_corner"-->
+<!--        android:drawableLeft="@drawable/pin_icon"-->
+<!--        android:hint="Enter your pin"-->
+<!--        android:drawablePadding="10dp"-->
+<!--        android:paddingLeft="8dp"-->
+<!--        android:inputType="numberPassword"/>-->
     <Button
+        android:id="@+id/sign_up_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/button_sign_in"

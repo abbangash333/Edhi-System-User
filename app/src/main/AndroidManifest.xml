@@ -57,7 +57,7 @@
             android:name="com.example.finalyearprojectuser.homeDashBoard.HomeDashBoard"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name="com.example.finalyearprojectuser.signUp.sign_up"
+            android:name="com.example.finalyearprojectuser.signUp.Sign_up"
             android:parentActivityName="com.example.finalyearprojectuser.logIn.LogIn" />
         <activity
             android:name="com.example.finalyearprojectuser.logIn.LogIn"
