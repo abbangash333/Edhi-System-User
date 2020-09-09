@@ -56,16 +56,16 @@ tools:context="com.example.finalyearprojectuser.logIn.LogIn">
         android:text="@string/upload_picture"
         android:layout_gravity="center_horizontal"/>
     <EditText
-        android:id="@+id/phone_number"
+        android:id="@+id/user_email"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:layout_margin="10dp"
         android:background="@drawable/rounded_corner"
         android:drawableLeft="@drawable/phone_icon"
-        android:text="03339601461"
+        android:hint="Email"
         android:drawablePadding="10dp"
         android:paddingLeft="8dp"
-        android:inputType="phone"/>
+        android:inputType="textEmailAddress"/>
     <EditText
         android:id="@+id/user_name"
         android:layout_width="match_parent"
@@ -76,19 +76,19 @@ tools:context="com.example.finalyearprojectuser.logIn.LogIn">
         android:hint="user name"
         android:drawablePadding="10dp"
         android:paddingLeft="8dp"
-        android:inputType="phone"/>
+        android:inputType="text"/>
 
-    <EditText
-        android:id="@+id/user_city"
-        android:layout_width="match_parent"
-        android:layout_height="53dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/rounded_corner"
-        android:drawableLeft="@drawable/blood_placeholder_icon"
-        android:hint="City"
-        android:drawablePadding="10dp"
-        android:paddingLeft="8dp"
-        android:inputType="phone"/>
+<!--    <EditText-->
+<!--        android:id="@+id/user_city"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="53dp"-->
+<!--        android:layout_margin="10dp"-->
+<!--        android:background="@drawable/rounded_corner"-->
+<!--        android:drawableLeft="@drawable/blood_placeholder_icon"-->
+<!--        android:hint="City"-->
+<!--        android:drawablePadding="10dp"-->
+<!--        android:paddingLeft="8dp"-->
+<!--        android:inputType="phone"/>-->
 <!--    <EditText-->
 <!--        android:id="@+id/pinCode"-->
 <!--        android:layout_width="match_parent"-->

@@ -105,7 +105,7 @@ public class OtpActivity extends AppCompatActivity {
 
     private void checkUserProfile() {
         String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("user");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("user").child(currentUserId);
         databaseReference.equalTo(currentUserId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
