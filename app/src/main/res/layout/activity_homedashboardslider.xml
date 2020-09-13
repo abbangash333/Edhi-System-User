@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whitegrey"
-    tools:context=".homedashboardslider.HomeDashBoardSlider">
+    tools:context=".home.homedashboardslider.HomeDashBoardSlider">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,9 +33,13 @@
                 android:textSize="16sp"></TextView>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recent_missing_scroll_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+                android:id="@+id/recent_missing_recycleView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollbars="horizontal"
+                android:scrollbarStyle="insideInset">
+
+            </androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
 
         <LinearLayout
@@ -50,12 +54,6 @@
                 android:textColor="@color/blackColor"
                 android:textSize="16sp"></TextView>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recent_blood_post_scroll_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
 
         <TextView
@@ -71,7 +69,8 @@
             android:layout_height="match_parent"
             android:background="@color/whitegrey"
             android:columnCount="4"
-            android:rowCount="2">
+            android:rowCount="2"
+            android:layout_marginBottom="8dp">
 
             <LinearLayout
                 android:id="@+id/redSquare"

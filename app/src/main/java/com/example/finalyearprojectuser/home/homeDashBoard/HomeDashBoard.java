@@ -1,4 +1,4 @@
-package com.example.finalyearprojectuser.homeDashBoard;
+package com.example.finalyearprojectuser.home.homeDashBoard;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 

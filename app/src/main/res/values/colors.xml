@@ -8,8 +8,10 @@
     <color name="whitegrey">#F7F2F2</color>
     <color name="clickColor">#479ade</color>
     <color name="greyColor">#626669</color>
+    <color name="white">#FFFFFF</color>
     <color name="bloodFragmentbackgroundColor">#95D8D5D5</color>
     <color name="lightGray">#F2F2F2</color>
+
 
     <color name="disabledBtnBg">#999999</color>
 </resources>

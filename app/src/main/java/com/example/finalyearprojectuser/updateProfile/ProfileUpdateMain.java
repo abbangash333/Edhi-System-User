@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.finalyearprojectuser.homeDashBoard.HomeDashBoard;
+import com.example.finalyearprojectuser.home.homeDashBoard.HomeDashBoard;
 import com.example.finalyearprojectuser.R;
 
 public class ProfileUpdateMain extends AppCompatActivity {

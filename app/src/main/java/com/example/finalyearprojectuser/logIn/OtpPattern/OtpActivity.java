@@ -1,7 +1,6 @@
 package com.example.finalyearprojectuser.logIn.OtpPattern;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,7 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.finalyearprojectuser.R;
-import com.example.finalyearprojectuser.homedashboardslider.HomeDashBoardSlider;
+import com.example.finalyearprojectuser.home.homedashboardslider.HomeDashBoardSlider;
 import com.example.finalyearprojectuser.signUp.Sign_up;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,11 +22,8 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class OtpActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -105,29 +101,40 @@ public class OtpActivity extends AppCompatActivity {
 
     private void checkUserProfile() {
         String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("user").child(currentUserId);
-        databaseReference.equalTo(currentUserId).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    //   sendUserToHome();
-                    Intent intent = new Intent(getApplicationContext(), HomeDashBoardSlider.class);
-                    startActivity(intent);
-                    finish();
-                } else {
-                    // sentUserToProfile();
-                    Intent intent = new Intent(getApplicationContext(), Sign_up.class);
-                    startActivity(intent);
-                    finish();
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("users/"+currentUserId);
+//        databaseReference.equalTo(currentUserId).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                if (dataSnapshot.exists()) {
+//                    //   sendUserToHome();
+//                    Intent intent = new Intent(getApplicationContext(), HomeDashBoardSlider.class);
+//                    startActivity(intent);
+//                    finish();
+//                } else {
+//                    // sentUserToProfile();
+//                    Intent intent = new Intent(getApplicationContext(), Sign_up.class);
+//                    startActivity(intent);
+//                    finish();
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+        if(databaseReference!=null)
+        {
+            Intent intent = new Intent(getApplicationContext(), HomeDashBoardSlider.class);
+            startActivity(intent);
+            finish();
+        }
+        else if(databaseReference==null) {
+            Intent intent = new Intent(getApplicationContext(), Sign_up.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
 

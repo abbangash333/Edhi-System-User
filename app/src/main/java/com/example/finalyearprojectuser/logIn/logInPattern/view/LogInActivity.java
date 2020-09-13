@@ -14,8 +14,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.finalyearprojectuser.homeDashBoard.HomeDashBoard;
-import com.example.finalyearprojectuser.homedashboardslider.HomeDashBoardSlider;
 import com.example.finalyearprojectuser.logIn.OtpPattern.OtpActivity;
 import com.example.finalyearprojectuser.logIn.logInPattern.presenter.ILogInPresenter;
 import com.example.finalyearprojectuser.logIn.logInPattern.presenter.LogInPresenter;
@@ -29,7 +27,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 
-import java.lang.reflect.Type;
 import java.util.concurrent.TimeUnit;
 
 public class LogInActivity extends AppCompatActivity implements ILogInView, View.OnClickListener  {

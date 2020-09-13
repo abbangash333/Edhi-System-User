@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.finalyearprojectuser.R;
-import com.example.finalyearprojectuser.homedashboardslider.HomeDashBoardSlider;
+import com.example.finalyearprojectuser.home.homedashboardslider.HomeDashBoardSlider;
 import com.example.finalyearprojectuser.signUp.Sign_up;
 
 public class LogIn extends AppCompatActivity {

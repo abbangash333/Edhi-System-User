@@ -16,45 +16,45 @@
         <activity android:name="com.example.finalyearprojectuser.logIn.OtpPattern.OtpActivity"
             android:parentActivityName="com.example.finalyearprojectuser.logIn.logInPattern.view.LogInActivity"></activity>
         <activity android:name="com.example.finalyearprojectuser.logIn.logInPattern.view.LogInActivity" />
-        <activity android:name="com.example.finalyearprojectuser.homedashboardslider.HomeDashBoardSlider" />
+        <activity android:name=".home.homedashboardslider.HomeDashBoardSlider" />
         <activity
             android:name="com.example.finalyearprojectuser.homeSearchAndNotification.HomeButtomNavigation"
-            android:parentActivityName="com.example.finalyearprojectuser.homeDashBoard.HomeDashBoard" />
+            android:parentActivityName=".home.homeDashBoard.HomeDashBoard" />
         <activity
             android:name="com.example.finalyearprojectuser.centerManagement.CenterManagementDetailActivity"
             android:parentActivityName="com.example.finalyearprojectuser.centerManagement.CenterManagementSearch" />
         <activity
             android:name="com.example.finalyearprojectuser.centerManagement.CenterManagementSearch"
-            android:parentActivityName="com.example.finalyearprojectuser.homeDashBoard.HomeDashBoard" />
+            android:parentActivityName=".home.homeDashBoard.HomeDashBoard" />
         <activity
             android:name="com.example.finalyearprojectuser.updateProfile.ProfileUpdateMain"
-            android:parentActivityName="com.example.finalyearprojectuser.homeDashBoard.HomeDashBoard" />
+            android:parentActivityName=".home.homeDashBoard.HomeDashBoard" />
         <activity
             android:name="com.example.finalyearprojectuser.donationManagement.ItemDonation"
             android:parentActivityName="com.example.finalyearprojectuser.donationManagement.DonationMain" />
         <activity
             android:name="com.example.finalyearprojectuser.donationManagement.DonationMain"
-            android:parentActivityName="com.example.finalyearprojectuser.homeDashBoard.HomeDashBoard" />
+            android:parentActivityName=".home.homeDashBoard.HomeDashBoard" />
         <activity
             android:name="com.example.finalyearprojectuser.centersContactInformation.CentersAddresses"
             android:parentActivityName="com.example.finalyearprojectuser.centersContactInformation.ContactCenters" />
         <activity
             android:name="com.example.finalyearprojectuser.centersContactInformation.ContactCenters"
-            android:parentActivityName="com.example.finalyearprojectuser.homeDashBoard.HomeDashBoard" />
+            android:parentActivityName=".home.homeDashBoard.HomeDashBoard" />
         <activity
             android:name="com.example.finalyearprojectuser.missingPersonManagement.MissingPersonMain"
-            android:parentActivityName="com.example.finalyearprojectuser.homeDashBoard.HomeDashBoard" />
+            android:parentActivityName=".home.homeDashBoard.HomeDashBoard" />
         <activity
             android:name="com.example.finalyearprojectuser.edhiBloodBand.BloodBankMainActivity"
-            android:parentActivityName="com.example.finalyearprojectuser.homeDashBoard.HomeDashBoard" />
+            android:parentActivityName=".home.homeDashBoard.HomeDashBoard" />
         <activity
             android:name="com.example.finalyearprojectuser.ambulance.AmbulanceDetail"
             android:parentActivityName="com.example.finalyearprojectuser.ambulance.AmbulanceActivity" />
         <activity
             android:name="com.example.finalyearprojectuser.ambulance.AmbulanceActivity"
-            android:parentActivityName="com.example.finalyearprojectuser.homeDashBoard.HomeDashBoard" />
+            android:parentActivityName=".home.homeDashBoard.HomeDashBoard" />
         <activity
-            android:name="com.example.finalyearprojectuser.homeDashBoard.HomeDashBoard"
+            android:name=".home.homeDashBoard.HomeDashBoard"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name="com.example.finalyearprojectuser.signUp.Sign_up"

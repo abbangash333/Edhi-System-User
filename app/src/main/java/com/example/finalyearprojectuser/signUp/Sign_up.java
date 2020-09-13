@@ -1,10 +1,8 @@
 package com.example.finalyearprojectuser.signUp;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -21,18 +19,11 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.finalyearprojectuser.R;
-import com.example.finalyearprojectuser.homedashboardslider.HomeDashBoardSlider;
-import com.example.finalyearprojectuser.logIn.OtpPattern.OtpActivity;
+import com.example.finalyearprojectuser.home.homedashboardslider.HomeDashBoardSlider;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
