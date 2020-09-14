@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
 import com.example.finalyearprojectuser.R;
+import com.example.finalyearprojectuser.home.blooPostRecycleV.BloodPostR;
+import com.example.finalyearprojectuser.home.blooPostRecycleV.BloodPostsAdapter;
 import com.example.finalyearprojectuser.home.missingRecycleView.MissingAdapterR;
 import com.example.finalyearprojectuser.home.missingRecycleView.MissingPersonR;
 import com.google.firebase.database.DataSnapshot;
@@ -29,22 +31,28 @@ public class HomeDashBoardSlider extends AppCompatActivity {
     private ViewFlipper simpleViewFlipper;
     // array of images
     int[] images = {R.drawable.flipperimage1, R.drawable.flipperimage2};
-    public static final String[] names= {"Breaking Bad","Rick and Morty"};
+    public static final String[] names = {"Breaking Bad", "Rick and Morty"};
     RecyclerView recyclerViewMisingImage;
+    RecyclerView recyclerViewBloodPostHome;
     MissingAdapterR missingAdapterR;
+    BloodPostsAdapter bloodPostsAdapter;
     List<MissingPersonR> missingPersonRArrayList;
+    List<BloodPostR> bloodPostHomeList;
     FirebaseDatabase firebaseDatabaseM;
     DatabaseReference databaseReferenceM;
+    FirebaseDatabase firebaseDatabaseB;
+    DatabaseReference databaseReferenceB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homedashboardslider);
         getSupportActionBar().setTitle("EDHI Welfare Trust");
-        simpleViewFlipper =  findViewById(R.id.frontPageViewFlipper); // get the reference of ViewFlipper
+        simpleViewFlipper = findViewById(R.id.frontPageViewFlipper); // get the reference of ViewFlipper
         recyclerViewMisingImage = findViewById(R.id.recent_missing_recycleView);
+        recyclerViewBloodPostHome = findViewById(R.id.recent_blood_posts_home);
         firebaseDatabaseM = FirebaseDatabase.getInstance();
         databaseReferenceM = FirebaseDatabase.getInstance().getReference("missing_requests");
-        RecyclerView.LayoutManager recycleManager= new LinearLayoutManager(HomeDashBoardSlider.this);
+        RecyclerView.LayoutManager recycleManager = new LinearLayoutManager(HomeDashBoardSlider.this);
 
         // loop for creating ImageView's
         for (int i = 0; i < images.length; i++) {
@@ -53,6 +61,7 @@ public class HomeDashBoardSlider extends AppCompatActivity {
             imageView.setImageResource(images[i]); // set image in ImageView
             simpleViewFlipper.addView(imageView); // add the created ImageView in ViewFlipper
             missingPersonRArrayList = new ArrayList<>();
+            bloodPostHomeList = new ArrayList<>();
         }
         // Declare in and out animations and load them using AnimationUtils class
         Animation in = AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left);
@@ -65,29 +74,74 @@ public class HomeDashBoardSlider extends AppCompatActivity {
         // set auto start for flipping between views
         simpleViewFlipper.setAutoStart(true);
         recyclerViewMisingImage.setLayoutManager(recycleManager);
-       databaseReferenceM.addValueEventListener(new ValueEventListener() {
-           @Override
-           public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-               for(DataSnapshot missingPosts : dataSnapshot.getChildren()){
-                   MissingPersonR missingPersonR = missingPosts.getValue(MissingPersonR.class);
-                   missingPersonRArrayList.add(missingPersonR);
 
-               }
-               missingAdapterR = new MissingAdapterR(getApplicationContext(),missingPersonRArrayList);
-               recyclerViewMisingImage.setAdapter(missingAdapterR);
-           }
+        //this method is used to load the missing person post into the application home screen
+        loadMissingPersonPosts();
+        //this method is used to load the blood posts into the application home screen
+        loadBloodPosts();
 
-           @Override
-           public void onCancelled(@NonNull DatabaseError databaseError) {
+    }
 
-           }
-       });
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //this method is used to load the posts of missing person from firebase
+        loadMissingPersonPosts();
+        //this method is used to load the posts of blood from firebase
+        loadBloodPosts();
+    }
 
-        LinearLayoutManager horizontalMn = new LinearLayoutManager(HomeDashBoardSlider.this,LinearLayoutManager.HORIZONTAL,false);
+    private void loadMissingPersonPosts() {
+        databaseReferenceM = FirebaseDatabase.getInstance().getReference("missing_requests");
+        RecyclerView.LayoutManager recycleManager = new LinearLayoutManager(HomeDashBoardSlider.this);
+        databaseReferenceM.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot missingPosts : dataSnapshot.getChildren()) {
+                    MissingPersonR missingPersonR = missingPosts.getValue(MissingPersonR.class);
+                    missingPersonRArrayList.add(missingPersonR);
+
+                }
+                missingAdapterR = new MissingAdapterR(getApplicationContext(), missingPersonRArrayList);
+                recyclerViewMisingImage.setAdapter(missingAdapterR);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        LinearLayoutManager horizontalMn = new LinearLayoutManager(HomeDashBoardSlider.this, LinearLayoutManager.HORIZONTAL, false);
         recyclerViewMisingImage.setLayoutManager(horizontalMn);
         recyclerViewMisingImage.setNestedScrollingEnabled(false);
         recyclerViewMisingImage.setItemAnimator(new DefaultItemAnimator());
+    }
+    private void loadBloodPosts() {
+        databaseReferenceB = FirebaseDatabase.getInstance().getReference("blood_requests");
+        RecyclerView.LayoutManager recycleManager = new LinearLayoutManager(HomeDashBoardSlider.this);
+        databaseReferenceB.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot bloodPost : dataSnapshot.getChildren()) {
+                    BloodPostR bposts = bloodPost.getValue(BloodPostR.class);
+                    bloodPostHomeList.add(bposts);
 
+                }
+                bloodPostsAdapter = new BloodPostsAdapter(bloodPostHomeList,getApplicationContext());
+                recyclerViewBloodPostHome.setAdapter(bloodPostsAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        LinearLayoutManager horizontalMn = new LinearLayoutManager(HomeDashBoardSlider.this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewBloodPostHome.setLayoutManager(horizontalMn);
+        recyclerViewBloodPostHome.setNestedScrollingEnabled(false);
+        recyclerViewBloodPostHome.setItemAnimator(new DefaultItemAnimator());
     }
 
 }

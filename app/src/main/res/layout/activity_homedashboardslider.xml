@@ -53,6 +53,13 @@
                 android:text="Recent Blood Posts"
                 android:textColor="@color/blackColor"
                 android:textSize="16sp"></TextView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recent_blood_posts_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollbars="horizontal"
+                android:scrollbarStyle="insideInset">
+            </androidx.recyclerview.widget.RecyclerView>
 
         </LinearLayout>
 
