@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.finalyearprojectuser.home.homedashboardslider.HomeDashBoardSlider;
 import com.example.finalyearprojectuser.logIn.OtpPattern.OtpActivity;
 import com.example.finalyearprojectuser.logIn.logInPattern.presenter.ILogInPresenter;
 import com.example.finalyearprojectuser.logIn.logInPattern.presenter.LogInPresenter;
@@ -97,12 +98,6 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
         } else
             Toast.makeText(this, "Login Fail, code = ", Toast.LENGTH_SHORT).show();
 
-    }
-
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
     }
 
     @Override
@@ -215,7 +210,7 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
     }
 // this activity will send us to Home screen
    private void sendUserToHome() {
-        Intent homeIntent = new Intent(LogInActivity.this, OtpActivity.class);
+        Intent homeIntent = new Intent(LogInActivity.this, HomeDashBoardSlider.class);
         homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(homeIntent);
