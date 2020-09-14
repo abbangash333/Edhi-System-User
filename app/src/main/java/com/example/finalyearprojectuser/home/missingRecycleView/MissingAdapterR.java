@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.finalyearprojectuser.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,10 +20,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MissingAdapterR extends RecyclerView.Adapter<MissingAdapterR.ViewHolder> {
-    ArrayList<MissingPersonR> missingPersonRArrayList;
+    List<MissingPersonR> missingPersonRArrayList;
     private Context context;
 
-    public MissingAdapterR(Context context,ArrayList<MissingPersonR> missingPersonRArrayList) {
+    public MissingAdapterR(Context context,List<MissingPersonR> missingPersonRArrayList) {
         this.context = context;
         this.missingPersonRArrayList = missingPersonRArrayList;
     }
@@ -39,8 +40,14 @@ public class MissingAdapterR extends RecyclerView.Adapter<MissingAdapterR.ViewHo
     @Override
     public void onBindViewHolder(@NonNull MissingAdapterR.ViewHolder holder, int position) {
        MissingPersonR missingPersonR = missingPersonRArrayList.get(position);
-       holder.imgMissingR.setImageResource(missingPersonR.getImgPosition());
-       holder.nameMissingR.setText(missingPersonR.getName());
+//       holder.imgMissingR.setImageResource(missingPersonR.getImage_url());
+       holder.nameMissingR.setText(missingPersonR.getMissing_name());
+        Picasso.get()
+                .load(missingPersonR.getImage_url())
+                .placeholder(R.mipmap.ic_launcher)
+                .fit()
+                .centerCrop()
+                .into(holder.imgMissingR);
        holder.cardViewMissinR.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
