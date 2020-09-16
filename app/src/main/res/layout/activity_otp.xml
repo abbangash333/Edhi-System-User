@@ -103,7 +103,6 @@
         android:layout_width="16dp"
         android:layout_height="16dp"
         android:layout_marginEnd="16dp"
-        android:indeterminateDrawable="@drawable/progress_bar_icon"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/verify_btn"
         app:layout_constraintEnd_toEndOf="@+id/verify_btn"

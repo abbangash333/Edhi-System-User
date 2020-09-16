@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.finalyearprojectuser.R;
 import com.example.finalyearprojectuser.home.homedashboardslider.HomeDashBoardSlider;
@@ -115,6 +116,7 @@ public class OtpActivity extends AppCompatActivity {
                     finish();
                 } else {
                     // sentUserToProfile();
+                    Toast.makeText(getApplicationContext(),"OTP verified Successfully",Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(getApplicationContext(), Sign_up.class);
                     startActivity(intent);
                     finish();

@@ -1,9 +1,18 @@
 package com.example.finalyearprojectuser.logIn.logInPattern.view;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.finalyearprojectuser.R;
+
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -59,6 +68,7 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
         mGenerateBtn.setOnClickListener(this);
         loginPresenter = new LogInPresenter(this);
         loginPresenter.setProgressBarVisiblity(View.INVISIBLE);
+        cheInternetConnection();
 
 
     }
@@ -90,18 +100,19 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
 
     @Override
     public void onLoginResult(Boolean result) {
-        loginPresenter.setProgressBarVisiblity(View.INVISIBLE);
+       // loginPresenter.setProgressBarVisiblity(View.INVISIBLE);
         mGenerateBtn.setEnabled(true);
         if (result) {
-            Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "OTP sent successfully", Toast.LENGTH_SHORT).show();
             loginPresenter.switchToOTP(this, OtpActivity.class);
         } else
-            Toast.makeText(this, "Login Fail, code = ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "OTP sending failed = ", Toast.LENGTH_SHORT).show();
 
     }
 
     @Override
     public void onSetProgressBarVisibility(int visibility) {
+
         progressBar.setVisibility(visibility);
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -116,38 +127,39 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
         mprgr.setVisibility(View.INVISIBLE);
         mCountryCode.setText("+92");
         mCountryCode.setInputType(InputType.TYPE_NULL);
-        mGenerateBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String phone_number = mPhoneNumber.getText().toString();
-                if(phone_number.isEmpty()){
-                    mLoginFeedbackText.setText("Please fill in the form to continue.");
-                    mLoginFeedbackText.setVisibility(View.VISIBLE);
-                }
-             if (phone_number.length()<11 || phone_number.length()>11)
-                {
-                 mLoginFeedbackText.setText("Please enter valid a Phone Number");
-                 mLoginFeedbackText.setVisibility(View.VISIBLE);
+       if (cheInternetConnection()==true)
+       {
+           mGenerateBtn.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                   String phone_number = mPhoneNumber.getText().toString();
+                   if(phone_number.isEmpty()){
+                       mLoginFeedbackText.setText("Please fill in the form to continue.");
+                       mLoginFeedbackText.setVisibility(View.VISIBLE);
+                   }
+                   if (phone_number.length()<11 || phone_number.length()>11)
+                   {
+                       mLoginFeedbackText.setText("Please enter valid a Phone Number");
+                       mLoginFeedbackText.setVisibility(View.VISIBLE);
 
-                }
-                else {
-                    mLoginProgress.setVisibility(View.VISIBLE);
-                    mGenerateBtn.setEnabled(false);
-                    mLoginFeedbackText.setText("");
-                    //verification();
-                    String complete_phone_number =phone_number.substring(1);
-                    PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                            "+92"+complete_phone_number,
-                            60,
-                            TimeUnit.SECONDS,
-                            LogInActivity.this,
-                            mCallbacks
-                   );
-
-                }
-            }
-        });
-
+                   }
+                   else {
+                       mLoginProgress.setVisibility(View.VISIBLE);
+                       mGenerateBtn.setEnabled(false);
+                       mLoginFeedbackText.setText("");
+                       //verification();
+                       String complete_phone_number =phone_number.substring(1);
+                       PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                               "+92"+complete_phone_number,
+                               60,
+                               TimeUnit.SECONDS,
+                               LogInActivity.this,
+                               mCallbacks
+                       );
+                   }
+               }
+           });
+       }
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
            public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
@@ -168,6 +180,8 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
                             public void run() {
                                 Intent otpIntent = new Intent(LogInActivity.this, OtpActivity.class);
                                otpIntent.putExtra("AuthCredentials", s);
+                                Toast.makeText(getApplicationContext(),"OTP Sent Successfully",
+                                        Toast.LENGTH_LONG).show();
                                 startActivity(otpIntent);
                                 finish();
                             }
@@ -226,6 +240,23 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
     @Override
     public void onBackPressed() {
       super.onBackPressed();
+    }
+
+    public Boolean cheInternetConnection() {
+        boolean connected = false;
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            //we are connected to a network
+            connected = true;
+        } else {
+
+            Toast.makeText(getApplicationContext(), "Please! Connect to Internet", Toast.LENGTH_LONG).show();
+            connected = false;
+
+
+        }
+        return connected;
     }
 }
 

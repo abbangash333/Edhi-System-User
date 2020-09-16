@@ -6,11 +6,14 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.example.finalyearprojectuser.R;
@@ -24,6 +27,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.ref.PhantomReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,11 +46,19 @@ public class HomeDashBoardSlider extends AppCompatActivity {
     DatabaseReference databaseReferenceM;
     FirebaseDatabase firebaseDatabaseB;
     DatabaseReference databaseReferenceB;
+    ProgressDialog progressBarHomeLoading;
+    private int backpress;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homedashboardslider);
         getSupportActionBar().setTitle("EDHI Welfare Trust");
+        progressBarHomeLoading = new ProgressDialog(HomeDashBoardSlider.this);
+        progressBarHomeLoading.show();
+        progressBarHomeLoading.setContentView(R.layout.progress_br);
+        progressBarHomeLoading.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        startProgressBar();
         simpleViewFlipper = findViewById(R.id.frontPageViewFlipper); // get the reference of ViewFlipper
         recyclerViewMisingImage = findViewById(R.id.recent_missing_recycleView);
         recyclerViewBloodPostHome = findViewById(R.id.recent_blood_posts_home);
@@ -80,6 +92,23 @@ public class HomeDashBoardSlider extends AppCompatActivity {
         //this method is used to load the blood posts into the application home screen
         loadBloodPosts();
 
+    }
+
+    private void startProgressBar() {
+        Thread timer = new Thread()
+        {
+            @Override
+            public void run() {
+                try {
+                    sleep(3000);
+                    progressBarHomeLoading.dismiss();
+                    super.run();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        timer.start();
     }
 
     @Override
@@ -144,4 +173,13 @@ public class HomeDashBoardSlider extends AppCompatActivity {
         recyclerViewBloodPostHome.setItemAnimator(new DefaultItemAnimator());
     }
 
+    @Override
+    public void onBackPressed() {
+        backpress = (backpress + 1);
+        Toast.makeText(getApplicationContext(), " Press Back again to Exit ", Toast.LENGTH_SHORT).show();
+
+        if (backpress>1) {
+            this.finish();
+        }
+    }
 }

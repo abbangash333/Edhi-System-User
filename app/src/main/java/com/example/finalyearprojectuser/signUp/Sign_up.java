@@ -16,10 +16,13 @@ import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.finalyearprojectuser.R;
 import com.example.finalyearprojectuser.home.homedashboardslider.HomeDashBoardSlider;
+import com.example.finalyearprojectuser.logIn.OtpPattern.OtpActivity;
+import com.example.finalyearprojectuser.logIn.logInPattern.view.LogInActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -40,18 +43,21 @@ public class Sign_up extends AppCompatActivity {
     DatabaseReference databaseReference;
     private Uri FilePathUri;
     StorageReference storageReference;
+    ProgressBar signUpProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         getSupportActionBar().setTitle("Sign Up");
+        signUpProgressBar = findViewById(R.id.sign_up_progress_bar);
         userProfilePicture = findViewById(R.id.take_profile_picture_fromGallery);
         userEmail = findViewById(R.id.user_email);
         userName = findViewById(R.id.user_name);
         signUpBtn = findViewById(R.id.sign_up_btn);
         databaseReference = FirebaseDatabase.getInstance().getReference();
         storageReference = FirebaseStorage.getInstance().getReference("profile_images");
+        signUpProgressBar.setVisibility(View.GONE);
         userProfilePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,9 +73,17 @@ public class Sign_up extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 UserInfoUpload();
+                showProgressBar();
                 sendUserToHome();
+
             }
+
         });
+    }
+
+    private void showProgressBar() {
+        //signUpProgressBar.setVisibility(View.VISIBLE);
+        Toast.makeText(getApplicationContext(), "Profile created Successfully ", Toast.LENGTH_SHORT).show();
     }
 
     private void sendUserToHome() {
@@ -77,14 +91,11 @@ public class Sign_up extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
+        finish();
     }
 
     private void UserInfoUpload() {
         if (FilePathUri != null) {
-
-            AlertDialog.Builder progressDialog = new AlertDialog.Builder(this);
-            progressDialog.setTitle("Image is Uploading...");
-            //progressDialog.show();
             String uName = userName.getText().toString().trim();
             String uEmail = userEmail.getText().toString();
             String getId = firebaseAuth.getInstance().getCurrentUser().getUid();
@@ -93,7 +104,6 @@ public class Sign_up extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Toast.makeText(getApplicationContext(), "Image Uploaded Successfully ", Toast.LENGTH_LONG).show();
                             @SuppressWarnings("VisibleForTests")
                             UploadUserInfo imageUploadInfo = new UploadUserInfo(uName,uEmail, taskSnapshot.getUploadSessionUri().toString());
                             //String ImageUploadId = databaseReference.push().getKey();
