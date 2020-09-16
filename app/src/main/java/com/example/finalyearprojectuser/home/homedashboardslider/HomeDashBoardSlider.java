@@ -7,8 +7,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -21,6 +24,7 @@ import com.example.finalyearprojectuser.home.blooPostRecycleV.BloodPostR;
 import com.example.finalyearprojectuser.home.blooPostRecycleV.BloodPostsAdapter;
 import com.example.finalyearprojectuser.home.missingRecycleView.MissingAdapterR;
 import com.example.finalyearprojectuser.home.missingRecycleView.MissingPersonR;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -181,5 +185,29 @@ public class HomeDashBoardSlider extends AppCompatActivity {
         if (backpress>1) {
             this.finish();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.hom_screen_option_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.log_out:
+            {
+                FirebaseAuth.getInstance().signOut();
+                ToastMessages(getApplicationContext(),"You have logOut");
+                this.finishAffinity();
+            }
+        }
+        return true;
+    }
+
+    private void ToastMessages(Context context, String message) {
+        Toast.makeText(context, message,Toast.LENGTH_SHORT).show();
     }
 }
