@@ -37,7 +37,7 @@ public class BloodDetail extends AppCompatActivity {
         location = findViewById(R.id.location_txt);
         requestType = findViewById(R.id.request_txt);
         ageForBlood = findViewById(R.id.age_of_person_txt);
-        genderForBlood = findViewById(R.id.age_of_person_txt);
+        genderForBlood = findViewById(R.id.gender_for_blood_txt);
         fullAddressForBlood = findViewById(R.id.full_address_of_person_txt);
         callButtonForBlood = findViewById(R.id.blood_poster_call_btn);
 

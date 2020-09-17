@@ -47,7 +47,7 @@ public class BloodPostsAdapter extends RecyclerView.Adapter<BloodPostsAdapter.Vi
                 intent.putExtra("bloodFor",bloodPostR.getBlood_for());
                 intent.putExtra("blood",bloodPostR.getBlood_group());
                 intent.putExtra("location",bloodPostR.getRefer_city());
-                intent.putExtra("request",bloodPostR.getRquest_type());
+                intent.putExtra("request",bloodPostR.getRequest_type());
                 intent.putExtra("age",bloodPostR.getAge());
                 intent.putExtra("gender",bloodPostR.getGender());
                 intent.putExtra("fullAddress",bloodPostR.getFull_address());

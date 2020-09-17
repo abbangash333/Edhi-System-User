@@ -9,7 +9,7 @@ public class BloodPostR {
     String phone_number;
     String refer_city;
     String request_key;
-    String rquest_type;
+    String request_type;
     String user_key;
 
     public BloodPostR() {
@@ -19,7 +19,7 @@ public class BloodPostR {
                       String blood_group, String full_address,
                       String gender, String phone_number,
                       String refer_city, String request_key,
-                      String rquest_type, String user_key) {
+                      String request_type, String user_key) {
         this.age = age;
         this.blood_for = blood_for;
         this.blood_group = blood_group;
@@ -28,7 +28,7 @@ public class BloodPostR {
         this.phone_number = phone_number;
         this.refer_city = refer_city;
         this.request_key = request_key;
-        this.rquest_type = rquest_type;
+        this.request_type = request_type;
         this.user_key = user_key;
     }
 
@@ -96,12 +96,12 @@ public class BloodPostR {
         this.request_key = request_key;
     }
 
-    public String getRquest_type() {
-        return rquest_type;
+    public String getRequest_type() {
+        return request_type;
     }
 
-    public void setRquest_type(String rquest_type) {
-        this.rquest_type = rquest_type;
+    public void setRequest_type(String request_type) {
+        this.request_type = request_type;
     }
 
     public String getUser_key() {
