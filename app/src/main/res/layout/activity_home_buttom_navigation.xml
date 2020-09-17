@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".homeSearchAndNotification.HomeButtomNavigation">
+    tools:context=".homeSearchAndNotification.homeButtomNavigation.HomeButtomNavigation">
     <FrameLayout
         android:id="@+id/bottom_navigation_frame_container"
         android:layout_width="match_parent"

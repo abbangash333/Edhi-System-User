@@ -1,4 +1,4 @@
-package com.example.finalyearprojectuser.homeSearchAndNotification;
+package com.example.finalyearprojectuser.homeSearchAndNotification.homeButtomNavigation;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;

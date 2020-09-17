@@ -1,4 +1,4 @@
-package com.example.finalyearprojectuser.homeSearchAndNotification;
+package com.example.finalyearprojectuser.homeSearchAndNotification.homeButtomNavigation;
 
 
 import android.os.Bundle;
@@ -14,10 +14,10 @@ import com.example.finalyearprojectuser.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Fragment_bottom_missing_posts extends Fragment {
+public class Fragment_bottom_notifications_posts extends Fragment {
 
 
-    public Fragment_bottom_missing_posts() {
+    public Fragment_bottom_notifications_posts() {
         // Required empty public constructor
     }
 
@@ -26,7 +26,7 @@ public class Fragment_bottom_missing_posts extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment_bottom_missing_posts, container, false);
+        return inflater.inflate(R.layout.fragment_fragment_bottom_notifications_posts, container, false);
     }
 
 }

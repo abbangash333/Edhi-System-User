@@ -3,12 +3,12 @@
 
     <item
         android:id="@+id/miising_post_menu"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@drawable/froncentericon"
         android:title="@string/title_missing" />
 
     <item
         android:id="@+id/blood_post_menu"
-        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:icon="@drawable/frontdonationicon"
         android:title="@string/title_blood" />
 
     <item
