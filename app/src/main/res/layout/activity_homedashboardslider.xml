@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_centerHorizontal="true"></ViewFlipper>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -42,11 +43,12 @@
                 android:id="@+id/recent_missing_recycleView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scrollbars="horizontal"
-                android:scrollbarStyle="insideInset">
+                android:scrollbarStyle="insideInset"
+                android:scrollbars="horizontal">
 
             </androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -64,15 +66,16 @@
                 android:text="Recent Blood Posts"
                 android:textColor="@color/blackColor"
                 android:textSize="16sp"></TextView>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recent_blood_posts_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scrollbars="horizontal"
-                android:scrollbarStyle="insideInset">
-            </androidx.recyclerview.widget.RecyclerView>
+                android:scrollbarStyle="insideInset"
+                android:scrollbars="horizontal"></androidx.recyclerview.widget.RecyclerView>
 
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -90,10 +93,10 @@
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
             android:background="@color/whitegrey"
             android:columnCount="4"
-            android:rowCount="2"
-            android:layout_marginBottom="8dp">
+            android:rowCount="2">
 
             <LinearLayout
                 android:id="@+id/redSquare"
@@ -109,6 +112,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
+                    android:id="@+id/home_btn"
                     android:layout_width="71dp"
                     android:layout_height="71dp"
                     android:layout_gravity="center_horizontal"
@@ -135,6 +139,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
+                    android:id="@+id/ambulance_btn"
                     android:layout_width="71dp"
                     android:layout_height="71dp"
                     android:layout_gravity="center_horizontal"
@@ -145,7 +150,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Blood"
+                    android:text="Ambulances"
                     android:textColor="#000"></TextView>
             </LinearLayout>
 
@@ -161,6 +166,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
+                    android:id="@+id/blood_bank_btn"
                     android:layout_width="71dp"
                     android:layout_height="71dp"
                     android:layout_gravity="center_horizontal"
@@ -188,6 +194,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
+                    android:id="@+id/missing_dtl_btn"
                     android:layout_width="71dp"
                     android:layout_height="71dp"
                     android:layout_gravity="center_horizontal"
@@ -210,13 +217,14 @@
                 android:layout_rowSpan="1"
                 android:layout_column="0"
                 android:layout_columnSpan="1"
-                android:layout_marginBottom="8dp"
                 android:layout_columnWeight="1"
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
                 android:orientation="vertical">
 
                 <ImageButton
+                    android:id="@+id/contact_center_btn"
                     android:layout_width="71dp"
                     android:layout_height="71dp"
                     android:layout_gravity="center_horizontal"
@@ -227,7 +235,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Contact"
+                    android:text="Call Center"
                     android:textColor="#000"></TextView>
             </LinearLayout>
 
@@ -242,6 +250,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
+                    android:id="@+id/donate_btn"
                     android:layout_width="71dp"
                     android:layout_height="71dp"
                     android:layout_gravity="center_horizontal"
@@ -267,17 +276,18 @@
                 android:orientation="vertical">
 
                 <ImageButton
+                    android:id="@+id/center_detail_btn"
                     android:layout_width="71dp"
                     android:layout_height="71dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/fronpagecirularbutton"
-                    android:src="@drawable/frontediticon"></ImageButton>
+                    android:src="@drawable/froncentericon"></ImageButton>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Edit Profile"
+                    android:layout_gravity="center"
+                    android:text="Center"
                     android:textColor="#000"></TextView>
             </LinearLayout>
 
@@ -293,18 +303,20 @@
                 android:orientation="vertical">
 
                 <ImageButton
+                    android:id="@+id/edit_profile_btn"
                     android:layout_width="71dp"
                     android:layout_height="71dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/fronpagecirularbutton"
-                    android:src="@drawable/froncentericon"></ImageButton>
+                    android:src="@drawable/frontediticon"></ImageButton>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Center"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Edit Profile"
                     android:textColor="#000"></TextView>
+
 
             </LinearLayout>
         </GridLayout>

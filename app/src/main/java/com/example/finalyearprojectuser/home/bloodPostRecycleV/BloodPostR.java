@@ -1,4 +1,4 @@
-package com.example.finalyearprojectuser.home.blooPostRecycleV;
+package com.example.finalyearprojectuser.home.bloodPostRecycleV;
 
 public class BloodPostR {
     String age;
@@ -80,7 +80,7 @@ public class BloodPostR {
         this.phone_number = phone_number;
     }
 
-    public String getRefer_city() {
+    public String getRefer_city()          {
         return refer_city;
     }
 

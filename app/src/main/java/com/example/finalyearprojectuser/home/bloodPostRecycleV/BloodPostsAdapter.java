@@ -1,6 +1,7 @@
-package com.example.finalyearprojectuser.home.blooPostRecycleV;
+package com.example.finalyearprojectuser.home.bloodPostRecycleV;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.finalyearprojectuser.R;
-import com.example.finalyearprojectuser.edhiBloodBand.BloodPosts;
+import com.example.finalyearprojectuser.edhiBloodBand.bloodDetail.BloodDetail;
 
 import java.util.List;
 
@@ -42,6 +43,16 @@ public class BloodPostsAdapter extends RecyclerView.Adapter<BloodPostsAdapter.Vi
         holder.bloodpostsCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(context, BloodDetail.class);
+                intent.putExtra("bloodFor",bloodPostR.getBlood_for());
+                intent.putExtra("blood",bloodPostR.getBlood_group());
+                intent.putExtra("location",bloodPostR.getRefer_city());
+                intent.putExtra("request",bloodPostR.getRquest_type());
+                intent.putExtra("age",bloodPostR.getAge());
+                intent.putExtra("gender",bloodPostR.getGender());
+                intent.putExtra("fullAddress",bloodPostR.getFull_address());
+                intent.putExtra("phoneNumber",bloodPostR.getPhone_number());
+                context.startActivity(intent);
                 Toast.makeText(context, "blood post clicked", Toast.LENGTH_SHORT).show();
             }
         });

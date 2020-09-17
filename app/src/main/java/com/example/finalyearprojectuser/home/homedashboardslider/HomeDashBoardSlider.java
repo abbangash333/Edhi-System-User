@@ -8,22 +8,31 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.example.finalyearprojectuser.R;
-import com.example.finalyearprojectuser.home.blooPostRecycleV.BloodPostR;
-import com.example.finalyearprojectuser.home.blooPostRecycleV.BloodPostsAdapter;
+import com.example.finalyearprojectuser.ambulance.AmbulanceActivity;
+import com.example.finalyearprojectuser.centerManagement.CenterManagementSearch;
+import com.example.finalyearprojectuser.centersContactInformation.ContactCenters;
+import com.example.finalyearprojectuser.donationManagement.DonationMain;
+import com.example.finalyearprojectuser.edhiBloodBand.BloodBankMainActivity;
+import com.example.finalyearprojectuser.home.bloodPostRecycleV.BloodPostR;
+import com.example.finalyearprojectuser.home.bloodPostRecycleV.BloodPostsAdapter;
 import com.example.finalyearprojectuser.home.missingRecycleView.MissingAdapterR;
 import com.example.finalyearprojectuser.home.missingRecycleView.MissingPersonR;
+import com.example.finalyearprojectuser.homeSearchAndNotification.HomeButtomNavigation;
+import com.example.finalyearprojectuser.missingPersonManagement.MissingPersonMain;
+import com.example.finalyearprojectuser.updateProfile.ProfileUpdateMain;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,11 +40,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.lang.ref.PhantomReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeDashBoardSlider extends AppCompatActivity {
+public class HomeDashBoardSlider extends AppCompatActivity implements View.OnClickListener {
     private ViewFlipper simpleViewFlipper;
     // array of images
     int[] images = {R.drawable.flipperimage1, R.drawable.flipperimage2};
@@ -52,6 +60,14 @@ public class HomeDashBoardSlider extends AppCompatActivity {
     DatabaseReference databaseReferenceB;
     ProgressDialog progressBarHomeLoading;
     private int backpress;
+    private ImageButton homeActivityBtn;
+    private ImageButton ambulanceActivityBtn;
+    private ImageButton bloodBankActivityBtn;
+    private ImageButton missingPersonActivityBtn;
+    private ImageButton contactCenterActivityBtn;
+    private ImageButton donateActivityBtn;
+    private ImageButton centerInformationActivityBtn;
+    private ImageButton editProfileBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +84,14 @@ public class HomeDashBoardSlider extends AppCompatActivity {
         recyclerViewBloodPostHome = findViewById(R.id.recent_blood_posts_home);
         firebaseDatabaseM = FirebaseDatabase.getInstance();
         databaseReferenceM = FirebaseDatabase.getInstance().getReference("missing_requests");
+        homeActivityBtn = findViewById(R.id.home_btn);
+        ambulanceActivityBtn = findViewById(R.id.ambulance_btn);
+        bloodBankActivityBtn = findViewById(R.id.blood_bank_btn);
+        missingPersonActivityBtn = findViewById(R.id.missing_dtl_btn);
+        contactCenterActivityBtn = findViewById(R.id.contact_center_btn);
+        donateActivityBtn = findViewById(R.id.donate_btn);
+        centerInformationActivityBtn = findViewById(R.id.center_detail_btn);
+        editProfileBtn = findViewById(R.id.edit_profile_btn);
         RecyclerView.LayoutManager recycleManager = new LinearLayoutManager(HomeDashBoardSlider.this);
 
         // loop for creating ImageView's
@@ -95,6 +119,16 @@ public class HomeDashBoardSlider extends AppCompatActivity {
         loadMissingPersonPosts();
         //this method is used to load the blood posts into the application home screen
         loadBloodPosts();
+        //the click listener implemented for different btn
+        homeActivityBtn.setOnClickListener(this);
+        ambulanceActivityBtn.setOnClickListener(this);
+        bloodBankActivityBtn.setOnClickListener(this);
+        missingPersonActivityBtn.setOnClickListener(this);
+        contactCenterActivityBtn.setOnClickListener(this);
+        donateActivityBtn.setOnClickListener(this); ;
+        centerInformationActivityBtn.setOnClickListener(this);
+        editProfileBtn.setOnClickListener(this);
+
 
     }
 
@@ -206,8 +240,65 @@ public class HomeDashBoardSlider extends AppCompatActivity {
         }
         return true;
     }
-
+    //this method is for showing toast messages
     private void ToastMessages(Context context, String message) {
         Toast.makeText(context, message,Toast.LENGTH_SHORT).show();
     }
+
+    //this method will take btn id, and will guide to other activity
+    @Override
+    public void onClick(View v) {
+        switch (v.getId())
+        {
+            case R.id.home_btn:
+            {
+                Intent intent = new Intent(getApplicationContext(), HomeButtomNavigation.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.ambulance_btn:
+            {
+                Intent intent = new Intent(getApplicationContext(), AmbulanceActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.blood_bank_btn:
+            {
+                Intent intent = new Intent(getApplicationContext(), BloodBankMainActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.missing_dtl_btn:
+            {
+                Intent intent = new Intent(getApplicationContext(), MissingPersonMain.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.donate_btn:
+            {
+                Intent intent = new Intent(getApplicationContext(), DonationMain.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.contact_center_btn:
+            {
+                Intent intent = new Intent(getApplicationContext(), ContactCenters.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.center_detail_btn:
+            {
+                Intent intent = new Intent(getApplicationContext(), CenterManagementSearch.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.edit_profile_btn:
+            {
+                Intent intent = new Intent(getApplicationContext(), ProfileUpdateMain.class);
+                startActivity(intent);
+                break;
+            }
+        }
+    }
+
 }

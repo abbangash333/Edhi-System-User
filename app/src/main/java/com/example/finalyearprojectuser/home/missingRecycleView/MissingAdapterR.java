@@ -1,6 +1,7 @@
 package com.example.finalyearprojectuser.home.missingRecycleView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.finalyearprojectuser.R;
+import com.example.finalyearprojectuser.missingPersonManagement.missingPersonDeatail.MissingPersonDetail;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -51,6 +53,18 @@ public class MissingAdapterR extends RecyclerView.Adapter<MissingAdapterR.ViewHo
        holder.cardViewMissinR.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
+               Intent missingIndividualDetailActivty = new Intent(context, MissingPersonDetail.class);
+               missingIndividualDetailActivty.putExtra("name",missingPersonR.getMissing_name());
+               missingIndividualDetailActivty.putExtra("FromCity",missingPersonR.getCity());
+               missingIndividualDetailActivty.putExtra("MissingFrom",missingPersonR.getDissappeared_city());
+               missingIndividualDetailActivty.putExtra("status",missingPersonR.getMissing_status());
+               missingIndividualDetailActivty.putExtra("age",missingPersonR.getAge());
+               missingIndividualDetailActivty.putExtra("gender",missingPersonR.getGender());
+               missingIndividualDetailActivty.putExtra("date",missingPersonR.getDisappeared_date());
+               missingIndividualDetailActivty.putExtra("fullAddress",missingPersonR.getAddress());
+               missingIndividualDetailActivty.putExtra("phoneNumber",missingPersonR.getPhone_number());
+               missingIndividualDetailActivty.putExtra("imageUrl",missingPersonR.getImage_url());
+               context.startActivity(missingIndividualDetailActivty);
                Toast.makeText(context,"clicked",Toast.LENGTH_SHORT).show();
            }
        });
