@@ -5,11 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".homeSearchAndNotification.homeButtomNavigation.HomeButtomNavigation">
+
     <FrameLayout
         android:id="@+id/bottom_navigation_frame_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
@@ -19,20 +24,22 @@
             android:background="?android:attr/windowBackground"
             android:foreground="?attr/selectableItemBackground"
             app:itemBackground="@color/colorPrimary"
+            app:hideOnScroll="true"
             app:itemIconTint="@android:color/white"
             app:itemTextColor="@android:color/white"
             app:menu="@menu/bottom_nav_menu" />
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floating_action_home_post"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|bottom"
-                android:layout_marginBottom="70dp"
-                android:layout_marginRight="25dp"
-                android:clickable="true"
-                android:elevation="8dp"
-                app:backgroundTint="@color/colorPrimary"
-                app:srcCompat="@drawable/ic_baseline_add_24"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_action_home_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="70dp"
+            android:clickable="true"
+            android:elevation="8dp"
+            app:backgroundTint="@color/colorPrimary"
+            app:srcCompat="@drawable/ic_baseline_add_24" />
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

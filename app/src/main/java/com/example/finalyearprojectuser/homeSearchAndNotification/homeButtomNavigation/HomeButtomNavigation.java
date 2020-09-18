@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.finalyearprojectuser.R;
+import com.example.finalyearprojectuser.home.homedashboardslider.HomeDashBoardSlider;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeButtomNavigation extends AppCompatActivity {
@@ -21,8 +23,7 @@ public class HomeButtomNavigation extends AppCompatActivity {
         toolbar = getSupportActionBar();
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-        toolbar.setTitle("Missing Person Posts");
+        loadMissingTab();
 
     }
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -57,5 +58,19 @@ public class HomeButtomNavigation extends AppCompatActivity {
         transaction.replace(R.id.bottom_navigation_frame_container, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+    void  loadMissingTab()
+    {
+        Fragment fragment = new Fragment_bottom_missing_posts();
+        toolbar.setTitle("Missing Persons Post");
+        loadFragment(fragment);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), HomeDashBoardSlider.class);
+        startActivity(intent);
+        finish();
     }
 }
