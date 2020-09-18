@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.finalyearprojectuser.R;
 import com.example.finalyearprojectuser.home.homedashboardslider.HomeDashBoardSlider;
@@ -59,6 +60,13 @@ public class Fragment_bottom_missing_posts extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fragment_bottom_missing_posts, container, false);
         recyclerView = view.findViewById(R.id.fragment_bottom_missing_posts_recycle_view);
+        homeFloatingActionBtn = view.findViewById(R.id.floating_action_home_missing);
+        homeFloatingActionBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(),"missing",Toast.LENGTH_SHORT).show();
+            }
+        });
         loadMissingPersonPosts();
         return view;
 

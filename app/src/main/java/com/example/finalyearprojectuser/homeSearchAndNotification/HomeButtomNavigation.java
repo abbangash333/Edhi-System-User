@@ -15,9 +15,11 @@ import com.example.finalyearprojectuser.home.homedashboardslider.HomeDashBoardSl
 import com.example.finalyearprojectuser.homeSearchAndNotification.homeButtomNavigation.bloodPostRecycleView.Fragment_bottom_blood_posts;
 import com.example.finalyearprojectuser.homeSearchAndNotification.homeButtomNavigation.missingPersonPostR.Fragment_bottom_missing_posts;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class HomeButtomNavigation extends AppCompatActivity {
     private ActionBar toolbar;
+    private FloatingActionButton floatingActionButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

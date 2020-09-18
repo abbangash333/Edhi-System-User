@@ -15,8 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.finalyearprojectuser.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,6 +37,7 @@ public class Fragment_bottom_blood_posts extends Fragment {
     FragementBloodAdapter fragementBloodAdapter;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    FloatingActionButton floatingActionButton;
 
     public Fragment_bottom_blood_posts() {
         // Required empty public constructor
@@ -48,6 +51,13 @@ public class Fragment_bottom_blood_posts extends Fragment {
         bloodList = new ArrayList<>();
         View view = inflater.inflate(R.layout.fragment_fragment_bottom_blood_posts, container, false);
         recyclerViewBlood = view.findViewById(R.id.fragment_bottom_blood_posts_recycle_view);
+        floatingActionButton = view.findViewById(R.id.floating_action_home_blood);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(),"blood",Toast.LENGTH_SHORT).show();
+            }
+        });
         loadBloodPosts();
         return view;
     }
@@ -83,6 +93,10 @@ public class Fragment_bottom_blood_posts extends Fragment {
         recyclerViewBlood.addItemDecoration(horizontalDecoration);
         recyclerViewBlood.setNestedScrollingEnabled(false);
         recyclerViewBlood.setItemAnimator(new DefaultItemAnimator());
+    }
+    public void floatingActionBlood(FloatingActionButton floatingActionButton)
+    {
+
     }
 
 }
