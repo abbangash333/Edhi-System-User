@@ -10,12 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.finalyearprojectuser.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class Fragment_bottom_missing_posts extends Fragment {
-
+   FloatingActionButton homeFloatingActionBtn;
 
     public Fragment_bottom_missing_posts() {
         // Required empty public constructor
@@ -27,6 +28,7 @@ public class Fragment_bottom_missing_posts extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fragment_bottom_missing_posts, container, false);
+
     }
 
 }
