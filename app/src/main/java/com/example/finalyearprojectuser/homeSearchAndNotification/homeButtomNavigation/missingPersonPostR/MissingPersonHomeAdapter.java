@@ -11,12 +11,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.finalyearprojectuser.R;
-import com.example.finalyearprojectuser.home.missingRecycleView.MissingPersonR;
 import com.example.finalyearprojectuser.missingPersonManagement.missingPersonDeatail.MissingPersonDetail;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
-import java.util.zip.Inflater;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -86,10 +84,10 @@ public class MissingPersonHomeAdapter extends RecyclerView.Adapter<MissingPerson
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView =itemView.findViewById(R.id.bottom_missing_img_view);
-            nameP = itemView.findViewById(R.id.bottom_missing_post_name_txt);
-            statusP = itemView.findViewById(R.id.bottom_missing_group_txt);
-            dateP = itemView.findViewById(R.id.bottom_missing_location_date_txt);
-            mButton = itemView.findViewById(R.id.bottom_missing_call_btn);
+            nameP = itemView.findViewById(R.id.bottom_blood_post_name_txt);
+            statusP = itemView.findViewById(R.id.bottom_blood_group_txt);
+            dateP = itemView.findViewById(R.id.bottom_blood_location_date_txt);
+            mButton = itemView.findViewById(R.id.bottom_blood_detail_btn);
         }
     }
 }

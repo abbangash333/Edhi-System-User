@@ -1,4 +1,4 @@
-package com.example.finalyearprojectuser.homeSearchAndNotification.homeButtomNavigation;
+package com.example.finalyearprojectuser.homeSearchAndNotification;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -12,6 +12,8 @@ import android.view.MenuItem;
 
 import com.example.finalyearprojectuser.R;
 import com.example.finalyearprojectuser.home.homedashboardslider.HomeDashBoardSlider;
+import com.example.finalyearprojectuser.homeSearchAndNotification.homeButtomNavigation.bloodPostRecycleView.Fragment_bottom_blood_posts;
+import com.example.finalyearprojectuser.homeSearchAndNotification.homeButtomNavigation.missingPersonPostR.Fragment_bottom_missing_posts;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeButtomNavigation extends AppCompatActivity {
@@ -22,7 +24,9 @@ public class HomeButtomNavigation extends AppCompatActivity {
         setContentView(R.layout.activity_home_buttom_navigation);
         toolbar = getSupportActionBar();
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        //this method is called when we click on tab
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        //this will load the Missing tab
         loadMissingTab();
 
     }
@@ -43,23 +47,23 @@ public class HomeButtomNavigation extends AppCompatActivity {
                     fragment = new Fragment_bottom_blood_posts();
                     loadFragment(fragment);
                     return true;
-                case R.id.notifications_post_menu:
-                    toolbar.setTitle("Notifications");
-                    fragment = new Fragment_bottom_notifications_posts();
-                    loadFragment(fragment);
-                    return true;
+//                case R.id.notifications_post_menu:
+//                    toolbar.setTitle("Notifications");
+//                    fragment = new Fragment_bottom_notifications_posts();
+//                    loadFragment(fragment);
+//                    return true;
             }
             return false;
         }
     };
-
+ // this will load the fragment
     private void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.bottom_navigation_frame_container, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
     }
-
+   //load missing person data
     void  loadMissingTab()
     {
         Fragment fragment = new Fragment_bottom_missing_posts();

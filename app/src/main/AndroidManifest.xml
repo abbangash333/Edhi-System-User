@@ -22,7 +22,7 @@
         <activity android:name=".logIn.logInPattern.view.LogInActivity" />
         <activity android:name=".home.homedashboardslider.HomeDashBoardSlider" />
         <activity
-            android:name=".homeSearchAndNotification.homeButtomNavigation.HomeButtomNavigation"
+            android:name=".homeSearchAndNotification.HomeButtomNavigation"
             android:parentActivityName=".home.homeDashBoard.HomeDashBoard" />
         <activity
             android:name=".centerManagement.CenterManagementDetailActivity"

@@ -1,4 +1,4 @@
-package com.example.finalyearprojectuser.homeSearchAndNotification.homeButtomNavigation;
+package com.example.finalyearprojectuser.homeSearchAndNotification.homeButtomNavigation.missingPersonPostR;
 
 
 import android.graphics.drawable.Drawable;
@@ -60,7 +60,6 @@ public class Fragment_bottom_missing_posts extends Fragment {
         View view = inflater.inflate(R.layout.fragment_fragment_bottom_missing_posts, container, false);
         recyclerView = view.findViewById(R.id.fragment_bottom_missing_posts_recycle_view);
         loadMissingPersonPosts();
-
         return view;
 
     }

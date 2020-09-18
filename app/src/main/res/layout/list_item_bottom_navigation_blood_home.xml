@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/bottom_navigation_blood_view"
@@ -54,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Blood"
+        android:text="Status"
         android:textColor="@color/blackColor"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/textView4"
@@ -70,7 +70,7 @@
         android:text="Location"
         android:textColor="@color/blackColor"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_missing_call_btn"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_blood_detail_btn"
         app:layout_constraintEnd_toEndOf="@+id/textView6"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
@@ -78,17 +78,17 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/bottom_missing_call_btn"
+        android:id="@+id/bottom_blood_detail_btn"
         android:layout_width="228dp"
         android:layout_height="47dp"
         android:layout_margin="6dp"
         android:background="@drawable/button_sign_in"
-        android:text="Button"
+        android:text="Detail"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/bottom_missing_location_date_txt" />
+        app:layout_constraintTop_toBottomOf="@+id/bottom_blood_location_date_txt" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
@@ -105,7 +105,7 @@
         app:layout_constraintGuide_begin="233dp" />
 
     <TextView
-        android:id="@+id/bottom_missing_post_name_txt"
+        android:id="@+id/bottom_blood_post_name_txt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -117,19 +117,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/bottom_missing_group_txt"
+        android:id="@+id/bottom_blood_group_txt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Lost"
+        android:text="Reciever"
         android:textSize="18sp"
         android:textColor="@color/blackColor"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toBottomOf="@+id/bottom_missing_post_name_txt" />
+        app:layout_constraintTop_toBottomOf="@+id/bottom_blood_post_name_txt" />
 
     <TextView
-        android:id="@+id/bottom_missing_location_date_txt"
+        android:id="@+id/bottom_blood_location_date_txt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -139,5 +139,5 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toBottomOf="@+id/bottom_missing_group_txt" />
+        app:layout_constraintTop_toBottomOf="@+id/bottom_blood_group_txt" />
 </androidx.constraintlayout.widget.ConstraintLayout>
