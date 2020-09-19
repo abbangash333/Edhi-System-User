@@ -1,18 +1,35 @@
 package com.example.finalyearprojectu.homeSearchAndNotification.postblooddetail;
 
 public class PostBloodDetailModel {
-    String age;
-    String blood_for;
-    String blood_group;
-    String full_address;
-    String gender;
-    String phone_number;
-    String refer_city;
-    String request_key;
-    String request_type;
-    String user_key;
+   public String age;
+   public String blood_for;
+    public String blood_group;
+    public String full_address;
+    public String gender;
+    public String phone_number;
+    public String refer_city;
+    public  String request_key;
+    public  String request_type;
+    public String user_key;
 
     public PostBloodDetailModel() {
+    }
+
+    public PostBloodDetailModel(String age, String blood_for,
+                                String blood_group, String full_address,
+                                String gender, String phone_number,
+                                String refer_city, String request_key,
+                                String request_type, String user_key) {
+        this.age = age;
+        this.blood_for = blood_for;
+        this.blood_group = blood_group;
+        this.full_address = full_address;
+        this.gender = gender;
+        this.phone_number = phone_number;
+        this.refer_city = refer_city;
+        this.request_key = request_key;
+        this.request_type = request_type;
+        this.user_key = user_key;
     }
 
     public String getAge() {

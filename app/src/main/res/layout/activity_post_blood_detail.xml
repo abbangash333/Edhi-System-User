@@ -53,7 +53,7 @@
                     android:background="@drawable/circular_black_border_button"
                     android:drawableLeft="@drawable/blood_text_view_family"
                     android:drawablePadding="10dp"
-                    android:hint="contact number"
+                    android:hint="Cathy"
                     android:inputType="text"
                     android:paddingLeft="8dp" />
             </LinearLayout>
