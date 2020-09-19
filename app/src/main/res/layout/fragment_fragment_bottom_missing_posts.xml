@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".homeSearchAndNotification.homeButtomNavigation.missingPersonPostR.Fragment_bottom_missing_posts">
+    tools:context=".homeSearchAndNotification.missingPersonPostR.Fragment_bottom_missing_posts">
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.recyclerview.widget.RecyclerView

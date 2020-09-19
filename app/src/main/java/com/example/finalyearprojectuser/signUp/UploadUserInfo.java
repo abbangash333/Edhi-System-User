@@ -4,7 +4,8 @@ public class UploadUserInfo {
     public String display_name;
     public String email;
     public String photo_url;
-    public UploadUserInfo(){}
+    public UploadUserInfo()
+    {}
 
     public UploadUserInfo(String display_name, String email, String photo_url) {
         this.display_name = display_name;

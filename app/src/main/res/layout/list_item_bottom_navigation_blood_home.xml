@@ -79,7 +79,7 @@
 
     <Button
         android:id="@+id/bottom_blood_detail_btn"
-        android:layout_width="228dp"
+        android:layout_width="0dp"
         android:layout_height="47dp"
         android:layout_margin="6dp"
         android:background="@drawable/button_sign_in"

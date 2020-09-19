@@ -1,4 +1,4 @@
-package com.example.finalyearprojectuser.homeSearchAndNotification.homeButtomNavigation.bloodPostRecycleView;
+package com.example.finalyearprojectuser.homeSearchAndNotification.bloodPostRecycleView;
 
 
 import android.graphics.drawable.Drawable;
@@ -68,6 +68,7 @@ public class Fragment_bottom_blood_posts extends Fragment {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                bloodList.clear();
                 for (DataSnapshot dataSnapshotB : dataSnapshot.getChildren())
                 {
                     FragmentBloodModel fragmentBloodModel = dataSnapshotB.getValue(FragmentBloodModel.class);

@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/bloodFragmentbackgroundColor"
-    android:orientation="vertical"
-    tools:context=".missingPersonManagement.PostMissingDetail">
+    tools:context=".homeSearchAndNotification.postmissingdetail.PostMissingDetailP">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -31,14 +34,14 @@
                 android:textSize="30sp" />
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/missed_picture"
+                android:id="@+id/person_picture"
                 android:layout_width="96dp"
                 android:layout_height="96dp"
+                android:layout_gravity="center"
                 android:layout_margin="8dp"
                 android:src="@drawable/image_person"
                 app:civ_border_color="#FF000000"
-                android:layout_gravity="center"
-                app:civ_border_width="2dp" >
+                app:civ_border_width="2dp">
 
             </de.hdodenhof.circleimageview.CircleImageView>
 
@@ -56,14 +59,14 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/phoneNumber"
+                    android:id="@+id/person_nameP"
                     android:layout_width="match_parent"
                     android:layout_height="53dp"
                     android:background="@drawable/rounded_corner"
                     android:drawableLeft="@drawable/blood_text_view_family"
                     android:drawablePadding="10dp"
                     android:hint="Jaffar"
-                    android:inputType="phone"
+                    android:inputType="text"
                     android:paddingLeft="8dp" />
             </LinearLayout>
 
@@ -81,7 +84,7 @@
                     android:textSize="16dp" />
 
                 <EditText
-                    android:id="@+id/phoneNumbr"
+                    android:id="@+id/person_ageP"
                     android:layout_width="match_parent"
                     android:layout_height="53dp"
                     android:background="@drawable/rounded_corner"
@@ -124,33 +127,36 @@
                         android:textColor="@color/blackColor"
                         android:textSize="16sp" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_margin="2dp">
+                    android:layout_margin="2dp"
+                    android:orientation="horizontal">
 
                     <EditText
+                        android:id="@+id/b_city"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="3dp"
                         android:layout_weight="1"
                         android:background="@drawable/rounded_corner"
-                        android:padding="5dp"
-                        android:hint="Kohat"
+                        android:drawableLeft="@drawable/blood_placeholder_icon"
                         android:drawablePadding="5dp"
-                        android:drawableLeft="@drawable/blood_placeholder_icon"/>
+                        android:hint="Kohat"
+                        android:padding="5dp" />
 
                     <EditText
-                        android:layout_marginLeft="3dp"
+                        android:id="@+id/d_city"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
                         android:layout_weight="1"
-                        android:padding="5dp"
-                        android:hint="Peshawar"
-                        android:drawablePadding="5dp"
+                        android:background="@drawable/rounded_corner"
                         android:drawableLeft="@drawable/blood_placeholder_icon"
-                        android:background="@drawable/rounded_corner" />
+                        android:drawablePadding="5dp"
+                        android:hint="Peshawar"
+                        android:padding="5dp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -170,74 +176,46 @@
                     android:textColor="@color/blackColor"
                     android:textSize="16dp" />
 
-                <LinearLayout
+                <Button
+                    android:id="@+id/select_gender_d"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent"
+                    android:text="Select"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/circular_black_border_button">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="30dp"
-                        android:src="@drawable/man_icon_simple"
-
-                        ></ImageView>
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:src="@drawable/boundry_icon"
-
-                        ></ImageView>
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="30dp"
-                        android:src="@drawable/female_icon_simple"
-
-                        ></ImageView>
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="30dp"
-                        android:src="@drawable/man_icon_simple"
-                        android:text="Male"
-                        android:textColor="@color/blackColor"
-
-                        ></TextView>
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="40dp"
-                        android:src="@drawable/female_icon_simple"
-                        android:text="Female"
-                        android:textColor="@color/blackColor"></TextView>
-
-                </LinearLayout>
+                </Button>
 
 
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded_corner"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Missing Status"
+                    android:textColor="@color/blackColor"
+                    android:textSize="16dp" />
+
+                <Button
+                    android:id="@+id/select_status_d"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Select"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/circular_black_border_button">
+
+                </Button>
+
+
+            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -252,7 +230,7 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/phoneNumb"
+                    android:id="@+id/d_date"
                     android:layout_width="match_parent"
                     android:layout_height="53dp"
                     android:background="@drawable/rounded_corner"
@@ -262,6 +240,7 @@
                     android:inputType="date"
                     android:paddingLeft="8dp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -276,7 +255,7 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/phone"
+                    android:id="@+id/d_phone"
                     android:layout_width="match_parent"
                     android:layout_height="53dp"
                     android:background="@drawable/rounded_corner"
@@ -286,6 +265,7 @@
                     android:inputType="phone"
                     android:paddingLeft="8dp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -300,7 +280,7 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/phoneNu"
+                    android:id="@+id/d_full_address"
                     android:layout_width="match_parent"
                     android:layout_height="53dp"
                     android:background="@drawable/rounded_corner"
@@ -321,6 +301,7 @@
                 android:orientation="vertical">
 
                 <Button
+                    android:id="@+id/d_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -333,4 +314,5 @@
 
         </LinearLayout>
     </ScrollView>
-</ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

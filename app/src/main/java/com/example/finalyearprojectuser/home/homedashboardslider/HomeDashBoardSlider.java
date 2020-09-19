@@ -52,7 +52,7 @@ public class HomeDashBoardSlider extends AppCompatActivity implements View.OnCli
     RecyclerView recyclerViewBloodPostHome;
     MissingAdapterR missingAdapterR;
     BloodPostsAdapter bloodPostsAdapter;
-    List<MissingPersonR> missingPersonRArrayList;
+    ArrayList<MissingPersonR> missingPersonRArrayList;
     List<BloodPostR> bloodPostHomeList;
     FirebaseDatabase firebaseDatabaseM;
     DatabaseReference databaseReferenceM;
@@ -164,6 +164,7 @@ public class HomeDashBoardSlider extends AppCompatActivity implements View.OnCli
         databaseReferenceM.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                missingPersonRArrayList.clear();
                 for (DataSnapshot missingPosts : dataSnapshot.getChildren()) {
                     MissingPersonR missingPersonR = missingPosts.getValue(MissingPersonR.class);
                     missingPersonRArrayList.add(missingPersonR);
@@ -190,6 +191,7 @@ public class HomeDashBoardSlider extends AppCompatActivity implements View.OnCli
         databaseReferenceB.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                bloodPostHomeList.clear();
                 for (DataSnapshot bloodPost : dataSnapshot.getChildren()) {
                     BloodPostR bposts = bloodPost.getValue(BloodPostR.class);
                     bloodPostHomeList.add(bposts);

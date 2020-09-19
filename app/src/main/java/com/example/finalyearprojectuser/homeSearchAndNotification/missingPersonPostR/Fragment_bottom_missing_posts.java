@@ -1,6 +1,7 @@
-package com.example.finalyearprojectuser.homeSearchAndNotification.homeButtomNavigation.missingPersonPostR;
+package com.example.finalyearprojectuser.homeSearchAndNotification.missingPersonPostR;
 
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
@@ -18,11 +19,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.finalyearprojectuser.R;
-import com.example.finalyearprojectuser.home.homedashboardslider.HomeDashBoardSlider;
-import com.example.finalyearprojectuser.home.missingRecycleView.MissingAdapterR;
-import com.example.finalyearprojectuser.home.missingRecycleView.MissingPersonR;
-import com.example.finalyearprojectuser.homeSearchAndNotification.homeButtomNavigation.missingPersonPostR.MissingPersonHomM;
-import com.example.finalyearprojectuser.homeSearchAndNotification.homeButtomNavigation.missingPersonPostR.MissingPersonHomeAdapter;
+import com.example.finalyearprojectuser.homeSearchAndNotification.postmissingdetail.PostMissingDetailP;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -65,6 +62,8 @@ public class Fragment_bottom_missing_posts extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(),"missing",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), PostMissingDetailP.class);
+                startActivity(intent);
             }
         });
         loadMissingPersonPosts();
@@ -77,6 +76,7 @@ public class Fragment_bottom_missing_posts extends Fragment {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                listHM.clear();
                 for (DataSnapshot missingPosts : dataSnapshot.getChildren()) {
                     MissingPersonHomM missingPersonHomM = missingPosts.getValue(MissingPersonHomM.class);
                     listHM.add(missingPersonHomM);

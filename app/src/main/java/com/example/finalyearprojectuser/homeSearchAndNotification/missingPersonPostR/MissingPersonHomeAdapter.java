@@ -1,4 +1,4 @@
-package com.example.finalyearprojectuser.homeSearchAndNotification.homeButtomNavigation.missingPersonPostR;
+package com.example.finalyearprojectuser.homeSearchAndNotification.missingPersonPostR;
 
 import android.content.Context;
 import android.content.Intent;

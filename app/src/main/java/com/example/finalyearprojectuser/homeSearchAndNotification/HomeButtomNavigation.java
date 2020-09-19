@@ -12,8 +12,8 @@ import android.view.MenuItem;
 
 import com.example.finalyearprojectuser.R;
 import com.example.finalyearprojectuser.home.homedashboardslider.HomeDashBoardSlider;
-import com.example.finalyearprojectuser.homeSearchAndNotification.homeButtomNavigation.bloodPostRecycleView.Fragment_bottom_blood_posts;
-import com.example.finalyearprojectuser.homeSearchAndNotification.homeButtomNavigation.missingPersonPostR.Fragment_bottom_missing_posts;
+import com.example.finalyearprojectuser.homeSearchAndNotification.bloodPostRecycleView.Fragment_bottom_blood_posts;
+import com.example.finalyearprojectuser.homeSearchAndNotification.missingPersonPostR.Fragment_bottom_missing_posts;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

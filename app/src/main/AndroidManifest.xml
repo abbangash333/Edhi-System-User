@@ -12,10 +12,13 @@
         android:label="Eidhi Trust"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".edhiBloodBand.bloodDetail.BloodDetail"
-            android:parentActivityName=".home.homedashboardslider.HomeDashBoardSlider"></activity>
-        <activity android:name=".missingPersonManagement.missingPersonDeatail.MissingPersonDetail"
-            android:parentActivityName=".home.homedashboardslider.HomeDashBoardSlider"/>
+        <activity android:name=".homeSearchAndNotification.postmissingdetail.PostMissingDetailP"></activity>
+        <activity
+            android:name=".edhiBloodBand.bloodDetail.BloodDetail"
+            android:parentActivityName=".home.homedashboardslider.HomeDashBoardSlider" />
+        <activity
+            android:name=".missingPersonManagement.missingPersonDeatail.MissingPersonDetail"
+            android:parentActivityName=".home.homedashboardslider.HomeDashBoardSlider" />
         <activity
             android:name=".logIn.OtpPattern.OtpActivity"
             android:parentActivityName=".logIn.logInPattern.view.LogInActivity" />

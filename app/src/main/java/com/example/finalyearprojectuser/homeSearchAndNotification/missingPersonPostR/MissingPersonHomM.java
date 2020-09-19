@@ -1,4 +1,4 @@
-package com.example.finalyearprojectuser.homeSearchAndNotification.homeButtomNavigation.missingPersonPostR;
+package com.example.finalyearprojectuser.homeSearchAndNotification.missingPersonPostR;
 
 public class MissingPersonHomM {
     String address;

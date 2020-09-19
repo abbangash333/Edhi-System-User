@@ -1,4 +1,4 @@
-package com.example.finalyearprojectuser.homeSearchAndNotification.homeButtomNavigation.bloodPostRecycleView;
+package com.example.finalyearprojectuser.homeSearchAndNotification.bloodPostRecycleView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,7 +15,6 @@ import com.example.finalyearprojectuser.edhiBloodBand.bloodDetail.BloodDetail;
 import java.util.List;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class FragementBloodAdapter extends RecyclerView.Adapter<FragementBloodAdapter.ViewHolder> {

@@ -22,10 +22,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MissingAdapterR extends RecyclerView.Adapter<MissingAdapterR.ViewHolder> {
-    List<MissingPersonR> missingPersonRArrayList;
+    ArrayList<MissingPersonR> missingPersonRArrayList;
     private Context context;
 
-    public MissingAdapterR(Context context,List<MissingPersonR> missingPersonRArrayList) {
+    public MissingAdapterR(Context context,ArrayList<MissingPersonR> missingPersonRArrayList) {
         this.context = context;
         this.missingPersonRArrayList = missingPersonRArrayList;
     }
@@ -86,5 +86,14 @@ public class MissingAdapterR extends RecyclerView.Adapter<MissingAdapterR.ViewHo
             nameMissingR = itemView.findViewById(R.id.list_item_missing_name);
             cardViewMissinR = itemView.findViewById(R.id.list_item_missing_cardViewR);
         }
+    }
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 }
