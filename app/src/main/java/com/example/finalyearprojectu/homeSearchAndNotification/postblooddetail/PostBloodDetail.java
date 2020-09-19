@@ -243,9 +243,10 @@ public class PostBloodDetail extends AppCompatActivity implements View.OnClickLi
         String fAddress = fullAddress.getText().toString();
         String referCity = cityReference.getText().toString();
        String fireAuth = firebaseAuth.getInstance().getCurrentUser().getUid();
+       String number = firebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
        databaseReference =FirebaseDatabase.getInstance().getReference();
         String requestKey = databaseReference.child("blood_requests").push().getKey();
-        PostBloodDetailModel postBloodDetail = new PostBloodDetailModel(cAge,bloodFr,bloodGroup,fAddress,gender,"03334566",
+        PostBloodDetailModel postBloodDetail = new PostBloodDetailModel(cAge,bloodFr,bloodGroup,fAddress,gender,number,
                 referCity,requestKey,requestFor,fireAuth);
 
         DatabaseReference.CompletionListener completionListener = new DatabaseReference.CompletionListener() {
