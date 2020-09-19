@@ -12,6 +12,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Gravity;
@@ -105,26 +106,51 @@ public class PostMissingDetailP extends AppCompatActivity implements PopupMenu.O
             }
         });
         UButton.setOnClickListener(new View.OnClickListener() {
-            String number = pNumber.getText().toString().trim();
             @Override
             public void onClick(View v) {
+                    if(checkValidity()==true)
+                    {
+                        detailInfoUpload();
+                    }
 
-                    detailInfoUpload();
-//                showToast();
-                    sendUserBack();
-                    clearAllField();
+
+
             }
         });
     }
 
-    private void clearAllField() {
+    private boolean checkValidity() {
+        String name = pName.getText().toString();
+        String age = pAge.getText().toString().trim();
+        String contactNumber = pNumber.getText().toString().trim();
+        String address = pFullAddress.getText().toString();
+        if(name.isEmpty())
+        {
+            Toast.makeText(getApplicationContext(),"Please give a name",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if(age.isEmpty())
+        {
+            Toast.makeText(getApplicationContext(),"Please give proper age",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if(contactNumber.isEmpty() || contactNumber.length()<11)
+        {
+            Toast.makeText(getApplicationContext(),"Please give contact number",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if(address.isEmpty())
+        {
+            Toast.makeText(getApplicationContext(),"Please give a name",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
     }
+
 
     private void showToast() {
         Toast.makeText(getApplicationContext(), "Information Uploaded Successfully ", Toast.LENGTH_SHORT).show();
-    }
-
-    private void sendUserBack() {
     }
 
     private void detailInfoUpload() {
@@ -147,7 +173,13 @@ public class PostMissingDetailP extends AppCompatActivity implements PopupMenu.O
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            progressDialog.dismiss();
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    progressDialog.setProgress(0);
+                                }
+                            }, 500);
                             PostMissingModel postMissingModel = new PostMissingModel(uAdd,uAge, uBelong,
                                     uDD,uDC,genderT,taskSnapshot.getUploadSessionUri().toString(),postid,uName,statusT,uPh,uId);
                             //String ImageUploadId = databaseReference.push().getKey();
