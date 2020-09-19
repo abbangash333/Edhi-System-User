@@ -237,7 +237,6 @@
                     android:drawableLeft="@drawable/date_picker_icon"
                     android:drawablePadding="10dp"
                     android:hint="12/02/2020"
-                    android:inputType="date"
                     android:paddingLeft="8dp" />
             </LinearLayout>
 

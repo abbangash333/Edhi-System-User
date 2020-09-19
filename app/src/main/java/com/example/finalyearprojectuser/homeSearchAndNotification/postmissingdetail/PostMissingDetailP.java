@@ -23,10 +23,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.Toast;
-
 import com.example.finalyearprojectuser.R;
-import com.example.finalyearprojectuser.signUp.Sign_up;
-import com.example.finalyearprojectuser.signUp.UploadUserInfo;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -108,13 +105,14 @@ public class PostMissingDetailP extends AppCompatActivity implements PopupMenu.O
             }
         });
         UButton.setOnClickListener(new View.OnClickListener() {
+            String number = pNumber.getText().toString().trim();
             @Override
             public void onClick(View v) {
-                detailInfoUpload();
-//                showToast();
-                  sendUserBack();
-                 clearAllField();
 
+                    detailInfoUpload();
+//                showToast();
+                    sendUserBack();
+                    clearAllField();
             }
         });
     }
