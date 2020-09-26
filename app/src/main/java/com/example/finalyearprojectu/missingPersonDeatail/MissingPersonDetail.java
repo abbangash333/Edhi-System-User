@@ -1,4 +1,4 @@
-package com.example.finalyearprojectu.missingPersonManagement.missingPersonDeatail;
+package com.example.finalyearprojectu.missingPersonDeatail;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;

@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.finalyearprojectu.R;
-import com.example.finalyearprojectu.edhiBloodBand.bloodDetail.BloodDetail;
+import com.example.finalyearprojectu.bloodDetail.BloodDetail;
 
 import java.util.List;
 

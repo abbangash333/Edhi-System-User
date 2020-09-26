@@ -13,8 +13,6 @@ import com.example.finalyearprojectu.homeSearchAndNotification.HomeButtomNavigat
 import com.example.finalyearprojectu.updateProfile.ProfileUpdateMain;
 import com.example.finalyearprojectu.centerManagement.CenterManagementSearch;
 import com.example.finalyearprojectu.donationManagement.DonationMain;
-import com.example.finalyearprojectu.edhiBloodBand.BloodBankMainActivity;
-import com.example.finalyearprojectu.missingPersonManagement.MissingPersonMain;
 import com.example.finalyearprojectu.centersContactInformation.ContactCenters;
 
 public class HomeDashBoard extends AppCompatActivity {
@@ -50,15 +48,15 @@ public class HomeDashBoard extends AppCompatActivity {
         bloodbankCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent jumpToBloodBankcActivity = new Intent(HomeDashBoard.this,BloodBankMainActivity.class);
-                startActivity(jumpToBloodBankcActivity);
+//                Intent jumpToBloodBankcActivity = new Intent(HomeDashBoard.this,BloodBankMainActivity.class);
+//                startActivity(jumpToBloodBankcActivity);
             }
         });
         missingPersonCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent jumpToMissingPersonManagementActivity = new Intent(HomeDashBoard.this, MissingPersonMain.class);
-                startActivity(jumpToMissingPersonManagementActivity);
+//                Intent jumpToMissingPersonManagementActivity = new Intent(HomeDashBoard.this, MissingPersonMain.class);
+//                startActivity(jumpToMissingPersonManagementActivity);
 
             }
         });

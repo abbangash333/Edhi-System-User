@@ -13,68 +13,71 @@
         android:label="Eidhi Trust"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.finalyearprojectu.homeSearchAndNotification.postblooddetail.PostBloodDetail"
-            android:parentActivityName="com.example.finalyearprojectu.home.homedashboardslider.HomeDashBoardSlider"></activity>
-        <activity android:name="com.example.finalyearprojectu.homeSearchAndNotification.postmissingdetail.PostMissingDetailP"
-            android:parentActivityName="com.example.finalyearprojectu.home.homedashboardslider.HomeDashBoardSlider"/>
+        <activity android:name=".myBloodPost.MyBloodPostEdit"></activity>
         <activity
-            android:name="com.example.finalyearprojectu.edhiBloodBand.bloodDetail.BloodDetail"
-            android:parentActivityName="com.example.finalyearprojectu.home.homedashboardslider.HomeDashBoardSlider" />
+            android:name=".myBloodPost.MyBloodPost"
+            android:parentActivityName=".home.homedashboardslider.HomeDashBoardSlider" />
         <activity
-            android:name="com.example.finalyearprojectu.missingPersonManagement.missingPersonDeatail.MissingPersonDetail"
-            android:parentActivityName="com.example.finalyearprojectu.home.homedashboardslider.HomeDashBoardSlider" />
+            android:name=".myMissingPost.MyMissingPost"
+            android:parentActivityName=".home.homedashboardslider.HomeDashBoardSlider" />
         <activity
-            android:name="com.example.finalyearprojectu.logIn.OtpPattern.OtpActivity"
-            android:parentActivityName="com.example.finalyearprojectu.logIn.logInPattern.view.LogInActivity" />
-        <activity android:name="com.example.finalyearprojectu.logIn.logInPattern.view.LogInActivity" />
-        <activity android:name="com.example.finalyearprojectu.home.homedashboardslider.HomeDashBoardSlider" />
+            android:name=".homeSearchAndNotification.postblooddetail.PostBloodDetail"
+            android:parentActivityName=".home.homedashboardslider.HomeDashBoardSlider" />
         <activity
-            android:name="com.example.finalyearprojectu.homeSearchAndNotification.HomeButtomNavigation"
-            android:parentActivityName="com.example.finalyearprojectu.home.homeDashBoard.HomeDashBoard" />
+            android:name=".homeSearchAndNotification.postmissingdetail.PostMissingDetailP"
+            android:parentActivityName=".home.homedashboardslider.HomeDashBoardSlider" />
         <activity
-            android:name="com.example.finalyearprojectu.centerManagement.CenterManagementDetailActivity"
-            android:parentActivityName="com.example.finalyearprojectu.centerManagement.CenterManagementSearch" />
+            android:name=".bloodDetail.BloodDetail"
+            android:parentActivityName=".home.homedashboardslider.HomeDashBoardSlider" />
         <activity
-            android:name="com.example.finalyearprojectu.centerManagement.CenterManagementSearch"
-            android:parentActivityName="com.example.finalyearprojectu.home.homeDashBoard.HomeDashBoard" />
+            android:name=".missingPersonDeatail.MissingPersonDetail"
+            android:parentActivityName=".home.homedashboardslider.HomeDashBoardSlider" />
         <activity
-            android:name="com.example.finalyearprojectu.updateProfile.ProfileUpdateMain"
-            android:parentActivityName="com.example.finalyearprojectu.home.homeDashBoard.HomeDashBoard" />
+            android:name=".logIn.OtpPattern.OtpActivity"
+            android:parentActivityName=".logIn.logInPattern.view.LogInActivity" />
+        <activity android:name=".logIn.logInPattern.view.LogInActivity" />
+        <activity android:name=".home.homedashboardslider.HomeDashBoardSlider" />
         <activity
-            android:name="com.example.finalyearprojectu.donationManagement.ItemDonation"
-            android:parentActivityName="com.example.finalyearprojectu.donationManagement.DonationMain" />
+            android:name=".homeSearchAndNotification.HomeButtomNavigation"
+            android:parentActivityName=".home.homeDashBoard.HomeDashBoard" />
         <activity
-            android:name="com.example.finalyearprojectu.donationManagement.DonationMain"
-            android:parentActivityName="com.example.finalyearprojectu.home.homeDashBoard.HomeDashBoard" />
+            android:name=".centerManagement.CenterManagementDetailActivity"
+            android:parentActivityName=".centerManagement.CenterManagementSearch" />
         <activity
-            android:name="com.example.finalyearprojectu.centersContactInformation.CentersAddresses"
-            android:parentActivityName="com.example.finalyearprojectu.centersContactInformation.ContactCenters" />
+            android:name=".centerManagement.CenterManagementSearch"
+            android:parentActivityName=".home.homeDashBoard.HomeDashBoard" />
         <activity
-            android:name="com.example.finalyearprojectu.centersContactInformation.ContactCenters"
-            android:parentActivityName="com.example.finalyearprojectu.home.homeDashBoard.HomeDashBoard" />
+            android:name=".updateProfile.ProfileUpdateMain"
+            android:parentActivityName=".home.homeDashBoard.HomeDashBoard" />
         <activity
-            android:name="com.example.finalyearprojectu.missingPersonManagement.MissingPersonMain"
-            android:parentActivityName="com.example.finalyearprojectu.home.homeDashBoard.HomeDashBoard" />
+            android:name=".donationManagement.ItemDonation"
+            android:parentActivityName=".donationManagement.DonationMain" />
         <activity
-            android:name="com.example.finalyearprojectu.edhiBloodBand.BloodBankMainActivity"
-            android:parentActivityName="com.example.finalyearprojectu.home.homeDashBoard.HomeDashBoard" />
+            android:name=".donationManagement.DonationMain"
+            android:parentActivityName=".home.homeDashBoard.HomeDashBoard" />
         <activity
-            android:name="com.example.finalyearprojectu.ambulance.AmbulanceDetail"
-            android:parentActivityName="com.example.finalyearprojectu.ambulance.AmbulanceActivity" />
+            android:name=".centersContactInformation.CentersAddresses"
+            android:parentActivityName=".centersContactInformation.ContactCenters" />
         <activity
-            android:name="com.example.finalyearprojectu.ambulance.AmbulanceActivity"
-            android:parentActivityName="com.example.finalyearprojectu.home.homeDashBoard.HomeDashBoard" />
+            android:name=".centersContactInformation.ContactCenters"
+            android:parentActivityName=".home.homeDashBoard.HomeDashBoard" />
         <activity
-            android:name="com.example.finalyearprojectu.home.homeDashBoard.HomeDashBoard"
+            android:name=".ambulance.AmbulanceDetail"
+            android:parentActivityName=".ambulance.AmbulanceActivity" />
+        <activity
+            android:name=".ambulance.AmbulanceActivity"
+            android:parentActivityName=".home.homeDashBoard.HomeDashBoard" />
+        <activity
+            android:name=".home.homeDashBoard.HomeDashBoard"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name="com.example.finalyearprojectu.signUp.Sign_up"
-            android:parentActivityName="com.example.finalyearprojectu.logIn.LogIn" />
+            android:name=".signUp.Sign_up"
+            android:parentActivityName=".logIn.LogIn" />
         <activity
-            android:name="com.example.finalyearprojectu.logIn.LogIn"
+            android:name=".logIn.LogIn"
             android:label="" />
         <activity
-            android:name="com.example.finalyearprojectu.splashScreen.SplashScreen"
+            android:name=".splashScreen.SplashScreen"
             android:label=""
             android:theme="@style/AppTheme.Splash">
             <intent-filter>

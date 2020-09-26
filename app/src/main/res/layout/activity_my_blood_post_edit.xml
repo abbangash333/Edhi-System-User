@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".myBloodPost.MyBloodPostEdit">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/rounded_corner"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="40dp"
+                android:text="Post Detail"
+                android:textColor="@color/blackColor"
+                android:textSize="25sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Blood For"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/blackColor"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/blood_for"
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:background="@drawable/circular_black_border_button"
+                    android:drawableLeft="@drawable/blood_text_view_family"
+                    android:drawablePadding="10dp"
+                    android:hint="Cathy"
+                    android:inputType="text"
+                    android:paddingLeft="8dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="City Reference"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/blackColor"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/reference_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:background="@drawable/circular_black_border_button"
+                    android:drawableLeft="@drawable/blood_placeholder_icon"
+                    android:drawablePadding="10dp"
+                    android:hint="kohat"
+                    android:inputType="text"
+                    android:paddingLeft="8dp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Full Address"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/blackColor"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/full_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:background="@drawable/circular_black_border_button"
+                    android:drawableLeft="@drawable/blood_placeholder_icon"
+                    android:drawablePadding="10dp"
+                    android:hint="kohat"
+                    android:inputType="text"
+                    android:paddingLeft="8dp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Age"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/blackColor"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/age_p"
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:background="@drawable/circular_black_border_button"
+                    android:drawableLeft="@drawable/age_icon"
+                    android:drawablePadding="10dp"
+                    android:hint="20"
+                    android:inputType="phone"
+                    android:paddingLeft="8dp" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Gender"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/blackColor"
+                    android:textSize="16dp" />
+
+                <Button
+                    android:id="@+id/select_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:drawablePadding="10dp"
+                    android:text="Select Gender"
+                    android:background="@drawable/circular_black_border_button"
+                    android:paddingLeft="8dp" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Request For"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/blackColor"
+                    android:textSize="16dp" />
+
+                <Button
+                    android:id="@+id/select_request_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:drawablePadding="10dp"
+                    android:text="Select Request Type"
+                    android:background="@drawable/circular_black_border_button"
+                    android:paddingLeft="8dp" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Blood Group"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/blackColor"
+                    android:textSize="16dp" />
+
+                <Button
+                    android:id="@+id/select_blood_g"
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:drawablePadding="10dp"
+                    android:text="Select Blood Group"
+                    android:background="@drawable/circular_black_border_button"
+                    android:paddingLeft="8dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_corner"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/post_blood_request"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/button_sign_in"
+                    android:text="Update Post"
+                    android:textColor="@color/whiteText"></Button>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

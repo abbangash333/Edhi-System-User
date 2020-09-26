@@ -36,7 +36,7 @@ import java.util.List;
 public class Fragment_bottom_blood_posts extends Fragment {
     List<FragmentBloodModel> bloodList;
     RecyclerView recyclerViewBlood;
-    FragementBloodAdapter fragementBloodAdapter;
+    FragmentBloodAdapter fragmentBloodAdapter;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     FloatingActionButton floatingActionButton;
@@ -78,8 +78,8 @@ public class Fragment_bottom_blood_posts extends Fragment {
                     FragmentBloodModel fragmentBloodModel = dataSnapshotB.getValue(FragmentBloodModel.class);
                     bloodList.add(fragmentBloodModel);
                 }
-                 fragementBloodAdapter = new FragementBloodAdapter(getActivity(),bloodList);
-                 recyclerViewBlood.setAdapter(fragementBloodAdapter);
+                 fragmentBloodAdapter = new FragmentBloodAdapter(getActivity(),bloodList);
+                 recyclerViewBlood.setAdapter(fragmentBloodAdapter);
             }
 
 

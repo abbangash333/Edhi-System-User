@@ -1,4 +1,4 @@
-package com.example.finalyearprojectu.edhiBloodBand.bloodDetail;
+package com.example.finalyearprojectu.bloodDetail;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;

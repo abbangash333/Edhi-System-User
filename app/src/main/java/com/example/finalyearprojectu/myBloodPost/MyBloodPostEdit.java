@@ -1,33 +1,34 @@
-package com.example.finalyearprojectu.homeSearchAndNotification.postblooddetail;
+package com.example.finalyearprojectu.myBloodPost;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Application;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.finalyearprojectu.R;
 import com.example.finalyearprojectu.homeSearchAndNotification.HomeButtomNavigation;
+import com.example.finalyearprojectu.homeSearchAndNotification.postblooddetail.PostBloodDetailModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-public class PostBloodDetail extends AppCompatActivity implements View.OnClickListener {
+import java.util.HashMap;
+import java.util.Map;
+
+public class MyBloodPostEdit extends AppCompatActivity implements View.OnClickListener {
     private EditText bloodFor;
     private EditText cityReference;
     private EditText fullAddress;
@@ -42,11 +43,12 @@ public class PostBloodDetail extends AppCompatActivity implements View.OnClickLi
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
+    String requestKey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post_blood_detail);
+        setContentView(R.layout.activity_my_blood_post_edit);
         bloodFor = findViewById(R.id.blood_for);
         cityReference = findViewById(R.id.reference_city);
         fullAddress = findViewById(R.id.full_address);
@@ -59,6 +61,29 @@ public class PostBloodDetail extends AppCompatActivity implements View.OnClickLi
         requestTypeBtn.setOnClickListener(this);
         bloodGroupBtn.setOnClickListener(this);
         postBloodRequest.setOnClickListener(this);
+        Intent intent = getIntent();
+        //these will take data from recycle view
+        bloodGroup = intent.getStringExtra("blood");
+        String bloodForM = intent.getStringExtra("bloodFor");
+        bloodFor.setText(bloodForM);
+        String locationN = intent.getStringExtra("location");
+        cityReference.setText(locationN);
+        String requestB = intent.getStringExtra("request");
+        requestFor = requestB;
+        String ageB = intent.getStringExtra("age");
+        age.setText(ageB);
+        gender = intent.getStringExtra("gender");
+        String fullAdd = intent.getStringExtra("fullAddress");
+        fullAddress.setText(fullAdd);
+        String phoneNumber = intent.getStringExtra("phoneNumber");
+        bloodFor.setText(bloodForM);
+        cityReference.setText(locationN);
+        fullAddress.setText(fullAdd);
+        age.setText(ageB);
+        selectGenderBtn.setText(gender);
+        requestTypeBtn.setText(requestB);
+        bloodGroupBtn.setText(bloodGroup);
+
     }
 
     @Override
@@ -85,7 +110,7 @@ public class PostBloodDetail extends AppCompatActivity implements View.OnClickLi
                 if(checkValidity()==true)
                 {
                     uploadBloodPostData();
-                    Intent intent = new Intent(getApplicationContext(), HomeButtomNavigation.class);
+                    Intent intent = new Intent(getApplicationContext(), MyBloodPost.class);
                     startActivity(intent);
                     break;
                 }
@@ -93,9 +118,7 @@ public class PostBloodDetail extends AppCompatActivity implements View.OnClickLi
 
             }
         }
-
     }
-    //this method will be used for choosing blood group option
     private void openDialogBoxForSelection() {
         final String[] Options = {"A+", "B+","A-","B-","O+","O-","AB+","AB-"};
         AlertDialog.Builder window;
@@ -152,7 +175,6 @@ public class PostBloodDetail extends AppCompatActivity implements View.OnClickLi
 
         window.show();
     }
-// method will be call
     private void openDialogBoxForGenderSelection() {
         final String[] Options = {"MALE","FEMALE"};
         AlertDialog.Builder window;
@@ -231,34 +253,25 @@ public class PostBloodDetail extends AppCompatActivity implements View.OnClickLi
         }
         return true;
     }
-   //this method is used for toast Messages
+    //this method is used for toast Messages
     private void ToastMethod(Context context, String message) {
-   Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
+        Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
 
     }
     //this method will upload data to firebase
     private void uploadBloodPostData() {
+        Intent intent = getIntent();
+        requestKey = intent.getStringExtra("keyName");
         String cAge = age.getText().toString();
         String bloodFr = bloodFor.getText().toString();
         String fAddress = fullAddress.getText().toString();
         String referCity = cityReference.getText().toString();
-       String fireAuth = firebaseAuth.getInstance().getCurrentUser().getUid();
-       String number = firebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
-       databaseReference =FirebaseDatabase.getInstance().getReference();
-        String requestKey = databaseReference.child("blood_requests").push().getKey();
-        PostBloodDetailModel postBloodDetail = new PostBloodDetailModel(cAge,bloodFr,bloodGroup,fAddress,gender,number,
-                referCity,requestKey,requestFor,fireAuth);
-
-        DatabaseReference.CompletionListener completionListener = new DatabaseReference.CompletionListener() {
-            @Override
-            public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-                if (databaseError != null) {
-                    ToastMethod(getApplicationContext(),"Failed to Upload Data");
-                } else {
-                    ToastMethod(getApplicationContext(),"Data Uploaded Successfully");
-                }
-            }
-        };
-        databaseReference.child("blood_requests").push().setValue(postBloodDetail,completionListener);
+        String fireAuth = firebaseAuth.getInstance().getCurrentUser().getUid();
+        String number = firebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("blood_requests").child(requestKey);
+        MyBloodPostModel myBloodPost =new MyBloodPostModel(cAge,bloodFr,bloodGroup,fAddress,gender
+                ,number,referCity,requestKey,requestFor,fireAuth);
+        ref.setValue(myBloodPost);
+        Toast.makeText(getApplicationContext(),"Data Updated Successfully!",Toast.LENGTH_SHORT).show();
     }
 }

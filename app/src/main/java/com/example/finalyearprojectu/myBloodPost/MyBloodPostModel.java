@@ -1,28 +1,25 @@
-package com.example.finalyearprojectu.homeSearchAndNotification.postblooddetail;
+package com.example.finalyearprojectu.myBloodPost;
 
-import java.util.HashMap;
-import java.util.Map;
+public class MyBloodPostModel {
+    String age;
+    String blood_for;
+    String blood_group;
+    String full_address;
+    String gender;
+    String phone_number;
+    String refer_city;
+    String request_key;
+    String request_type;
+    String user_key;
 
-public class PostBloodDetailModel {
-   public String age;
-   public String blood_for;
-    public String blood_group;
-    public String full_address;
-    public String gender;
-    public String phone_number;
-    public String refer_city;
-    public  String request_key;
-    public  String request_type;
-    public String user_key;
-
-    public PostBloodDetailModel() {
+    public MyBloodPostModel() {
     }
 
-    public PostBloodDetailModel(String age, String blood_for,
-                                String blood_group, String full_address,
-                                String gender, String phone_number,
-                                String refer_city, String request_key,
-                                String request_type, String user_key) {
+    public MyBloodPostModel(String age, String blood_for, String blood_group,
+                            String full_address, String gender,
+                            String phone_number, String refer_city,
+                            String request_key, String request_type,
+                            String user_key) {
         this.age = age;
         this.blood_for = blood_for;
         this.blood_group = blood_group;
@@ -113,20 +110,5 @@ public class PostBloodDetailModel {
 
     public void setUser_key(String user_key) {
         this.user_key = user_key;
-    }
-
-    public Map<String, Object> toMap() {
-        HashMap<String, Object> result = new HashMap<>();
-        result.put("age",age);
-        result.put("blood_for",blood_for);
-        result.put("blood_group",blood_group);
-        result.put("full_address",full_address);
-        result.put("gender",gender);
-        result.put("phone_number",phone_number);
-        result.put("refer_city",refer_city);
-        result.put("request_key",request_key);
-        result.put("request_type",request_type);
-        result.put("user_key",user_key);
-        return result;
     }
 }

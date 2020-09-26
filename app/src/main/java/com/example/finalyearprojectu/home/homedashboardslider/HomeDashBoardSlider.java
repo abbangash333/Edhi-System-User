@@ -25,13 +25,13 @@ import com.example.finalyearprojectu.ambulance.AmbulanceActivity;
 import com.example.finalyearprojectu.centerManagement.CenterManagementSearch;
 import com.example.finalyearprojectu.centersContactInformation.ContactCenters;
 import com.example.finalyearprojectu.donationManagement.DonationMain;
-import com.example.finalyearprojectu.edhiBloodBand.BloodBankMainActivity;
 import com.example.finalyearprojectu.home.bloodPostRecycleV.BloodPostR;
 import com.example.finalyearprojectu.home.bloodPostRecycleV.BloodPostsAdapter;
 import com.example.finalyearprojectu.home.missingRecycleView.MissingAdapterR;
 import com.example.finalyearprojectu.home.missingRecycleView.MissingPersonR;
 import com.example.finalyearprojectu.homeSearchAndNotification.HomeButtomNavigation;
-import com.example.finalyearprojectu.missingPersonManagement.MissingPersonMain;
+import com.example.finalyearprojectu.myBloodPost.MyBloodPost;
+import com.example.finalyearprojectu.myMissingPost.MyMissingPost;
 import com.example.finalyearprojectu.updateProfile.ProfileUpdateMain;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -266,13 +266,13 @@ public class HomeDashBoardSlider extends AppCompatActivity implements View.OnCli
             }
             case R.id.blood_bank_btn:
             {
-                Intent intent = new Intent(getApplicationContext(), BloodBankMainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MyBloodPost.class);
                 startActivity(intent);
                 break;
             }
             case R.id.missing_dtl_btn:
             {
-                Intent intent = new Intent(getApplicationContext(), MissingPersonMain.class);
+                Intent intent = new Intent(getApplicationContext(), MyMissingPost.class);
                 startActivity(intent);
                 break;
             }

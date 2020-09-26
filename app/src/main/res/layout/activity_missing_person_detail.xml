@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_margin="15dp"
-    tools:context=".missingPersonManagement.missingPersonDeatail.MissingPersonDetail">
+    tools:context=".missingPersonDeatail.MissingPersonDetail">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
 
         <ImageView
             android:id="@+id/profile_image"
-            android:layout_width="305dp"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="16dp"
             app:layout_constraintDimensionRatio="h,19:16"

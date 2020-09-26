@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.finalyearprojectu.R;
-import com.example.finalyearprojectu.missingPersonManagement.missingPersonDeatail.MissingPersonDetail;
+import com.example.finalyearprojectu.missingPersonDeatail.MissingPersonDetail;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

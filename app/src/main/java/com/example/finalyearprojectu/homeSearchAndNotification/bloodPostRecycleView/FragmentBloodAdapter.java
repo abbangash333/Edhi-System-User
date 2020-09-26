@@ -10,18 +10,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.finalyearprojectu.R;
-import com.example.finalyearprojectu.edhiBloodBand.bloodDetail.BloodDetail;
+import com.example.finalyearprojectu.bloodDetail.BloodDetail;
 
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class FragementBloodAdapter extends RecyclerView.Adapter<FragementBloodAdapter.ViewHolder> {
+public class FragmentBloodAdapter extends RecyclerView.Adapter<FragmentBloodAdapter.ViewHolder> {
     Context context;
     List<FragmentBloodModel> fBModelList;
 
-    public FragementBloodAdapter(Context context, List<FragmentBloodModel> fBModelList) {
+    public FragmentBloodAdapter(Context context, List<FragmentBloodModel> fBModelList) {
         this.context = context;
         this.fBModelList = fBModelList;
     }
