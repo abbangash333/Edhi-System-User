@@ -25,8 +25,10 @@ import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 import com.example.finalyearprojectu.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -34,7 +36,10 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 public class PostMissingDetailP extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
@@ -180,13 +185,21 @@ public class PostMissingDetailP extends AppCompatActivity implements PopupMenu.O
                                     progressDialog.setProgress(0);
                                 }
                             }, 500);
-                            PostMissingModel postMissingModel = new PostMissingModel(uAdd,uAge, uBelong,
-                                    uDD,uDC,genderT,taskSnapshot.getUploadSessionUri().toString(),postid,uName,statusT,uPh,uId);
-                            //String ImageUploadId = databaseReference.push().getKey();
-                            Log.d("mes","we are in just above uploading method");
-                            databaseReference.child("missing_requests").push().setValue(postMissingModel);
-                            showToast();
-                            finish();
+                            storageReference2.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    Uri downloadUrl = uri;
+                                    PostMissingModel postMissingModel = new PostMissingModel(uAdd,uAge, uBelong,
+                                            uDD,uDC,genderT,downloadUrl.toString(),postid,uName,statusT,uPh,uId);
+                                    //String ImageUploadId = databaseReference.push().getKey();
+                                    Log.d("mes","we are in just above uploading method");
+                                    databaseReference.child("missing_requests").push().setValue(postMissingModel);
+                                    showToast();
+                                    finish();
+
+                                }
+                            });
+
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -264,6 +277,8 @@ public class PostMissingDetailP extends AppCompatActivity implements PopupMenu.O
 
         }
     }
+
+
     public String GetFileExtension(Uri uri) {
 
         ContentResolver contentResolver = getContentResolver();
