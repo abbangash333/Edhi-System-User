@@ -53,7 +53,7 @@ public class MyBloodPostAdapter extends RecyclerView.Adapter<MyBloodPostAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull MyBloodPostAdapter.ViewHolder holder, int position) {
-         myBloodPostModel = mList.get(position);
+        MyBloodPostModel myBloodPostModel = mList.get(position);
         holder.mybloodGroup.setText(myBloodPostModel.getBlood_group());
         holder.myBloodPostName.setText(myBloodPostModel.getBlood_for());
         holder.myBloodPostStatus.setText(myBloodPostModel.getRequest_type());
@@ -77,7 +77,7 @@ public class MyBloodPostAdapter extends RecyclerView.Adapter<MyBloodPostAdapter.
         holder.myBloodPostCardView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                dialogBoxForEditAndDelete(position);
+                dialogBoxForEditAndDelete(position,myBloodPostModel);
                 return false;
             }
         });
@@ -107,7 +107,7 @@ public class MyBloodPostAdapter extends RecyclerView.Adapter<MyBloodPostAdapter.
         }
     }
 
-    private void dialogBoxForEditAndDelete(int position) {
+    private void dialogBoxForEditAndDelete(int position, MyBloodPostModel myBloodPostModel) {
         final String[] Options = {"Delete","Edit","Cancel"};
         AlertDialog.Builder window;
         window = new AlertDialog.Builder(mContext, R.style.MyDialogTheme);
@@ -116,12 +116,12 @@ public class MyBloodPostAdapter extends RecyclerView.Adapter<MyBloodPostAdapter.
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if(which == 0){
-                deleteItem(position);
+                deleteItem(position,myBloodPostModel);
                Toast.makeText(mContext,"Delete clicked",Toast.LENGTH_SHORT).show();
                 }
                 else if(which == 1){
                     //second option clicked, do this...
-                    editMethod(position);
+                    editMethod(position,myBloodPostModel);
                     Toast.makeText(mContext,"Edit clicked",Toast.LENGTH_SHORT).show();
                 }
                 else if(which == 2){
@@ -136,26 +136,25 @@ public class MyBloodPostAdapter extends RecyclerView.Adapter<MyBloodPostAdapter.
         window.show();
 
     }
-    public void deleteItem(int position){
+    public void deleteItem(int position, MyBloodPostModel myBloodPostModel){
         String key = keys.get(position);
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("blood_requests");
         ref.child(key).removeValue();
 
     }
 
-    private void editMethod(int position) {
+    private void editMethod(int position, MyBloodPostModel myBloodPostModel) {
         String key = keys.get(position);
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("blood_requests");
         AKey = key;
         Intent intent = new Intent(mContext, MyBloodPostEdit.class);
-        intent.putExtra("bloodFor",myBloodPostModel.getBlood_for());
-        intent.putExtra("blood",myBloodPostModel.getBlood_group());
-        intent.putExtra("location",myBloodPostModel.getRefer_city());
-        intent.putExtra("request",myBloodPostModel.getRequest_type());
-        intent.putExtra("age",myBloodPostModel.getAge());
-        intent.putExtra("gender",myBloodPostModel.getGender());
-        intent.putExtra("fullAddress",myBloodPostModel.getFull_address());
-        intent.putExtra("phoneNumber",myBloodPostModel.getPhone_number());
+        intent.putExtra("bloodFor", myBloodPostModel.getBlood_for());
+        intent.putExtra("blood", myBloodPostModel.getBlood_group());
+        intent.putExtra("location", myBloodPostModel.getRefer_city());
+        intent.putExtra("request", myBloodPostModel.getRequest_type());
+        intent.putExtra("age", myBloodPostModel.getAge());
+        intent.putExtra("gender", myBloodPostModel.getGender());
+        intent.putExtra("fullAddress", myBloodPostModel.getFull_address());
+        intent.putExtra("phoneNumber", myBloodPostModel.getPhone_number());
         intent.putExtra("keyName",AKey);
         mContext.startActivity(intent);
 
