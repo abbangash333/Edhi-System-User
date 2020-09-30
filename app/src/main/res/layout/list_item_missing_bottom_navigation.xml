@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/bottom_missing_img_view"
+        android:id="@+id/my_image_view_missing"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="8dp"
@@ -65,7 +65,7 @@
         android:text="Date"
         android:textColor="@color/blackColor"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_blood_detail_btn"
+        app:layout_constraintBottom_toTopOf="@+id/my_detail_btn_missing"
         app:layout_constraintEnd_toEndOf="@+id/textView6"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
@@ -73,7 +73,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/bottom_blood_detail_btn"
+        android:id="@+id/my_detail_btn_missing"
         android:layout_width="0dp"
         android:layout_height="47dp"
         android:layout_margin="6dp"
@@ -83,7 +83,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/bottom_blood_location_date_txt" />
+        app:layout_constraintTop_toBottomOf="@+id/my_date_missing" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
@@ -100,7 +100,7 @@
         app:layout_constraintGuide_begin="221dp" />
 
     <TextView
-        android:id="@+id/bottom_blood_post_name_txt"
+        android:id="@+id/name_missing_txt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -112,7 +112,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/bottom_blood_group_txt"
+        android:id="@+id/my_status_missing"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -121,10 +121,10 @@
         android:textColor="@color/blackColor"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toBottomOf="@+id/bottom_blood_post_name_txt" />
+        app:layout_constraintTop_toBottomOf="@+id/name_missing_txt" />
 
     <TextView
-        android:id="@+id/bottom_blood_location_date_txt"
+        android:id="@+id/my_date_missing"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -134,5 +134,5 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toBottomOf="@+id/bottom_blood_group_txt" />
+        app:layout_constraintTop_toBottomOf="@+id/my_status_missing" />
 </androidx.constraintlayout.widget.ConstraintLayout>

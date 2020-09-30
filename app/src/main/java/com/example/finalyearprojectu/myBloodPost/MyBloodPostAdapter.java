@@ -140,6 +140,7 @@ public class MyBloodPostAdapter extends RecyclerView.Adapter<MyBloodPostAdapter.
         String key = keys.get(position);
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("blood_requests");
         ref.child(key).removeValue();
+
     }
 
     private void editMethod(int position) {

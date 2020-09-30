@@ -8,12 +8,16 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.finalyearprojectu.R;
 import com.example.finalyearprojectu.homeSearchAndNotification.bloodPostRecycleView.FragmentBloodAdapter;
 import com.example.finalyearprojectu.homeSearchAndNotification.bloodPostRecycleView.FragmentBloodModel;
+import com.example.finalyearprojectu.homeSearchAndNotification.postblooddetail.PostBloodDetail;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,14 +37,23 @@ public class MyBloodPost extends AppCompatActivity {
     DatabaseReference myBloodDatabaseReference;
     String myBloodAuthId;
     MyBloodPostAdapter myBloodPostAdapter;
+    FloatingActionButton myBloodFloatingActionBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_blood_post);
         getSupportActionBar().setTitle("Your Posts");
         myBloodPostsList = new ArrayList<>();
+        myBloodFloatingActionBtn = findViewById(R.id.my_blood_floating_action_btn);
         myBloodPostRecycleView = findViewById(R.id.my_blood_posts_recycle_view);
         myBloodAuthId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        myBloodFloatingActionBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PostBloodDetail.class);
+                startActivity(intent);
+            }
+        });
         loadBloodPosts();
     }
 

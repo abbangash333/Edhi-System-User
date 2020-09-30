@@ -49,6 +49,7 @@ public class MyBloodPostEdit extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_blood_post_edit);
+        getSupportActionBar().setTitle("Edit Post");
         bloodFor = findViewById(R.id.blood_for);
         cityReference = findViewById(R.id.reference_city);
         fullAddress = findViewById(R.id.full_address);
@@ -112,6 +113,7 @@ public class MyBloodPostEdit extends AppCompatActivity implements View.OnClickLi
                     uploadBloodPostData();
                     Intent intent = new Intent(getApplicationContext(), MyBloodPost.class);
                     startActivity(intent);
+                    this.finish();
                     break;
                 }
 
@@ -119,6 +121,7 @@ public class MyBloodPostEdit extends AppCompatActivity implements View.OnClickLi
             }
         }
     }
+    //this will open the dialog box for selecting of blood groups
     private void openDialogBoxForSelection() {
         final String[] Options = {"A+", "B+","A-","B-","O+","O-","AB+","AB-"};
         AlertDialog.Builder window;
@@ -175,6 +178,7 @@ public class MyBloodPostEdit extends AppCompatActivity implements View.OnClickLi
 
         window.show();
     }
+    // this will open dialog box for selecting of gender
     private void openDialogBoxForGenderSelection() {
         final String[] Options = {"MALE","FEMALE"};
         AlertDialog.Builder window;
@@ -198,6 +202,7 @@ public class MyBloodPostEdit extends AppCompatActivity implements View.OnClickLi
 
         window.show();
     }
+    //this will give the request type
     private void openDialogBoxForRequestType()
     {
         final String[] Options = {"DONOR","RECEIVER"};

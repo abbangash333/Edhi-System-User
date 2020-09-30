@@ -6,8 +6,8 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -15,8 +15,10 @@
         android:label="Eddi Trust"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".myBloodPost.MyBloodPostEdit"
-            android:parentActivityName=".myBloodPost.MyBloodPost"></activity>
+        <activity android:name=".myMissingPost.MyMissingPostEdit"></activity>
+        <activity
+            android:name=".myBloodPost.MyBloodPostEdit"
+            android:parentActivityName=".myBloodPost.MyBloodPost" />
         <activity
             android:name=".myBloodPost.MyBloodPost"
             android:parentActivityName=".home.homedashboardslider.HomeDashBoardSlider" />

@@ -83,11 +83,11 @@ public class MissingPersonHomeAdapter extends RecyclerView.Adapter<MissingPerson
         Button mButton;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView =itemView.findViewById(R.id.bottom_missing_img_view);
-            nameP = itemView.findViewById(R.id.bottom_blood_post_name_txt);
-            statusP = itemView.findViewById(R.id.bottom_blood_group_txt);
-            dateP = itemView.findViewById(R.id.bottom_blood_location_date_txt);
-            mButton = itemView.findViewById(R.id.bottom_blood_detail_btn);
+            imageView =itemView.findViewById(R.id.my_image_view_missing);
+            nameP = itemView.findViewById(R.id.name_missing_txt);
+            statusP = itemView.findViewById(R.id.my_status_missing);
+            dateP = itemView.findViewById(R.id.my_date_missing);
+            mButton = itemView.findViewById(R.id.my_detail_btn_missing);
         }
     }
 }

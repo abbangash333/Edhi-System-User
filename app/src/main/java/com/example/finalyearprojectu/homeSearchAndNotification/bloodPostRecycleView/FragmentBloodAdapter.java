@@ -75,10 +75,10 @@ public class FragmentBloodAdapter extends RecyclerView.Adapter<FragmentBloodAdap
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
              mainTxtBloodGroup = itemView.findViewById(R.id.bottom_navigation_blood_view);
-            nameP = itemView.findViewById(R.id.bottom_blood_post_name_txt);
-            bloodG = itemView.findViewById(R.id.bottom_blood_group_txt);
-            locationP = itemView.findViewById(R.id.bottom_blood_location_date_txt);
-            bloodDetailBtn = itemView.findViewById(R.id.bottom_blood_detail_btn);
+            nameP = itemView.findViewById(R.id.name_missing_txt);
+            bloodG = itemView.findViewById(R.id.my_status_missing);
+            locationP = itemView.findViewById(R.id.my_date_missing);
+            bloodDetailBtn = itemView.findViewById(R.id.my_detail_btn_missing);
 
         }
     }

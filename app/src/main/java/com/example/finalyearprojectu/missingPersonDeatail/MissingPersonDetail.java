@@ -32,7 +32,6 @@ public class MissingPersonDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_missing_person_detail);
-        getSupportActionBar().setTitle("Post Detail");
         missingPersonName = findViewById(R.id.missing_person_name);
         missingPersonBelongingCity = findViewById(R.id.belonging_city);
         missingFromCity = findViewById(R.id.missing_from_city);
