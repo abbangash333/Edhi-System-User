@@ -72,7 +72,7 @@ public class MyMissingPostEdit extends AppCompatActivity implements PopupMenu.On
     private String mCall;
     private String requestKey;
     private String url;
-    private  Uri downloadUrl;
+    private Uri downloadUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,12 +103,12 @@ public class MyMissingPostEdit extends AppCompatActivity implements PopupMenu.On
         pDisappearedCity.setText(mFrom);
         mStatus = intent.getStringExtra("status");
         pStatus.setText(mStatus);
-        statusT =mStatus;
+        statusT = mStatus;
         mAge = intent.getStringExtra("age");
         pAge.setText(mAge);
         mGender = intent.getStringExtra("gender");
         selectGender.setText(mGender);
-        genderT =mGender;
+        genderT = mGender;
         mDate = intent.getStringExtra("date");
         pDisappearedDate.setText(mDate);
         mFullAdress = intent.getStringExtra("fullAddress");
@@ -192,8 +192,8 @@ public class MyMissingPostEdit extends AppCompatActivity implements PopupMenu.On
             deleteImage(imageUrl);
             uploadNewImage();
         }
-        else
-        {
+        else {
+            uploadData(imageUrl);
 
         }
     }
@@ -217,57 +217,57 @@ public class MyMissingPostEdit extends AppCompatActivity implements PopupMenu.On
         databaseReference = getInstance().getReference("missing_requests");
         StorageReference storageReference2 = storageReference.child(postid + "." + GetFileExtension(FilePathUri));
         storageReference2.putFile(FilePathUri)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Handler handler = new Handler();
-                            handler.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    progressDialog.setProgress(0);
-                                }
-                            }, 500);
-                            storageReference2.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri) {
-                                   Uri downloadU = uri;
-                                    PostMissingModel postMissingModel = new PostMissingModel(uAdd, uAge, uBelong,
-                                            uDD, uDC, genderT, downloadU.toString(), postid, uName, statusT, uPh, uId);
-                                    //String ImageUploadId = databaseReference.push().getKey();
-                                    Log.d("mes", "we are in just above uploading method");
-                                    databaseReference.child(requestKey).setValue(postMissingModel);
-                                    progressDialog.dismiss();
-                                    showToast();
-                                    finish();
-                                }
-                            });
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                progressDialog.setProgress(0);
+                            }
+                        }, 500);
+                        storageReference2.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                Uri downloadU = uri;
+                                PostMissingModel postMissingModel = new PostMissingModel(uAdd, uAge, uBelong,
+                                        uDD, uDC, genderT, downloadU.toString(), postid, uName, statusT, uPh, uId);
+                                //String ImageUploadId = databaseReference.push().getKey();
+                                Log.d("mes", "we are in just above uploading method");
+                                databaseReference.child(requestKey).setValue(postMissingModel);
+                                progressDialog.dismiss();
+                                showToast();
+                                finish();
+                            }
+                        });
 
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception exception) {
-                            progressDialog.dismiss();
-                            Toast.makeText(getApplicationContext(), exception.getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    })
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        progressDialog.dismiss();
+                        Toast.makeText(getApplicationContext(), exception.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                })
 
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            //displaying the upload progress
-                            double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
-                            progressDialog.setMessage("Updating " + ((int) progress) + "%...");
-                        }
-                    });
+                .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                        //displaying the upload progress
+                        double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
+                        progressDialog.setMessage("Updating " + ((int) progress) + "%...");
+                    }
+                });
     }
 
     private void deleteImage(String url) {
-       StorageReference mr = FirebaseStorage.getInstance().getReferenceFromUrl(url);
+        StorageReference mr = FirebaseStorage.getInstance().getReferenceFromUrl(url);
         mr.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-           Toast.makeText(getApplicationContext(),"Previous Image Deleted",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Previous Image Deleted", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -325,6 +325,36 @@ public class MyMissingPostEdit extends AppCompatActivity implements PopupMenu.On
         ContentResolver contentResolver = getContentResolver();
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
+
+    }
+
+    private void uploadData(String imageUrl) {
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Uploading");
+        progressDialog.show();
+        Intent intent = getIntent();
+        requestKey = intent.getStringExtra("keyName");
+        databaseReference = getInstance().getReference("missing_requests");
+        String postid = databaseReference.child("missing_requests").push().getKey();
+        String uName = pName.getText().toString().trim();
+        String uAge = pAge.getText().toString();
+        String uBelong = pBelong.getText().toString().trim();
+        String uDC = pDisappearedCity.getText().toString().trim();
+        String uDD = pDisappearedDate.getText().toString().trim();
+        String uAdd = pFullAddress.getText().toString();
+        String uPh = pNumber.getText().toString().trim();
+        String uId = firebaseAuth.getInstance().getCurrentUser().getUid();
+        databaseReference = getInstance().getReference("missing_requests");
+
+        PostMissingModel postMissingModel = new PostMissingModel(uAdd, uAge, uBelong,
+                uDD, uDC, genderT, imageUrl, postid, uName, statusT, uPh, uId);
+        //String ImageUploadId = databaseReference.push().getKey();
+        Log.d("mes", "we are in just above uploading method");
+        databaseReference.child(requestKey).setValue(postMissingModel);
+        progressDialog.dismiss();
+        showToast();
+        finish();
+
 
     }
 }
