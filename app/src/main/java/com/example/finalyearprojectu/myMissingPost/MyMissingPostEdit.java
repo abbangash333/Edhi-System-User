@@ -245,12 +245,12 @@ public class MyMissingPostEdit extends AppCompatActivity implements PopupMenu.On
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                        progressDialog.dismiss();
-                        Toast.makeText(getApplicationContext(), exception.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                })
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                progressDialog.dismiss();
+                Toast.makeText(getApplicationContext(), exception.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        })
 
                 .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                     @Override

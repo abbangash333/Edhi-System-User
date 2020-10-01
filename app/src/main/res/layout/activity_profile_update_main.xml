@@ -12,9 +12,9 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update Profile"
+        android:text=""
         android:textColor="@color/whiteText"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +28,7 @@
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/rounded_corner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -39,13 +39,14 @@
             android:layout_marginTop="10dp"
             android:orientation="vertical"
             android:background="@drawable/sign_up_image_view">
-            <ImageView
-                android:id="@+id/take_profile_picture_fromGallery"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/camera_image"
-                >
-            </ImageView>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/take_profile_update_picture"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:src="@drawable/image_person"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="2dp">
+            </de.hdodenhof.circleimageview.CircleImageView>
         </LinearLayout>
 
         <TextView
@@ -55,52 +56,41 @@
             android:text="@string/upload_picture"
             android:layout_gravity="center_horizontal"/>
         <EditText
-            android:id="@+id/phoneNumber"
+            android:id="@+id/update_email"
             android:layout_width="match_parent"
             android:layout_height="53dp"
             android:layout_margin="10dp"
             android:background="@drawable/rounded_corner"
-            android:drawableLeft="@drawable/phone_icon"
-            android:text="03339601461"
+            android:drawableLeft="@drawable/lock_24_"
+            android:hint="xyz@gmail.com"
             android:drawablePadding="10dp"
             android:paddingLeft="8dp"
-            android:inputType="phone"/>
+            android:inputType="text"/>
         <EditText
-            android:id="@+id/displayName"
+            android:id="@+id/update_user_name"
             android:layout_width="match_parent"
             android:layout_height="53dp"
             android:layout_margin="10dp"
             android:background="@drawable/rounded_corner"
-            android:drawableLeft="@drawable/user_icon"
-            android:text="Ab bangash"
+            android:drawableLeft="@drawable/ic_baseline_person_24"
+            android:hint="xyz"
             android:drawablePadding="10dp"
             android:paddingLeft="8dp"
-            android:inputType="phone"/>
+            android:inputType="text"/>
 
         <EditText
-            android:id="@+id/city"
+            android:id="@+id/update_current_city"
             android:layout_width="match_parent"
             android:layout_height="53dp"
             android:layout_margin="10dp"
             android:background="@drawable/rounded_corner"
-            android:drawableLeft="@drawable/blood_placeholder_icon"
-            android:text="kohat"
+            android:drawableLeft="@drawable/ic_baseline_location_on_24"
+            android:hint="kohat"
             android:drawablePadding="10dp"
             android:paddingLeft="8dp"
-            android:inputType="phone"/>
-        <EditText
-            android:id="@+id/pinCode"
-            android:layout_width="match_parent"
-            android:layout_height="53dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/rounded_corner"
-            android:drawableLeft="@drawable/pin_icon"
-            android:text="12345"
-            android:drawablePadding="10dp"
-            android:paddingLeft="8dp"
-            android:inputType="numberPassword"/>
+            android:inputType="text"/>
         <Button
-            android:id="@+id/update_profile_btn"
+            android:id="@+id/update_current_date_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_sign_in"

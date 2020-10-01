@@ -1,13 +1,16 @@
 package com.example.finalyearprojectu.signUp;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -20,11 +23,13 @@ import android.widget.Toast;
 
 import com.example.finalyearprojectu.R;
 import com.example.finalyearprojectu.home.homedashboardslider.HomeDashBoardSlider;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
@@ -41,6 +46,7 @@ public class Sign_up extends AppCompatActivity {
     private Uri FilePathUri;
     StorageReference storageReference;
     ProgressBar signUpProgressBar;
+    EditText cityOfPerson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +58,7 @@ public class Sign_up extends AppCompatActivity {
         userEmail = findViewById(R.id.user_email);
         userName = findViewById(R.id.user_name);
         signUpBtn = findViewById(R.id.sign_up_btn);
+        cityOfPerson = findViewById(R.id.city_of_person_profile);
         databaseReference = FirebaseDatabase.getInstance().getReference();
         storageReference = FirebaseStorage.getInstance().getReference("profile_images");
         signUpProgressBar.setVisibility(View.GONE);
@@ -92,20 +99,59 @@ public class Sign_up extends AppCompatActivity {
     }
 
     private void UserInfoUpload() {
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Uploading");
+        progressDialog.show();
         if (FilePathUri != null) {
             String uName = userName.getText().toString().trim();
             String uEmail = userEmail.getText().toString();
+            String city = cityOfPerson.getText().toString().trim();
             String getId = firebaseAuth.getInstance().getCurrentUser().getUid();
-            StorageReference storageReference2 = storageReference.child(System.currentTimeMillis() + "." + GetFileExtension(FilePathUri));
+            StorageReference storageReference2 = storageReference.child(getId + "." + GetFileExtension(FilePathUri));
             storageReference2.putFile(FilePathUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             @SuppressWarnings("VisibleForTests")
-                            UploadUserInfo imageUploadInfo = new UploadUserInfo(uName,uEmail, taskSnapshot.getUploadSessionUri().toString());
-                            //String ImageUploadId = databaseReference.push().getKey();
-                            Log.d("mes","we are in just above uploading method");
-                            databaseReference.child("users").child(getId).setValue(imageUploadInfo);
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    progressDialog.setProgress(0);
+                                }
+                            }, 500);
+                            storageReference2.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    Uri downloadUrl = uri;
+
+//                                    UploadUserInfo imageUploadInfo = new UploadUserInfo(uName,uEmail, downloadUrl.toString());
+                                    //String ImageUploadId = databaseReference.push().getKey();
+                                    UploadUserInfo imageUploadInfo = new UploadUserInfo(uName,uEmail, downloadUrl.toString(),city);
+                                    Log.d("mes","we are in just above uploading method");
+                                    databaseReference.child("users").child(getId).setValue(imageUploadInfo);
+
+                                }
+                            });
+
+
+                        }
+                    }
+                    )
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            progressDialog.dismiss();
+                            Toast.makeText(getApplicationContext(), exception.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    })
+
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            //displaying the upload progress
+                            double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
+                            progressDialog.setMessage("Updating " + ((int) progress) + "%...");
                         }
                     });
         }

@@ -61,7 +61,7 @@ tools:context="com.example.finalyearprojectu.logIn.LogIn">
         android:layout_height="53dp"
         android:layout_margin="10dp"
         android:background="@drawable/rounded_corner"
-        android:drawableLeft="@drawable/pin_icon"
+        android:drawableLeft="@drawable/lock_24_"
         android:hint="Email"
         android:drawablePadding="10dp"
         android:paddingLeft="8dp"
@@ -72,14 +72,26 @@ tools:context="com.example.finalyearprojectu.logIn.LogIn">
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
     </ProgressBar>
+
     <EditText
         android:id="@+id/user_name"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:layout_margin="10dp"
         android:background="@drawable/rounded_corner"
-        android:drawableLeft="@drawable/user_icon"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
         android:hint="user name"
+        android:drawablePadding="10dp"
+        android:paddingLeft="8dp"
+        android:inputType="text"/>
+    <EditText
+        android:id="@+id/city_of_person_profile"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/rounded_corner"
+        android:drawableLeft="@drawable/ic_baseline_location_on_24"
+        android:hint="kohat"
         android:drawablePadding="10dp"
         android:paddingLeft="8dp"
         android:inputType="text"/>
