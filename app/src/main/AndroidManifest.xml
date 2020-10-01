@@ -76,8 +76,7 @@
             android:name=".home.homeDashBoard.HomeDashBoard"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".signUp.Sign_up"
-            android:parentActivityName=".logIn.LogIn" />
+            android:name=".signUp.Sign_up" />
         <activity
             android:name=".logIn.LogIn"
             android:label="" />

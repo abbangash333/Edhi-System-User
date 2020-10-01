@@ -22,6 +22,7 @@ import com.example.finalyearprojectu.home.homedashboardslider.HomeDashBoardSlide
 import com.example.finalyearprojectu.logIn.OtpPattern.OtpActivity;
 import com.example.finalyearprojectu.logIn.logInPattern.presenter.ILogInPresenter;
 import com.example.finalyearprojectu.logIn.logInPattern.presenter.LogInPresenter;
+import com.example.finalyearprojectu.signUp.Sign_up;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -31,6 +32,11 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.concurrent.TimeUnit;
 
@@ -253,5 +259,6 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
         }
         return connected;
     }
+
 }
 

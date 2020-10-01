@@ -32,6 +32,7 @@ import com.example.finalyearprojectu.home.missingRecycleView.MissingPersonR;
 import com.example.finalyearprojectu.homeSearchAndNotification.HomeButtomNavigation;
 import com.example.finalyearprojectu.myBloodPost.MyBloodPost;
 import com.example.finalyearprojectu.myMissingPost.MyMissingPost;
+import com.example.finalyearprojectu.signUp.Sign_up;
 import com.example.finalyearprojectu.updateProfile.ProfileUpdateMain;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -74,6 +75,7 @@ public class HomeDashBoardSlider extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homedashboardslider);
         getSupportActionBar().setTitle("EDHI Welfare Trust");
+        checkUserProfile();
         progressBarHomeLoading = new ProgressDialog(HomeDashBoardSlider.this);
         progressBarHomeLoading.show();
         progressBarHomeLoading.setContentView(R.layout.progress_br);
@@ -92,6 +94,7 @@ public class HomeDashBoardSlider extends AppCompatActivity implements View.OnCli
         donateActivityBtn = findViewById(R.id.donate_btn);
         centerInformationActivityBtn = findViewById(R.id.center_detail_btn);
         editProfileBtn = findViewById(R.id.edit_profile_btn);
+        // this will check the user profile
         RecyclerView.LayoutManager recycleManager = new LinearLayoutManager(HomeDashBoardSlider.this);
 
         // loop for creating ImageView's
@@ -125,7 +128,8 @@ public class HomeDashBoardSlider extends AppCompatActivity implements View.OnCli
         bloodBankActivityBtn.setOnClickListener(this);
         missingPersonActivityBtn.setOnClickListener(this);
         contactCenterActivityBtn.setOnClickListener(this);
-        donateActivityBtn.setOnClickListener(this); ;
+        donateActivityBtn.setOnClickListener(this);
+        ;
         centerInformationActivityBtn.setOnClickListener(this);
         editProfileBtn.setOnClickListener(this);
 
@@ -133,8 +137,7 @@ public class HomeDashBoardSlider extends AppCompatActivity implements View.OnCli
     }
 
     private void startProgressBar() {
-        Thread timer = new Thread()
-        {
+        Thread timer = new Thread() {
             @Override
             public void run() {
                 try {
@@ -185,6 +188,7 @@ public class HomeDashBoardSlider extends AppCompatActivity implements View.OnCli
         recyclerViewMisingImage.setNestedScrollingEnabled(false);
         recyclerViewMisingImage.setItemAnimator(new DefaultItemAnimator());
     }
+
     private void loadBloodPosts() {
         databaseReferenceB = FirebaseDatabase.getInstance().getReference("blood_requests");
         RecyclerView.LayoutManager recycleManager = new LinearLayoutManager(HomeDashBoardSlider.this);
@@ -197,7 +201,7 @@ public class HomeDashBoardSlider extends AppCompatActivity implements View.OnCli
                     bloodPostHomeList.add(bposts);
 
                 }
-                bloodPostsAdapter = new BloodPostsAdapter(bloodPostHomeList,getApplicationContext());
+                bloodPostsAdapter = new BloodPostsAdapter(bloodPostHomeList, getApplicationContext());
                 recyclerViewBloodPostHome.setAdapter(bloodPostsAdapter);
             }
 
@@ -218,89 +222,109 @@ public class HomeDashBoardSlider extends AppCompatActivity implements View.OnCli
         backpress = (backpress + 1);
         Toast.makeText(getApplicationContext(), " Press Back again to Exit ", Toast.LENGTH_SHORT).show();
 
-        if (backpress>1) {
+        if (backpress > 1) {
             this.finish();
         }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.hom_screen_option_menu,menu);
+        getMenuInflater().inflate(R.menu.hom_screen_option_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId())
-        {
-            case R.id.log_out:
-            {
+        switch (item.getItemId()) {
+            case R.id.log_out: {
                 FirebaseAuth.getInstance().signOut();
-                ToastMessages(getApplicationContext(),"You have logOut");
+                ToastMessages(getApplicationContext(), "You have logOut");
                 this.finishAffinity();
             }
         }
         return true;
     }
+
     //this method is for showing toast messages
     private void ToastMessages(Context context, String message) {
-        Toast.makeText(context, message,Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 
     //this method will take btn id, and will guide to other activity
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
-            case R.id.home_btn:
-            {
+        switch (v.getId()) {
+            case R.id.home_btn: {
                 Intent intent = new Intent(getApplicationContext(), HomeButtomNavigation.class);
                 startActivity(intent);
                 break;
             }
-            case R.id.ambulance_btn:
-            {
+            case R.id.ambulance_btn: {
                 Intent intent = new Intent(getApplicationContext(), AmbulanceActivity.class);
                 startActivity(intent);
                 break;
             }
-            case R.id.blood_bank_btn:
-            {
+            case R.id.blood_bank_btn: {
                 Intent intent = new Intent(getApplicationContext(), MyBloodPost.class);
                 startActivity(intent);
                 break;
             }
-            case R.id.missing_dtl_btn:
-            {
+            case R.id.missing_dtl_btn: {
                 Intent intent = new Intent(getApplicationContext(), MyMissingPost.class);
                 startActivity(intent);
                 break;
             }
-            case R.id.donate_btn:
-            {
+            case R.id.donate_btn: {
                 Intent intent = new Intent(getApplicationContext(), DonationMain.class);
                 startActivity(intent);
                 break;
             }
-            case R.id.contact_center_btn:
-            {
+            case R.id.contact_center_btn: {
                 Intent intent = new Intent(getApplicationContext(), ContactCenters.class);
                 startActivity(intent);
                 break;
             }
-            case R.id.center_detail_btn:
-            {
+            case R.id.center_detail_btn: {
                 Intent intent = new Intent(getApplicationContext(), CenterManagementSearch.class);
                 startActivity(intent);
                 break;
             }
-            case R.id.edit_profile_btn:
-            {
+            case R.id.edit_profile_btn: {
                 Intent intent = new Intent(getApplicationContext(), ProfileUpdateMain.class);
                 startActivity(intent);
                 break;
             }
         }
     }
+    public void checkUserProfile() {
+        String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users/" + currentUserId);
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists())
 
+                    {
+
+                    }
+                    else
+                        {
+                        Intent intent = new Intent(getApplicationContext(), Sign_up.class);
+                        startActivity(intent);
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        checkUserProfile();
+    }
 }

@@ -198,14 +198,6 @@ public class ProfileUpdateMain extends AppCompatActivity implements View.OnClick
 
     }
 
-    private void sendUserToHome() {
-        Intent intent = new Intent(getApplicationContext(), HomeDashBoardSlider.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        finish();
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
