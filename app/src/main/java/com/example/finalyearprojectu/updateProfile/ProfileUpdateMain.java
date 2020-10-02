@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import de.hdodenhof.circleimageview.CircleImageView;
+
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -18,6 +19,7 @@ import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import com.example.finalyearprojectu.R;
 import com.example.finalyearprojectu.home.homedashboardslider.HomeDashBoardSlider;
 import com.example.finalyearprojectu.signUp.UploadUserInfo;
@@ -83,11 +85,13 @@ public class ProfileUpdateMain extends AppCompatActivity implements View.OnClick
         switch (v.getId()) {
             case R.id.update_current_date_btn: {
                 if (FilePathUri != null) {
-                    deleteUserImage();
-                    UserInfoUpdate();
-                }
-                else
-                {
+                    if (checkFields() == true) {
+                        deleteUserImage();
+                        UserInfoUpdate();
+                    }
+
+
+                } else if (checkFields() == true) {
                     userInfoUpdateWithoutImage();
 
                 }
@@ -145,10 +149,10 @@ public class ProfileUpdateMain extends AppCompatActivity implements View.OnClick
                             @Override
                             public void onSuccess(Uri uri) {
                                 Uri downloadUrl = uri;
-                                UploadUserInfo imageUploadInfo = new UploadUserInfo(uName,uEmail, downloadUrl.toString(),cityUpdate);
-                                Log.d("mes","we are in just above uploading method");
+                                UploadUserInfo imageUploadInfo = new UploadUserInfo(uName, uEmail, downloadUrl.toString(), cityUpdate);
+                                Log.d("mes", "we are in just above uploading method");
                                 databaseReference.child(getId).setValue(imageUploadInfo);
-                                Toast.makeText(getApplicationContext(),"Data Updated successfully",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Data Updated successfully", Toast.LENGTH_SHORT).show();
                                 progressDialog.dismiss();
 
 
@@ -174,8 +178,8 @@ public class ProfileUpdateMain extends AppCompatActivity implements View.OnClick
                 });
 
     }
-    private void userInfoUpdateWithoutImage()
-    {
+
+    private void userInfoUpdateWithoutImage() {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Updating");
         progressDialog.show();
@@ -183,10 +187,10 @@ public class ProfileUpdateMain extends AppCompatActivity implements View.OnClick
         String uEmail = userEmail.getText().toString();
         String cityUpdate = city.getText().toString().trim();
         String getId = fAuthUpdate.getInstance().getCurrentUser().getUid();
-        UploadUserInfo imageUploadInfo = new UploadUserInfo(uName,uEmail, url,cityUpdate);
-        Log.d("mes","we are in just above uploading method");
+        UploadUserInfo imageUploadInfo = new UploadUserInfo(uName, uEmail, url, cityUpdate);
+        Log.d("mes", "we are in just above uploading method");
         databaseReference.child(getId).setValue(imageUploadInfo);
-        Toast.makeText(getApplicationContext(),"Your Data updated",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Your Data updated", Toast.LENGTH_SHORT).show();
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -227,19 +231,19 @@ public class ProfileUpdateMain extends AppCompatActivity implements View.OnClick
     private void loadUserInfo() {
         String getUserId = fAuthUpdate.getInstance().getCurrentUser().getUid();
 
-       DatabaseReference dCommand = databaseReference.child(getUserId);
+        DatabaseReference dCommand = databaseReference.child(getUserId);
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    String pName = dataSnapshot.child("display_name").getValue(String.class);
-                    String pUserEmail = dataSnapshot.child("email").getValue(String.class);
-                    String pPhotoUrl = dataSnapshot.child("photo_url").getValue(String.class);
-                    url = pPhotoUrl;
-                    String pCity = dataSnapshot.child("city_name").getValue(String.class);
-                    Picasso.get().load(pPhotoUrl).into(imageView);
-                    userName.setText(pName);
-                    userEmail.setText(pUserEmail);
-                    city.setText(pCity);
+                String pName = dataSnapshot.child("display_name").getValue(String.class);
+                String pUserEmail = dataSnapshot.child("email").getValue(String.class);
+                String pPhotoUrl = dataSnapshot.child("photo_url").getValue(String.class);
+                url = pPhotoUrl;
+                String pCity = dataSnapshot.child("city_name").getValue(String.class);
+                Picasso.get().load(pPhotoUrl).into(imageView);
+                userName.setText(pName);
+                userEmail.setText(pUserEmail);
+                city.setText(pCity);
             }
 
             @Override
@@ -249,9 +253,9 @@ public class ProfileUpdateMain extends AppCompatActivity implements View.OnClick
         };
         dCommand.addListenerForSingleValueEvent(valueEventListener);
     }
+
     private void startProgressBar() {
-        Thread timer = new Thread()
-        {
+        Thread timer = new Thread() {
             @Override
             public void run() {
                 try {
@@ -264,5 +268,22 @@ public class ProfileUpdateMain extends AppCompatActivity implements View.OnClick
             }
         };
         timer.start();
+    }
+
+    //this will be called for fields compatibility
+    public boolean checkFields() {
+        if (userEmail.getText().toString().isEmpty() || userEmail.getText().toString().length() < 6) {
+            Toast.makeText(getApplicationContext(), "Please enter email", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (userName.getText().toString().isEmpty() || userName.getText().toString().length() < 4) {
+            Toast.makeText(getApplicationContext(), "Please enter email", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (city.getText().toString().isEmpty() || city.getText().toString().length() < 3) {
+            Toast.makeText(getApplicationContext(), "Please enter email", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 }
