@@ -178,8 +178,4 @@ public class OtpActivity extends AppCompatActivity {
         super.onDestroy();
         finish();
     }
-    private void UserFail()
-    {
-     FirebaseAuth.getInstance().signOut();
-    }
 }

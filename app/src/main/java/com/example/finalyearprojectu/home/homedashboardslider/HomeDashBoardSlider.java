@@ -75,7 +75,7 @@ public class HomeDashBoardSlider extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homedashboardslider);
         getSupportActionBar().setTitle("EDHI Welfare Trust");
-        checkUserProfile();
+        //checkUserProfile();
         progressBarHomeLoading = new ProgressDialog(HomeDashBoardSlider.this);
         progressBarHomeLoading.show();
         progressBarHomeLoading.setContentView(R.layout.progress_br);
@@ -160,7 +160,7 @@ public class HomeDashBoardSlider extends AppCompatActivity implements View.OnCli
         //this method is used to load the posts of blood from firebase
         loadBloodPosts();
     }
-
+//this method will be used for loading missing person post
     private void loadMissingPersonPosts() {
         databaseReferenceM = FirebaseDatabase.getInstance().getReference("missing_requests");
         RecyclerView.LayoutManager recycleManager = new LinearLayoutManager(HomeDashBoardSlider.this);
@@ -295,36 +295,5 @@ public class HomeDashBoardSlider extends AppCompatActivity implements View.OnCli
                 break;
             }
         }
-    }
-    public void checkUserProfile() {
-        String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users/" + currentUserId);
-            databaseReference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.exists())
-
-                    {
-
-                    }
-                    else
-                        {
-                        Intent intent = new Intent(getApplicationContext(), Sign_up.class);
-                        startActivity(intent);
-                    }
-
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        checkUserProfile();
     }
 }
