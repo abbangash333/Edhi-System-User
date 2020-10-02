@@ -47,6 +47,7 @@ public class Sign_up extends AppCompatActivity {
     StorageReference storageReference;
     ProgressBar signUpProgressBar;
     EditText cityOfPerson;
+    private int backpress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -210,8 +211,13 @@ public class Sign_up extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        FirebaseAuth.getInstance().signOut();
-        this.finishAffinity();
+        backpress = (backpress + 1);
+        Toast.makeText(getApplicationContext(), " Press Back again to Exit ", Toast.LENGTH_SHORT).show();
+
+        if (backpress > 1) {
+            FirebaseAuth.getInstance().signOut();
+            this.finishAffinity();   this.finish();
+        }
+
     }
 }
