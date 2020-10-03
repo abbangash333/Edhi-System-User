@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/textView"
+    android:id="@+id/center_contact_tx_view"
     android:background="@drawable/button_sign_in"
     android:layout_width="match_parent"
     android:layout_height="60dp"

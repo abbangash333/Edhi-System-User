@@ -35,43 +35,29 @@ public class CentersAddresses extends AppCompatActivity {
         phoneNumber = findViewById(R.id.center_number);
         cAddress = findViewById(R.id.center_address);
         callToCenter = findViewById(R.id.call_to_center);
-        Bundle sCenterName = getIntent().getExtras();
-        String centerName = sCenterName.getString("centerName");
-        CenterDetail centerDetail = new CenterDetail(111, "add");
-        CenterDetail peshawar = new CenterDetail(0333461, "Peshawar Main City");
-        CenterDetail kohat = new CenterDetail(0333461, "Liagat Hospital");
-        CenterDetail hangu = new CenterDetail(0333461, "Hangu Main city");
-//        ArrayList <CenterDetail> centerDetails = new ArrayList<>();
-//        centerDetails.add(peshawar);
-//        centerDetails.add(kohat);
-//        centerDetails.add(hangu);
-        if (centerName.equals("Peshawar")) {
-            centerN.setText(centerName);
-            callStoreVarial = Integer.toString(peshawar.getNumber());
-            phoneNumber.setText(callStoreVarial);
-            cAddress.setText(peshawar.getAddressOfTheCenter());
+        disAbleEditText();
+        Intent intent = getIntent();
+        String name =intent.getStringExtra("name");
+        String phone =intent.getStringExtra("phone");
+        String address =intent.getStringExtra("address");
+        centerN.setText(name);
+        phoneNumber.setText(phone);
+        cAddress.setText(address);
+        callStoreVarial = phone;
 
-        }
-        if (centerName.equals("Kohat")) {
-            centerN.setText(centerName);
-            callStoreVarial = Integer.toString(kohat.getNumber());
-            phoneNumber.setText(callStoreVarial);
-            cAddress.setText(kohat.getAddressOfTheCenter());
-
-        }
-        if (centerName.equals("Hangu")) {
-            centerN.setText(centerName);
-            callStoreVarial = Integer.toString(hangu.getNumber());
-            phoneNumber.setText(callStoreVarial);
-            cAddress.setText(hangu.getAddressOfTheCenter());
-
-        }
         callToCenter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 makePhoneCall();
             }
         });
+    }
+
+    private void disAbleEditText() {
+        phoneNumber.setFocusableInTouchMode(false);
+        phoneNumber.setFocusable(false);
+        cAddress.setFocusableInTouchMode(false);
+        cAddress.setFocusable(false);
     }
 
     private void makePhoneCall() {
