@@ -12,22 +12,22 @@
         android:orientation="vertical">
 
         <SearchView
+            android:id="@+id/center_management_search_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:background="@drawable/search_bar_background">
         </SearchView>
 
-        <ListView
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_marginTop="8dp"
-            android:id="@+id/search_center_management_listView"
+            android:id="@+id/center_management_recycle_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@android:color/transparent"
             android:dividerHeight="10.0sp"
             >
-
-        </ListView>
+        </androidx.recyclerview.widget.RecyclerView>
 
 
     </LinearLayout>

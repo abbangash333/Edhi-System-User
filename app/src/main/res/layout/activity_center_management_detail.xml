@@ -60,6 +60,7 @@
                     android:layout_weight="0"
                     android:src="@drawable/line_icon"/>
                 <TextView
+                    android:id="@+id/children_txt"
                     android:text="100"
                     android:textColor="@color/blackColor"
                     android:layout_weight="6"
@@ -92,6 +93,7 @@
                     android:layout_weight="0"
                     android:src="@drawable/line_icon"/>
                 <TextView
+                    android:id="@+id/widow_txt"
                     android:text="10"
                     android:textColor="@color/blackColor"
                     android:layout_weight="6"
@@ -124,6 +126,7 @@
                     android:layout_weight="0"
                     android:src="@drawable/line_icon"/>
                 <TextView
+                    android:id="@+id/orphan_txt"
                     android:text="10"
                     android:textColor="@color/blackColor"
                     android:layout_weight="6"
@@ -188,6 +191,7 @@
                     android:layout_marginLeft="22dp"
                     android:src="@drawable/line_icon"/>
                 <TextView
+                    android:id="@+id/a_group_txt"
                     android:text="100"
                     android:textColor="@color/blackColor"
                     android:layout_weight="6"
@@ -220,6 +224,7 @@
                     android:layout_marginLeft="20dp"
                     android:src="@drawable/line_icon"/>
                 <TextView
+                    android:id="@+id/a_positive_txt"
                     android:text="10"
                     android:textColor="@color/blackColor"
                     android:layout_weight="6"
@@ -253,6 +258,7 @@
                     android:layout_marginLeft="20dp"
                     android:src="@drawable/line_icon"/>
                 <TextView
+                    android:id="@+id/a_negative_txt"
                     android:text="10"
                     android:textColor="@color/blackColor"
                     android:layout_weight="6"
@@ -286,6 +292,7 @@
                     android:layout_marginLeft="20dp"
                     android:src="@drawable/line_icon"/>
                 <TextView
+                    android:id="@+id/ab_group_txt"
                     android:text="10"
                     android:textColor="@color/blackColor"
                     android:layout_weight="6"
@@ -319,6 +326,7 @@
                     android:layout_marginLeft="20dp"
                     android:src="@drawable/line_icon"/>
                 <TextView
+                    android:id="@+id/o_positive_txt"
                     android:text="10"
                     android:textColor="@color/blackColor"
                     android:layout_weight="6"
@@ -352,6 +360,7 @@
                     android:layout_marginLeft="20dp"
                     android:src="@drawable/line_icon"/>
                 <TextView
+                    android:id="@+id/o_negative_txt"
                     android:text="10"
                     android:textColor="@color/blackColor"
                     android:layout_weight="6"
@@ -385,6 +394,7 @@
                     android:layout_marginLeft="20dp"
                     android:src="@drawable/line_icon"/>
                 <TextView
+                    android:id="@+id/b_positive_txt"
                     android:text="10"
                     android:textColor="@color/blackColor"
                     android:layout_weight="6"
@@ -418,6 +428,7 @@
                     android:layout_marginLeft="20dp"
                     android:src="@drawable/line_icon"/>
                 <TextView
+                    android:id="@+id/b_negative_txt"
                     android:text="10"
                     android:textColor="@color/blackColor"
                     android:layout_weight="6"

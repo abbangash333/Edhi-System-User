@@ -60,7 +60,7 @@ public class CenterContactAdapter extends RecyclerView.Adapter<CenterContactAdap
     }
     @Override
     public Filter getFilter() {
-        return exampleFilter;
+        return recentFilter;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -70,7 +70,7 @@ public class CenterContactAdapter extends RecyclerView.Adapter<CenterContactAdap
             centerContactTextView = itemView.findViewById(R.id.center_contact_tx_view);
         }
     }
-    private Filter exampleFilter = new Filter() {
+    private Filter recentFilter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
             List<CenterDetailModel> filteredList = new ArrayList<>();
@@ -79,7 +79,7 @@ public class CenterContactAdapter extends RecyclerView.Adapter<CenterContactAdap
             } else {
                 String filterPattern = constraint.toString().toLowerCase().trim();
                 for (CenterDetailModel item : searchList) {
-                    if (item.name_center.toLowerCase().contains(filterPattern)) {
+                    if (item.getName_center().toLowerCase().contains(filterPattern)) {
                         filteredList.add(item);
                     }
                 }
