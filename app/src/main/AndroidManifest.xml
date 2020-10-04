@@ -8,6 +8,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION">
+    </uses-permission>
 
     <application
         android:allowBackup="true"
@@ -15,6 +17,8 @@
         android:label="Eddi Trust"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+           android:value="AIzaSyC7aO2ri5wsZEBhI3iqm70A1-m7vTYmehg" />
         <activity android:name=".myMissingPost.MyMissingPostEdit"></activity>
         <activity
             android:name=".myBloodPost.MyBloodPostEdit"

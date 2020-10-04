@@ -5,14 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.widget.SearchView;
-
 import com.example.finalyearprojectu.R;
-import com.example.finalyearprojectu.centersContactInformation.CenterContactAdapter;
-import com.example.finalyearprojectu.centersContactInformation.CenterDetailModel;
-import com.example.finalyearprojectu.centersContactInformation.ContactCenters;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

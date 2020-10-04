@@ -22,6 +22,7 @@
     <string name="generate_otp">Generate OTP</string>
     <string name="working">Working . . .</string>
     <string name="todo">TODO</string>
+    <string name="google_maps_api">AIzaSyC7aO2ri5wsZEBhI3iqm70A1-m7vTYmehg</string>
     <string-array name="array_technology">
         <item>Peshawar</item>
         <item>Kohat</item>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ambulance.AmbulanceActivity"
+    tools:showIn="@layout/activity_ambulance">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/activity_ambulance" />
+
+    <com.skyfishjy.library.RippleBackground
+        android:id="@+id/ripple_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:rb_color="#0099CC"
+        app:rb_duration="3000"
+        app:rb_radius="32dp"
+        app:rb_rippleAmount="4"
+        app:rb_scale="6">
+
+        <ImageView
+            android:id="@+id/map_place_marker"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:translationY="-18dp"
+            app:srcCompat="@drawable/ambulance_marker2" />
+    </com.skyfishjy.library.RippleBackground>
+
+    <Button
+        android:id="@+id/btn_find"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:background="@color/colorPrimary"
+        android:text="Find AMBULANCES"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
