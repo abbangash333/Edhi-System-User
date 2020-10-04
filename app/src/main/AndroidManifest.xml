@@ -8,18 +8,21 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION">
-    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Eddi Trust"
+        android:label="Edhi Trust"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <meta-data android:name="com.google.android.geo.API_KEY"
-           android:value="AIzaSyC7aO2ri5wsZEBhI3iqm70A1-m7vTYmehg" />
-        <activity android:name=".myMissingPost.MyMissingPostEdit"></activity>
+        <activity android:name=".ambulance.PermissionActivity"></activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyC7aO2ri5wsZEBhI3iqm70A1-m7vTYmehg" />
+
+        <activity android:name=".myMissingPost.MyMissingPostEdit" />
         <activity
             android:name=".myBloodPost.MyBloodPostEdit"
             android:parentActivityName=".myBloodPost.MyBloodPost" />
@@ -79,8 +82,7 @@
         <activity
             android:name=".home.homeDashBoard.HomeDashBoard"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".signUp.Sign_up" />
+        <activity android:name=".signUp.Sign_up" />
         <activity
             android:name=".logIn.LogIn"
             android:label="" />

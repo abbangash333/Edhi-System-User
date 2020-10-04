@@ -22,6 +22,7 @@ import android.widget.ViewFlipper;
 
 import com.example.finalyearprojectu.R;
 import com.example.finalyearprojectu.ambulance.AmbulanceActivity;
+import com.example.finalyearprojectu.ambulance.PermissionActivity;
 import com.example.finalyearprojectu.centerManagement.CenterManagementSearch;
 import com.example.finalyearprojectu.centersContactInformation.ContactCenters;
 import com.example.finalyearprojectu.donationManagement.DonationMain;
@@ -260,7 +261,7 @@ public class HomeDashBoardSlider extends AppCompatActivity implements View.OnCli
                 break;
             }
             case R.id.ambulance_btn: {
-                Intent intent = new Intent(getApplicationContext(), AmbulanceActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PermissionActivity.class);
                 startActivity(intent);
                 break;
             }

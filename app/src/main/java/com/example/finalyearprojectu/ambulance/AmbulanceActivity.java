@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -96,21 +97,10 @@ public class AmbulanceActivity extends AppCompatActivity implements OnMapReadyCa
         mapView = mapFragment.getView();
         rippleBg = findViewById(R.id.ripple_bg);
         googlePlaceMarker = findViewById(R.id.map_place_marker);
-
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(AmbulanceActivity.this);
         Places.initialize(AmbulanceActivity.this, getString(R.string.google_maps_api));
         placesClient = Places.createClient(this);
         final AutocompleteSessionToken token = AutocompleteSessionToken.newInstance();
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) ==
-                PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission
-                (this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-      
-            return;
-        }
-        else {
-            //this will give the permission for location
-            CheckPermissionDialog();
-        }
         googlePlaceMarker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,47 +115,6 @@ public class AmbulanceActivity extends AppCompatActivity implements OnMapReadyCa
 
             }
         });
-
-    }
-
-
-    private void CheckPermissionDialog() {
-        Dexter.withContext(AmbulanceActivity.this)
-                .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
-                .withListener(new PermissionListener() {
-                    @Override
-                    public void onPermissionGranted(PermissionGrantedResponse response) {
-                        startActivity(new Intent(getApplicationContext(),AmbulanceActivity.class));
-                        finish();
-                    }
-
-                    @Override
-                    public void onPermissionDenied(PermissionDeniedResponse response) {
-                        if(response.isPermanentlyDenied()){
-                            AlertDialog.Builder builder = new AlertDialog.Builder(AmbulanceActivity.this);
-                            builder.setTitle("Permission Denied")
-                                    .setMessage("Permission to access device location is permanently denied. you need to go to setting to allow the permission.")
-                                    .setNegativeButton("Cancel", null)
-                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            Intent intent = new Intent();
-                                            intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                                            intent.setData(Uri.fromParts("package", getPackageName(), null));
-                                        }
-                                    })
-                                    .show();
-                        } else {
-                            Toast.makeText(getApplicationContext(), "Permission Denied", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                    @Override
-                    public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
-                        token.continuePermissionRequest();
-                    }
-                })
-                .check();
 
     }
 
