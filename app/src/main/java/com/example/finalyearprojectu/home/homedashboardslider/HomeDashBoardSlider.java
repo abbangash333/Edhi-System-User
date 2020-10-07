@@ -1,11 +1,5 @@
 package com.example.finalyearprojectu.home.homedashboardslider;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -21,7 +15,6 @@ import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.example.finalyearprojectu.R;
-import com.example.finalyearprojectu.ambulance.AmbulanceActivity;
 import com.example.finalyearprojectu.ambulance.PermissionActivity;
 import com.example.finalyearprojectu.centerManagement.CenterManagementSearch;
 import com.example.finalyearprojectu.centersContactInformation.ContactCenters;
@@ -33,7 +26,6 @@ import com.example.finalyearprojectu.home.missingRecycleView.MissingPersonR;
 import com.example.finalyearprojectu.homeSearchAndNotification.HomeButtomNavigation;
 import com.example.finalyearprojectu.myBloodPost.MyBloodPost;
 import com.example.finalyearprojectu.myMissingPost.MyMissingPost;
-import com.example.finalyearprojectu.signUp.Sign_up;
 import com.example.finalyearprojectu.updateProfile.ProfileUpdateMain;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -44,6 +36,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class HomeDashBoardSlider extends AppCompatActivity implements View.OnClickListener {
     private ViewFlipper simpleViewFlipper;
@@ -77,6 +75,7 @@ public class HomeDashBoardSlider extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_homedashboardslider);
         getSupportActionBar().setTitle("EDHI Welfare Trust");
         //checkUserProfile();
+//        addNotification();
         progressBarHomeLoading = new ProgressDialog(HomeDashBoardSlider.this);
         progressBarHomeLoading.show();
         progressBarHomeLoading.setContentView(R.layout.progress_br);
@@ -136,6 +135,23 @@ public class HomeDashBoardSlider extends AppCompatActivity implements View.OnCli
 
 
     }
+
+//    private void addNotification() {
+//        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("notifications");
+//        String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//       databaseReference.addValueEventListener(new ValueEventListener() {
+//           @Override
+//           public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//               Notifications notifications = new Notifications(13.777,71.333);
+//               databaseReference.child(id).push().setValue(notifications);
+//           }
+//
+//           @Override
+//           public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//           }
+//       });
+//    }
 
     private void startProgressBar() {
         Thread timer = new Thread() {
