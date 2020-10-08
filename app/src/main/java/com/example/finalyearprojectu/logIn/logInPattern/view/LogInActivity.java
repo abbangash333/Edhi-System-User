@@ -1,9 +1,5 @@
 package com.example.finalyearprojectu.logIn.logInPattern.view;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import com.example.finalyearprojectu.R;
-
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -18,11 +14,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.finalyearprojectu.R;
 import com.example.finalyearprojectu.home.homedashboardslider.HomeDashBoardSlider;
 import com.example.finalyearprojectu.logIn.OtpPattern.OtpActivity;
 import com.example.finalyearprojectu.logIn.logInPattern.presenter.ILogInPresenter;
 import com.example.finalyearprojectu.logIn.logInPattern.presenter.LogInPresenter;
-import com.example.finalyearprojectu.signUp.Sign_up;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -32,15 +28,13 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.concurrent.TimeUnit;
 
-public class LogInActivity extends AppCompatActivity implements ILogInView, View.OnClickListener  {
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class LogInActivity extends AppCompatActivity implements ILogInView, View.OnClickListener {
     private FirebaseAuth mAuth;
     private FirebaseUser mCurrentUser;
 
@@ -63,6 +57,7 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in2);
         getSupportActionBar().hide();
+        //this activity is will sign us to the main opt acitvity
         mGenerateBtn = this.findViewById(R.id.generate_btn);
         mPhoneNumber = this.findViewById(R.id.phone_number_text);
         progressBar = this.findViewById(R.id.progress_login);
@@ -74,6 +69,7 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
 
     }
 
+    // this will give the id of different button
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -98,10 +94,10 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
 
     }
 
-
+    // logIn presenter
     @Override
     public void onLoginResult(Boolean result) {
-       // loginPresenter.setProgressBarVisiblity(View.INVISIBLE);
+        // loginPresenter.setProgressBarVisiblity(View.INVISIBLE);
         mGenerateBtn.setEnabled(true);
         if (result) {
             Toast.makeText(this, "OTP sent successfully", Toast.LENGTH_SHORT).show();
@@ -111,6 +107,7 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
 
     }
 
+    // this will show the progressbar visisbility
     @Override
     public void onSetProgressBarVisibility(int visibility) {
 
@@ -128,43 +125,40 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
         mprgr.setVisibility(View.INVISIBLE);
         mCountryCode.setText("+92");
         mCountryCode.setInputType(InputType.TYPE_NULL);
-       if (cheInternetConnection()==true)
-       {
-           mGenerateBtn.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View v) {
-                   String phone_number = mPhoneNumber.getText().toString();
-                   if(phone_number.isEmpty()){
-                       mLoginFeedbackText.setText("Please fill in the form to continue.");
-                       mLoginFeedbackText.setVisibility(View.VISIBLE);
-                   }
-                   if (phone_number.length()<11 || phone_number.length()>11)
-                   {
-                       mLoginFeedbackText.setText("Please enter valid a Phone Number");
-                       mLoginFeedbackText.setVisibility(View.VISIBLE);
+        if (cheInternetConnection() == true) {
+            mGenerateBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String phone_number = mPhoneNumber.getText().toString();
+                    if (phone_number.isEmpty()) {
+                        mLoginFeedbackText.setText("Please fill in the form to continue.");
+                        mLoginFeedbackText.setVisibility(View.VISIBLE);
+                    }
+                    if (phone_number.length() < 11 || phone_number.length() > 11) {
+                        mLoginFeedbackText.setText("Please enter valid a Phone Number");
+                        mLoginFeedbackText.setVisibility(View.VISIBLE);
 
-                   }
-                   else {
-                       mLoginProgress.setVisibility(View.VISIBLE);
-                       mGenerateBtn.setEnabled(false);
-                       mLoginFeedbackText.setText("");
-                       //verification();
-                       String complete_phone_number =phone_number.substring(1);
-                       PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                               "+92"+complete_phone_number,
-                               60,
-                               TimeUnit.SECONDS,
-                               LogInActivity.this,
-                               mCallbacks
-                       );
-                   }
-               }
-           });
-       }
+                    } else {
+                        mLoginProgress.setVisibility(View.VISIBLE);
+                        mGenerateBtn.setEnabled(false);
+                        mLoginFeedbackText.setText("");
+                        //verification();
+                        String complete_phone_number = phone_number.substring(1);
+                        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                                "+92" + complete_phone_number,
+                                60,
+                                TimeUnit.SECONDS,
+                                LogInActivity.this,
+                                mCallbacks
+                        );
+                    }
+                }
+            });
+        }
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
-           public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
-               signInWithPhoneAuthCredential(phoneAuthCredential);
+            public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
+                signInWithPhoneAuthCredential(phoneAuthCredential);
             }
 
             @Override
@@ -174,14 +168,14 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
 
             @Override
             public void onCodeSent(final String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-               super.onCodeSent(s, forceResendingToken);
+                super.onCodeSent(s, forceResendingToken);
 
                 new android.os.Handler().postDelayed(
                         new Runnable() {
                             public void run() {
                                 Intent otpIntent = new Intent(LogInActivity.this, OtpActivity.class);
-                               otpIntent.putExtra("AuthCredentials", s);
-                                Toast.makeText(getApplicationContext(),"OTP Sent Successfully",
+                                otpIntent.putExtra("AuthCredentials", s);
+                                Toast.makeText(getApplicationContext(), "OTP Sent Successfully",
                                         Toast.LENGTH_LONG).show();
                                 startActivity(otpIntent);
                                 finish();
@@ -195,25 +189,25 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
     }
 
     @Override
-   protected void onStart() {
+    protected void onStart() {
         super.onStart();
-        if(mCurrentUser != null){
+        if (mCurrentUser != null) {
             sendUserToHome();
         }
     }
 
- private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(LogInActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
-                   public void onComplete(@NonNull Task<AuthResult> task) {
-                       if (task.isSuccessful()) {
-                           // sendUserToHome();
-                            Log.d("onverification","successful");
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // sendUserToHome();
+                            Log.d("onverification", "successful");
                             // ...
-                       } else {
+                        } else {
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                              // The verification code entered was invalid
+                                // The verification code entered was invalid
                                 mLoginFeedbackText.setVisibility(View.VISIBLE);
                                 mLoginFeedbackText.setText("There was an error verifying OTP");
                             }
@@ -223,24 +217,26 @@ public class LogInActivity extends AppCompatActivity implements ILogInView, View
                     }
                 });
     }
-// this activity will send us to Home screen
-   private void sendUserToHome() {
+
+    // this activity will send us to Home screen
+    private void sendUserToHome() {
         Intent homeIntent = new Intent(LogInActivity.this, HomeDashBoardSlider.class);
         homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(homeIntent);
-        Log.d("home","send to home");
+        Log.d("home", "send to home");
         finish();
- }
+    }
 
     @Override
     protected void onResume() {
-       getIntent().setAction(null);
-       super.onResume();
+        getIntent().setAction(null);
+        super.onResume();
     }
+
     @Override
     public void onBackPressed() {
-      super.onBackPressed();
+        super.onBackPressed();
     }
 
     public Boolean cheInternetConnection() {

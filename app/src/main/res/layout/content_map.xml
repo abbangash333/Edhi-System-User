@@ -22,7 +22,7 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="16dp"
         android:background="@color/colorPrimary"
-        android:text="Find AMBULANCES"
+        android:text="Notify"
         android:textColor="#FFFFFF"
         android:textStyle="bold" />
 

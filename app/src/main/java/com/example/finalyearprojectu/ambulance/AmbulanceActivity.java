@@ -2,8 +2,10 @@ package com.example.finalyearprojectu.ambulance;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.content.res.Resources;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -13,7 +15,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.finalyearprojectu.R;
@@ -39,10 +40,10 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
-import com.google.android.libraries.places.api.model.AutocompletePrediction;
 import com.google.android.libraries.places.api.model.AutocompleteSessionToken;
 import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -50,28 +51,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.skyfishjy.library.RippleBackground;
 
-import java.util.List;
-
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AmbulanceActivity extends AppCompatActivity implements OnMapReadyCallback, LocationListener {
-    private Button nearestAmbulanceButton;
-    private Button findMoreNearestAmbulances;
     protected LocationManager locationManager;
-    protected LocationListener locationListener;
     protected Context context;
-    TextView txtLat;
-    String lat;
-    String provider;
-    protected String latitude, longitude;
-    protected boolean gps_enabled, network_enabled;
-    private int REQUEST_CODE_PERMISSION;
-    private int REQUEST_CODE_ASK_PERMISSIONS;
     private GoogleMap mMap;
     private FusedLocationProviderClient mFusedLocationProviderClient;
     private PlacesClient placesClient;
-    private List<AutocompletePrediction> predictionList;
     private Location mLastKnownLocation;
     private LocationCallback locationCallback;
     private View mapView;
@@ -79,9 +68,11 @@ public class AmbulanceActivity extends AppCompatActivity implements OnMapReadyCa
     private final float DEFAULT_ZOOM = 15;
     private RippleBackground rippleBg;
     private ImageView googlePlaceMarker;
-    Button btn;
     private BottomSheetBehavior sheetBehavior;
     private LinearLayout bottom_sheet;
+    String amKey;
+    LocationRequest locationRequest;
+    Boolean uploadLocation = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +89,7 @@ public class AmbulanceActivity extends AppCompatActivity implements OnMapReadyCa
         mapView = mapFragment.getView();
 //        rippleBg = findViewById(R.id.ripple_bg);
 //        googlePlaceMarker = findViewById(R.id.map_place_marker);
+        //this will give the location of the user
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(AmbulanceActivity.this);
         Places.initialize(AmbulanceActivity.this, getString(R.string.google_maps_api));
         placesClient = Places.createClient(this);
@@ -118,10 +110,38 @@ public class AmbulanceActivity extends AppCompatActivity implements OnMapReadyCa
 //            }
 //        });
         RelativeLayout relativeLayout = findViewById(R.id.user_relative);
-        btn = relativeLayout.findViewById(R.id.btn_find);
+        locationRequest = LocationRequest.create();
+        locationRequest.setInterval(500);
+        locationRequest.setFastestInterval(500);
+        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        btnFind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Double lati, longti;
+                lati = 33.555759033188224;
+                longti = 71.43148331902921;
+                location location1 = new location(lati, longti);
+                String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference("notifications").child(amKey);
+                databaseReference1.push().setValue(location1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                    }
+                });
+                DatabaseReference dataBase = FirebaseDatabase.getInstance().getReference("locations");
+                dataBase.child(id).setValue(location1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                    }
+                });
+
+            };
+        });
 
     }
-
+// this will check that wether the map is ready to show or not
     @SuppressLint("MissingPermission")
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -134,7 +154,7 @@ public class AmbulanceActivity extends AppCompatActivity implements OnMapReadyCa
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                    String amKey = dataSnapshot1.child("ambulance_key").getValue(String.class);
+                    amKey = dataSnapshot1.child("ambulance_key").getValue(String.class);
                     String name = dataSnapshot1.child("driver_name").getValue(String.class);
                     String number = dataSnapshot1.child("phone_number").getValue(String.class);
                     Double lati = dataSnapshot1.child("location").child("lati").getValue(Double.class);
@@ -147,7 +167,7 @@ public class AmbulanceActivity extends AppCompatActivity implements OnMapReadyCa
                     mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
                         @Override
                         public boolean onMarkerClick(Marker marker) {
-                            Toast.makeText(getApplicationContext(),name,Toast.LENGTH_SHORT).show();
+                            showDialogBox(name, number, amKey);
                             return false;
                         }
                     });
@@ -212,6 +232,39 @@ public class AmbulanceActivity extends AppCompatActivity implements OnMapReadyCa
 //        });
     }
 
+    private void showDialogBox(String name, String number, String amKey) throws Resources.NotFoundException {
+        {
+            new AlertDialog.Builder(this)
+                    .setTitle(name)
+                    .setMessage("Number " + number + "\n" +
+                            "Do you want to notify")
+                    .setIcon(
+                            getResources().getDrawable(
+                                    android.R.drawable.ic_dialog_alert))
+                    .setPositiveButton("Yes",
+                            new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialog,
+                                                    int which) {
+                                    //Do Something Here
+                                    uploadLocation = true;
+                                    Toast.makeText(getApplicationContext(),"Notified",Toast.LENGTH_SHORT).show();
+
+                                }
+                            })
+                    .setNegativeButton("NO",
+                            new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialog,
+                                                    int which) {
+
+                                }
+                            }).show();
+        }
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -262,7 +315,25 @@ public class AmbulanceActivity extends AppCompatActivity implements OnMapReadyCa
 
     @Override
     public void onLocationChanged(Location location) {
+        Double lati, longti;
+        lati = location.getLatitude();
+        longti = location.getLongitude();
+        location location1 = new location(lati, longti);
+        String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference("notifications").child(amKey);
+        databaseReference1.push().setValue(location1).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
 
+            }
+        });
+        DatabaseReference dataBase = FirebaseDatabase.getInstance().getReference("locations");
+        dataBase.child(id).setValue(location1).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+            }
+        });
     }
 
     @Override
@@ -279,4 +350,6 @@ public class AmbulanceActivity extends AppCompatActivity implements OnMapReadyCa
     public void onProviderDisabled(String provider) {
 
     }
+//this method will be called when the location is updatin
+
 }

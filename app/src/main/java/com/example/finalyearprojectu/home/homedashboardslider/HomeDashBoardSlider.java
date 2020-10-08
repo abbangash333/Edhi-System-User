@@ -74,8 +74,8 @@ public class HomeDashBoardSlider extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homedashboardslider);
         getSupportActionBar().setTitle("EDHI Welfare Trust");
-        //checkUserProfile();
-//        addNotification();
+        // this activity will show the two horizontal view
+        // will show the grid layout
         progressBarHomeLoading = new ProgressDialog(HomeDashBoardSlider.this);
         progressBarHomeLoading.show();
         progressBarHomeLoading.setContentView(R.layout.progress_br);
